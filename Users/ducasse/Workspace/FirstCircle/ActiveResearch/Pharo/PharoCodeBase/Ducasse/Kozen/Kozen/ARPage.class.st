@@ -51,12 +51,6 @@ ARPage >> elements [
 ]
 
 { #category : #accessing }
-ARPage >> endBody [
-	"probably wrongly placed. Do not care "
-	^ '</body>' 
-]
-
-{ #category : #accessing }
 ARPage >> head [
 
 	^ head
@@ -69,6 +63,19 @@ ARPage >> header [
          <div id="headerSiteTitle">Stéphane Ducasse</div>
          <div id="headerPageTitle">', self name, '</div>
       </div>'
+]
+
+{ #category : #accessing }
+ARPage >> headerPageTitle [
+
+	^ self name
+
+]
+
+{ #category : #accessing }
+ARPage >> headerSiteTitle [
+
+	^ 'Stéphane Ducasse'
 ]
 
 { #category : #'initialize-release' }
@@ -97,10 +104,4 @@ ARPage >> name [
 { #category : #accessing }
 ARPage >> name: aString [
 	name := aString
-]
-
-{ #category : #accessing }
-ARPage >> startBody [
-	"probably wrongly placed. Do not care "
-	^ '<body>'
 ]

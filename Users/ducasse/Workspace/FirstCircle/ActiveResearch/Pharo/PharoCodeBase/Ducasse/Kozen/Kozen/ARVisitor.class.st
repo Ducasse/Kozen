@@ -86,7 +86,7 @@ ARVisitor >> ensureAttribute: aKey value: aTag div: aBlock [
 ARVisitor >> ensureBody: aBlock [
 	
 	self startBalise: 'body'.
-	aBlock value: stream.
+	aBlock cull: stream.
 	self endBalise: 'body'
 ]
 
@@ -145,8 +145,7 @@ ARVisitor >> startBalise:  balise attribute: aKey value: aTag. [
 		nextPutAll: aKey ; 
 		nextPutAll: '="' ; 
 		nextPutAll: aTag; 
-		nextPutAll: '">' ; 
-		nextPut: Character cr
+		nextPutAll: '">'.
 ]
 
 { #category : #private }
@@ -174,6 +173,16 @@ ARVisitor >> visitImage: anImage [
 ]
 
 { #category : #visit }
+ARVisitor >> visitLinkedImage: aLinkedImage [
+
+	self ensureDiv: [ :aStream | 
+			aStream 
+				nextPutAll: '"<img src="'; nextPutAll: aLinkedImage image; 
+				nextPutAll: '">' ; 
+				nextPut: Character cr]
+]
+
+{ #category : #visit }
 ARVisitor >> visitMenu: aMenu [
 
 	self ensureAttribute: 'id' value: 'menu' div: [ 
@@ -196,9 +205,20 @@ ARVisitor >> visitPage: aPage [
 
 	stream nextPutAll: aPage metaHead.
 	stream nextPutAll: aPage head.
-	self ensureBody: [:aStream | 
-		aStream nextPutAll: aPage header.
+	self ensureBody: [
+		self ensureAttribute: 'id' value: 'header' div: [ 
+				self ensureAttribute: 'id' value: 'headerSideTitle' div: [ 
+					stream nextPutAll: aPage headerSiteTitle].
+				self ensureAttribute: 'id' value: 'headerPageTitle' div: [ 
+					stream nextPutAll: aPage headerPageTitle].
+				].
 		aPage elements do: [ :each | self visit: each]]
+]
+
+{ #category : #visit }
+ARVisitor >> visitRightBlock: aBlock [
+
+	self halt.
 ]
 
 { #category : #visit }

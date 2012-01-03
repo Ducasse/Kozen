@@ -2,8 +2,7 @@ Class {
 	#name : #ARImage,
 	#superclass : #ARObject,
 	#instVars : [
-		'image',
-		'link'
+		'image'
 	],
 	#category : #Kozen
 }
@@ -23,14 +22,4 @@ ARImage >> image [
 { #category : #accessing }
 ARImage >> image: anObject [
 	image := anObject
-]
-
-{ #category : #accessing }
-ARImage >> link [
-	^ link
-]
-
-{ #category : #accessing }
-ARImage >> link: anObject [
-	link := anObject
 ]
