@@ -218,7 +218,17 @@ ARVisitor >> visitPage: aPage [
 { #category : #visit }
 ARVisitor >> visitRightBlock: aBlock [
 
-	self halt.
+	self ensureAttribute: 'id' value: 'personalDetails' div: [ 
+			aBlock elements do: [ :each | self visit: each ] separatedBy: [stream cr.]]
+		
+	
+]
+
+{ #category : #visit }
+ARVisitor >> visitRightBlockItem: anItem [
+
+	
+
 ]
 
 { #category : #visit }

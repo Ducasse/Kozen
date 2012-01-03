@@ -1,11 +1,11 @@
 Class {
-	#name : #ARRightFloatingBlock,
+	#name : #ARRightBlock,
 	#superclass : #ARList,
 	#category : #Kozen
 }
 
 { #category : #visit }
-ARRightFloatingBlock >> accept: aVisitor [
+ARRightBlock >> accept: aVisitor [
 
 	aVisitor visitRightBlock: self.
 ]
