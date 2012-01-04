@@ -10,6 +10,18 @@ Class {
 }
 
 { #category : #'create site' }
+StefSite class >> block [
+
+	menu := ARRightBlock new.
+	menu addElement: (ARImage new image: 'StefFingerOnNose.jpg'; yourself).
+	menu addElement: (ARBlockItem new name: 'INRIA'; link: 'http://www.inria.fr/'; yourself).
+	menu addElement: (ARBlockItem new name: 'RMOD'; link: 'http://rmod.lille.inria.fr/'; yourself).
+	menu addElement: (ARBlockItem new name: 'Stephane-Ducasse(@)INRIA.FR'; link: 'mailto:stephane.ducasse@inria.fr'; yourself).
+	^ menu
+	
+]
+
+{ #category : #'create site' }
 StefSite class >> createSite [
 	"self createSite"
 	
@@ -37,6 +49,7 @@ StefSite class >> site [
 	
 	page := ARPage new.
 	page addElement: self menu.
+	page addElement: self main.
 	^ page
 	
 ]
