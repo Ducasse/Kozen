@@ -30,7 +30,7 @@ ARPage >> addElementInMain: anElement [
 	main addElement: anElement.
 ]
 
-{ #category : #'initialize-release' }
+{ #category : #default }
 ARPage >> defaultHead [
 
 	^ '<head>
@@ -39,13 +39,13 @@ ARPage >> defaultHead [
    </head>'
 ]
 
-{ #category : #'initialize-release' }
+{ #category : #default }
 ARPage >> defaultName [
 
 	^ 'Home'
 ]
 
-{ #category : #'initialize-release' }
+{ #category : #default }
 ARPage >> defaultTitle [
 
 	^ 'Dr. Stéphane Ducasse'
@@ -61,15 +61,6 @@ ARPage >> elements [
 ARPage >> head [
 
 	^ head
-]
-
-{ #category : #accessing }
-ARPage >> header [
-
-	^ '<div id="header">
-         <div id="headerSiteTitle">Stéphane Ducasse</div>
-         <div id="headerPageTitle">', self name, '</div>
-      </div>'
 ]
 
 { #category : #accessing }
@@ -96,7 +87,7 @@ ARPage >> initialize [
 	main := ARDivBlock new attribute: 'id' ; value: 'mainContent'.
 ]
 
-{ #category : #'initialize-release' }
+{ #category : #accessing }
 ARPage >> main [
 	"describes the main part of the body - related to css may be we should change that but 
 	menu should be out and block and section nested in."

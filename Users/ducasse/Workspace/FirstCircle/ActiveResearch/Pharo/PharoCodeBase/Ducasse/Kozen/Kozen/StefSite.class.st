@@ -69,6 +69,8 @@ StefSite >> site [
 	
 	| welcomePage |
 	welcomePage := ARPage new.
+	welcomePage name: 'index'.
+	
 	self declare: welcomePage withId: #welcomePage.
 	self menu.
 	self block.
