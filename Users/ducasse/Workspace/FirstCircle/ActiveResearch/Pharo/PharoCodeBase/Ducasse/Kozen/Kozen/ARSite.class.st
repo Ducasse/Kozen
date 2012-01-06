@@ -2,20 +2,20 @@ Class {
 	#name : #ARSite,
 	#superclass : #Object,
 	#instVars : [
-		'stream'
+		'elements'
 	],
 	#category : #Kozen
 }
 
-{ #category : #initialize }
-ARSite >> contents [
+{ #category : #operations }
+ARSite >> declare: anElement withId: anID [
 
-	^ stream contents
+	elements at: anID put: anElement
 ]
 
 { #category : #initialize }
 ARSite >> initialize [
 
 	super initialize.
-	stream := ReadWriteStream on: (String new: 10000).
+	elements := Dictionary new
 ]

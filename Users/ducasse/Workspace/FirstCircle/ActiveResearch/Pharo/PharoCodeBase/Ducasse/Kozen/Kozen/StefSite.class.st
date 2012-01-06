@@ -1,9 +1,6 @@
 Class {
 	#name : #StefSite,
-	#superclass : #Object,
-	#instVars : [
-		'elements'
-	],
+	#superclass : #ARSite,
 	#classInstVars : [
 		'site',
 		'menu',
@@ -37,24 +34,11 @@ StefSite >> createSite [
 	^ visitor contents
 ]
 
-{ #category : #accessing }
-StefSite >> declare: anElement withId: anID [
-
-	elements at: anID put: anElement
-]
-
 { #category : #texts }
 StefSite >> indexesText [
 
 	^ 'According to google scholar my h-index is 41 and my g-index is 70 - Maximum Cites: 343.'
 
-]
-
-{ #category : #initialize }
-StefSite >> initialize [
-
-	super initialize.
-	elements := Dictionary new
 ]
 
 { #category : #texts }
