@@ -107,6 +107,18 @@ ARVisitor >> ensureDiv: aBlock [
 	self endDiv
 ]
 
+{ #category : #operation }
+ARVisitor >> ensureIdValue: aTag div: aBlock [
+	"ensureDiv: aBlock key: id tagged: menu ->
+		div id='menu'"
+
+	self startBalise: self divEncodings attribute: 'id' value: aTag.
+	aBlock cull: stream.
+	self endDiv.
+	self addComment: 'Closing ' , aTag.
+	self cr
+]
+
 { #category : #private }
 ARVisitor >> ensureTag: aString for: aBlock [
 
@@ -115,17 +127,17 @@ ARVisitor >> ensureTag: aString for: aBlock [
 	self endBalise: aString
 ]
 
-{ #category : #visit }
+{ #category : #default }
 ARVisitor >> headerEncodings [
 	^ 'header'
 ]
 
-{ #category : #visit }
+{ #category : #default }
 ARVisitor >> headerPageTitleEncodings [
 	^ 'headerPageTitle'
 ]
 
-{ #category : #visit }
+{ #category : #default }
 ARVisitor >> headerSideTitleEncodings [
 	^ 'headerSideTitle'
 ]
@@ -149,16 +161,21 @@ ARVisitor >> initialize [
 ]
 
 { #category : #visit }
+ARVisitor >> mainContentEncodings [
+	^ 'mainContent'
+]
+
+{ #category : #default }
 ARVisitor >> menuEncodings [
 	^ 'menu'
 ]
 
-{ #category : #visit }
+{ #category : #default }
 ARVisitor >> personalDetailsEncodings [
 	^ 'personalDetails'
 ]
 
-{ #category : #visit }
+{ #category : #default }
 ARVisitor >> personalDetailsItemEncodings [
 	^ 'personalDetailsItem'
 ]
@@ -193,12 +210,12 @@ ARVisitor >> startBody [
 	self startBalise: 'body'.
 ]
 
-{ #category : #visit }
+{ #category : #default }
 ARVisitor >> tocEncodings [
 	^ 'toc'
 ]
 
-{ #category : #visit }
+{ #category : #default }
 ARVisitor >> tocItemEncodings [
 	^ 'tocItem'
 ]
@@ -210,7 +227,25 @@ ARVisitor >> visit: anElement [
 ]
 
 { #category : #visit }
-ARVisitor >> visitImage: anImage [
+ARVisitor >> visitDivBlock: aBlock [
+
+	self
+		ensureIdValue: self mainContentEncodings
+		div: [ aBlock elements do: [ :each | self visit: each ] separatedBy: [ stream cr ] ]
+]
+
+{ #category : #visit }
+ARVisitor >> visitImage: aLinkedImage [
+
+	self ensureDiv: [ :aStream | 
+			aStream 
+				nextPutAll: '"<img src="'; nextPutAll: aLinkedImage image; 
+				nextPutAll: '">' ; 
+				nextPut: Character cr]
+]
+
+{ #category : #visit }
+ARVisitor >> visitLinkedImage: anImage [
 
 	self ensureDiv: [ :aStream | 
 			aStream 
@@ -222,30 +257,18 @@ ARVisitor >> visitImage: anImage [
 ]
 
 { #category : #visit }
-ARVisitor >> visitLinkedImage: aLinkedImage [
-
-	self ensureDiv: [ :aStream | 
-			aStream 
-				nextPutAll: '"<img src="'; nextPutAll: aLinkedImage image; 
-				nextPutAll: '">' ; 
-				nextPut: Character cr]
-]
-
-{ #category : #visit }
 ARVisitor >> visitMenu: aMenu [
 	self
-		ensureAttribute: 'id'
-		value: self menuEncodings
+		ensureIdValue: self menuEncodings
 		div: [ 
 			self
-				ensureAttribute: 'id'
-				value: self tocEncodings
+				ensureIdValue: self tocEncodings
 				div: [ aMenu elements do: [ :each | self visit: each ] separatedBy: [ stream cr ] ] ]
 ]
 
 { #category : #visit }
 ARVisitor >> visitMenuItem: aMenuItem [
-	self ensureAttribute: 'id' value: self tocItemEncodings div: [ self href: aMenuItem link name: aMenuItem name ]
+	self ensureIdValue: self tocItemEncodings div: [ self href: aMenuItem link name: aMenuItem name ]
 ]
 
 { #category : #visit }
@@ -255,25 +278,23 @@ ARVisitor >> visitPage: aPage [
 	self
 		ensureBody: [ 
 			self
-				ensureAttribute: 'id'
-				value: self headerEncodings
+				ensureIdValue: self headerEncodings
 				div: [ 
-					self ensureAttribute: 'id' value: self headerSideTitleEncodings div: [ stream nextPutAll: aPage headerSiteTitle ].
-					self ensureAttribute: 'id' value: self headerPageTitleEncodings div: [ stream nextPutAll: aPage headerPageTitle ] ].
+					self ensureIdValue: self headerSideTitleEncodings div: [ stream nextPutAll: aPage headerSiteTitle ].
+					self ensureIdValue: self headerPageTitleEncodings div: [ stream nextPutAll: aPage headerPageTitle ] ].
 			aPage elements do: [ :each | self visit: each ] ]
 ]
 
 { #category : #visit }
 ARVisitor >> visitRightBlock: aBlock [
 	self
-		ensureAttribute: 'id'
-		value: self personalDetailsEncodings
+		ensureIdValue: self personalDetailsEncodings
 		div: [ aBlock elements do: [ :each | self visit: each ] separatedBy: [ stream cr ] ]
 ]
 
 { #category : #visit }
 ARVisitor >> visitRightBlockItem: anItem [
-	self ensureAttribute: 'id' value: self personalDetailsItemEncodings div: [ self href: anItem link name: anItem name ]
+	self ensureIdValue: self personalDetailsItemEncodings div: [ self href: anItem link name: anItem name ]
 ]
 
 { #category : #visit }

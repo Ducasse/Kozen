@@ -1,12 +1,15 @@
 "
 <div id=""header"">
-
 	attribute = id 
-	tag = header
+	value = header
+	
+	and nested components
+	
+
 "
 Class {
 	#name : #ARDivBlock,
-	#superclass : #ARObject,
+	#superclass : #ARList,
 	#instVars : [
 		'attribute'
 	],
