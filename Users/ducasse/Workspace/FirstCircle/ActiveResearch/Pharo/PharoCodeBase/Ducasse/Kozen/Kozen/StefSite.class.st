@@ -35,6 +35,12 @@ StefSite >> createSite [
 ]
 
 { #category : #texts }
+StefSite >> currentJobText [
+
+	^ 'Since June 2011, I''m scientific officer of  <a HREF="http://www.inria.fr/centre-de-recherche-inria/lille-nord-europe">INRIA Lille Nord Europe research center</a>. Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>. I was the leader of the <A HREF="http://www.iam.unibe.ch/~scg/Research/Recast/index.html">RECAST Project</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. Here is a short <a HREF="2011-CV.pdf">CV</a>.' 
+]
+
+{ #category : #texts }
 StefSite >> indexesText [
 
 	^ 'According to google scholar my h-index is 41 and my g-index is 70 - Maximum Cites: 343.'
@@ -63,6 +69,14 @@ StefSite >> menu [
 ]
 
 { #category : #elements }
+StefSite >> sectionCurrentJob [
+
+	| section | 
+	section := ARSection new title: 'Current responsibilities'; text: self currentJobText.
+	self declare: section withId: #secCurrentJob.
+]
+
+{ #category : #elements }
 StefSite >> site [
 	"self site"
 	"in the future the complete web site here"
@@ -70,13 +84,14 @@ StefSite >> site [
 	| welcomePage |
 	welcomePage := ARPage new.
 	welcomePage name: 'index'.
-	
 	self declare: welcomePage withId: #welcomePage.
 	self menu.
 	self block.
+	self sectionCurrentJob.
+	
 	welcomePage addElement: (elements at: #menu).
 	welcomePage addElementInMain: (elements at: #block).
-	
+	welcomePage addElementInMain: (elements at: #secCurrentJob).
 	^ welcomePage
 	
 ]

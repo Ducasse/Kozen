@@ -19,7 +19,7 @@ ARVisitor >> addComment: aComment [
 	
 ]
 
-{ #category : #operation }
+{ #category : #default }
 ARVisitor >> bodyEncodings [
 	^ 'body'
 ]
@@ -42,7 +42,7 @@ ARVisitor >> div [
 	self startBalise: 'div'
 ]
 
-{ #category : #operation }
+{ #category : #default }
 ARVisitor >> divEncodings [
 	^ 'div'
 ]
@@ -296,6 +296,13 @@ ARVisitor >> visitRightBlock: aBlock [
 { #category : #visit }
 ARVisitor >> visitRightBlockItem: anItem [
 	self ensureIdValue: self personalDetailsItemEncodings div: [ self href: anItem link name: anItem name ]
+]
+
+{ #category : #visit }
+ARVisitor >> visitSection: aSection [
+
+	stream nextPutAll:  '<h2><b><a NAME="', aSection title, '">',  aSection title, '</a></b></h2>'.
+	stream nextPutAll:  aSection text.
 ]
 
 { #category : #visit }
