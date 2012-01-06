@@ -2,7 +2,8 @@ Class {
 	#name : #ARObject,
 	#superclass : #Object,
 	#instVars : [
-		'value'
+		'value',
+		'siteId'
 	],
 	#category : #Kozen
 }
@@ -10,6 +11,17 @@ Class {
 { #category : #accessing }
 ARObject >> accept: aVisitor [
 	
+]
+
+{ #category : #accessing }
+ARObject >> siteId [
+	^ siteId
+]
+
+{ #category : #accessing }
+ARObject >> siteId: anId [
+	"anId should uniquely identify the receiver"
+	siteId := anId
 ]
 
 { #category : #accessing }

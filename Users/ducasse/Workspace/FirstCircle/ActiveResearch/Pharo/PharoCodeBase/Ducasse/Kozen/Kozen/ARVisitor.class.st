@@ -146,7 +146,7 @@ ARVisitor >> headerSideTitleEncodings [
 ARVisitor >> href: url name: aString [
 
 	stream 
-		nextPutAll: '<a ref="';
+		nextPutAll: '<a href="';
 		nextPutAll: url;
 		nextPutAll: '">';
 		nextPutAll: aString;
@@ -239,7 +239,7 @@ ARVisitor >> visitImage: aLinkedImage [
 
 	self ensureDiv: [ :aStream | 
 			aStream 
-				nextPutAll: '"<img src="'; nextPutAll: aLinkedImage image; 
+				nextPutAll: '<img src="'; nextPutAll: aLinkedImage image; 
 				nextPutAll: '">' ; 
 				nextPut: Character cr]
 ]
@@ -282,7 +282,8 @@ ARVisitor >> visitPage: aPage [
 				div: [ 
 					self ensureIdValue: self headerSideTitleEncodings div: [ stream nextPutAll: aPage headerSiteTitle ].
 					self ensureIdValue: self headerPageTitleEncodings div: [ stream nextPutAll: aPage headerPageTitle ] ].
-			aPage elements do: [ :each | self visit: each ] ]
+			aPage elements do: [ :each | self visit: each ].
+			aPage main elements do: [ :each | self visit: each ] ]
 ]
 
 { #category : #visit }

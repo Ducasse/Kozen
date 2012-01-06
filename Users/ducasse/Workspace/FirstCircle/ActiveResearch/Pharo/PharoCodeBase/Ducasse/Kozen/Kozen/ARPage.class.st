@@ -5,7 +5,8 @@ Class {
 		'title',
 		'elements',
 		'head',
-		'name'
+		'name',
+		'main'
 	],
 	#category : #Kozen
 }
@@ -21,6 +22,12 @@ ARPage >> accept: aVisitor [
 ARPage >> addElement: anElement [
 
 	elements add: anElement.
+]
+
+{ #category : #adding }
+ARPage >> addElementInMain: anElement [
+
+	main addElement: anElement.
 ]
 
 { #category : #'initialize-release' }
@@ -86,6 +93,15 @@ ARPage >> initialize [
 	head := self defaultHead.
 	title := self defaultTitle.
 	name := self defaultName.
+	main := ARDivBlock new attribute: 'id' ; value: 'mainContent'.
+]
+
+{ #category : #'initialize-release' }
+ARPage >> main [
+	"describes the main part of the body - related to css may be we should change that but 
+	menu should be out and block and section nested in."
+	
+	^ main
 ]
 
 { #category : #accessing }
