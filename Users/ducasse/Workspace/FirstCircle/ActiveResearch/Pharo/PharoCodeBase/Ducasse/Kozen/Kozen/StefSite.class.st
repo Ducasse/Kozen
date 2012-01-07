@@ -24,14 +24,14 @@ StefSite >> block [
 	
 ]
 
-{ #category : #elements }
+{ #category : #operation }
 StefSite >> createSite [
 	"self new createSite"
 	
 	| visitor |
 	visitor := ARVisitor new.
-	visitor visitPage: self site.
-	^ visitor contents
+	visitor visitSite: self site.
+	
 ]
 
 { #category : #texts }
@@ -45,6 +45,12 @@ StefSite >> indexesText [
 
 	^ 'According to google scholar my h-index is 41 and my g-index is 70 - Maximum Cites: 343.'
 
+]
+
+{ #category : #initialize }
+StefSite >> initialize [
+	super initialize.
+	folder := 'Site/'
 ]
 
 { #category : #texts }
@@ -81,10 +87,20 @@ StefSite >> site [
 	"self site"
 	"in the future the complete web site here"
 	
+	self welcomePage.
+	^ self.
+	
+]
+
+{ #category : #elements }
+StefSite >> welcomePage [
+	"self site"
+	"in the future the complete web site here"
+	
 	| welcomePage |
 	welcomePage := ARPage new.
 	welcomePage name: 'index'.
-	self declare: welcomePage withId: #welcomePage.
+	self declarePage: welcomePage withId: #welcomePage.
 	self menu.
 	self block.
 	self sectionCurrentJob.

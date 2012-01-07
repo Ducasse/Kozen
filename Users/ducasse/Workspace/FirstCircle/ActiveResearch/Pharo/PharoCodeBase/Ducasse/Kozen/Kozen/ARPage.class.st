@@ -6,7 +6,8 @@ Class {
 		'elements',
 		'head',
 		'name',
-		'main'
+		'main',
+		'site'
 	],
 	#category : #Kozen
 }
@@ -55,6 +56,16 @@ ARPage >> defaultTitle [
 ARPage >> elements [
 
 	^ elements
+]
+
+{ #category : #visiting }
+ARPage >> filename [
+	
+	| filename |
+	filename := self name, '.html'.
+	"does not work for file creation should use fs"
+	"^ site ifNil: [filename] ifNotNil: [site folder, filename] "
+	^ filename
 ]
 
 { #category : #accessing }
@@ -111,4 +122,16 @@ ARPage >> name [
 { #category : #accessing }
 ARPage >> name: aString [
 	name := aString
+]
+
+{ #category : #accessing }
+ARPage >> site [
+
+	^ site
+]
+
+{ #category : #accessing }
+ARPage >> site:  aSite [
+
+	site := aSite
 ]

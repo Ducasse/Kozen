@@ -5,6 +5,7 @@ Class {
 	#name : #ARVisitor,
 	#superclass : #Object,
 	#instVars : [
+		'site',
 		'stream'
 	],
 	#category : #Kozen
@@ -153,13 +154,6 @@ ARVisitor >> href: url name: aString [
 		nextPutAll: '</a>'
 ]
 
-{ #category : #initialize }
-ARVisitor >> initialize [
-
-	super initialize.
-	stream := ReadWriteStream on: (String new: 10000).
-]
-
 { #category : #visit }
 ARVisitor >> mainContentEncodings [
 	^ 'mainContent'
@@ -168,6 +162,11 @@ ARVisitor >> mainContentEncodings [
 { #category : #default }
 ARVisitor >> menuEncodings [
 	^ 'menu'
+]
+
+{ #category : #visit }
+ARVisitor >> newFileFor: aPage [
+	^ FileStream forceNewFileNamed: aPage filename
 ]
 
 { #category : #default }
@@ -273,6 +272,8 @@ ARVisitor >> visitMenuItem: aMenuItem [
 
 { #category : #visit }
 ARVisitor >> visitPage: aPage [
+	
+	[stream := self newFileFor: aPage.
 	stream nextPutAll: aPage metaHead.
 	stream nextPutAll: aPage head.
 	self
@@ -281,9 +282,10 @@ ARVisitor >> visitPage: aPage [
 				ensureIdValue: self headerEncodings
 				div: [ 
 					self ensureIdValue: self headerSideTitleEncodings div: [ stream nextPutAll: aPage headerSiteTitle ].
-					self ensureIdValue: self headerPageTitleEncodings div: [ stream nextPutAll: aPage headerPageTitle ] ].
+					self ensureIdValue: self headerPageTitleEncodings div: [ stream nextPutAll: aPage headerPageTitle ]].
 			aPage elements do: [ :each | self visit: each ].
-			aPage main elements do: [ :each | self visit: each ] ]
+			aPage main elements do: [ :each | self visit: each ] ]]
+		ensure: [stream close]
 ]
 
 { #category : #visit }
@@ -308,5 +310,5 @@ ARVisitor >> visitSection: aSection [
 { #category : #visit }
 ARVisitor >> visitSite: aSite [
 
-	
+	aSite pages do: [:each | self visit: each].
 ]
