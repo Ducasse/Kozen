@@ -59,23 +59,13 @@ StefSite >> citeseerText [
 	^ 'According to <a href="http://citeseerx.ist.psu.edu/stats/authors">CiteSeer</a>, I''m at rank ', cite asString, ' of most cited computer scientists.'.  
 ]
 
-{ #category : #operation }
-StefSite >> createSite [
-	"self new createSite"
-	
-	| visitor |
-	visitor := ARVisitor new.
-	visitor visitSite: self site.
-	
-]
-
 { #category : #texts }
 StefSite >> currentJobText [
 
 	^ 'Since June 2011, I''m scientific officer of  <a HREF="http://www.inria.fr/centre-de-recherche-inria/lille-nord-europe">INRIA Lille Nord Europe research center</a>. Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>. I was the leader of the <A HREF="http://www.iam.unibe.ch/~scg/Research/Recast/index.html">RECAST Project</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. Here is a short <a HREF="2011-CV.pdf">CV</a>.' 
 ]
 
-{ #category : #elements }
+{ #category : #initialize }
 StefSite >> defaultSiteSeer [
 
 	^ 3194
@@ -112,11 +102,34 @@ StefSite >> menu [
 	menu addElement: (ARMenuItem new name: 'Books'; link: 'Books.html'; yourself).
 	menu addElement: (ARMenuItem new name: 'Free Smalltalk Books'; link: 'FreeBooks.html'; yourself).
 	menu addElement: (ARMenuItem new name: 'Downloads/Resources'; link: 'Resources.html'; yourself).
-	menu addElement: (ARMenuItem new name: 'Lectures'; link: 'Lectures.html'; yourself).
+	menu addElement: (ARMenuItem new name: 'Lectures and Presentations'; link: 'Teaching.html'; yourself).
 	menu addElement: (ARMenuItem new name: 'Coordinates'; link: 'Coordinates.html'; yourself).
 	self declare: menu withId: #menu.
 	^ menu 
 	
+]
+
+{ #category : #texts }
+StefSite >> newsText [
+
+	^ '<div class="itemizedlist"> 
+      <ul type="disc"> 
+		<li>I was general chair of <a href="http://www.esug.org/wiki/pier/Conferences/2011"> ESUG 2011</a>. </li>
+		<li>We got a new associated team named Plomo with Pleiad of University of Chile at Santiago.</li>
+	  <li>We are setting up an INRIA consortium with industrial partners around <a href="http://www.pharo-project.org">Pharo</a>. Pharo 1.3 is out and 1.4 is in alpha.</li>
+	  <li><a href="http://www.pharo-project.org/pharobyexample/">Pharo By Example</a> is free and out (in spanish, french, english and  japanese)!</li>
+	 <li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a software analysis meta-described platform that allows one to understand and analyze object-oriented applications developed in Smalltalk, Java or C++. Moose 4.3 is out.</li>
+	  </ul>
+    </div>'
+]
+
+{ #category : #texts }
+StefSite >> researchText [
+
+	^ '
+	My research statement is double: (1) How can we help companies to support the evolution and maintenance of their large applications and (2) how can we improve languages to better support evolution?
+	
+	'
 ]
 
 { #category : #elements }
@@ -124,7 +137,8 @@ StefSite >> sectionAwardsAndIndexes [
 
 	| section | 
 	section := ARSection new title: 'Awards and Indexes'; text: self indexesText , ' ', self citeseerText,  (Character cr asString), self awardText.
-	self declare: section withId: #awards.
+	self declare: section withId: #secAwards.
+	^ section
 ]
 
 { #category : #elements }
@@ -133,6 +147,25 @@ StefSite >> sectionCurrentJob [
 	| section | 
 	section := ARSection new title: 'Current responsibilities'; text: self currentJobText.
 	self declare: section withId: #secCurrentJob.
+	^ section
+]
+
+{ #category : #elements }
+StefSite >> sectionNews [
+
+	| section | 
+	section := ARSection new title: 'News'; text: self newsText. 
+	self declare: section withId: #secNews.
+	^ section
+]
+
+{ #category : #elements }
+StefSite >> sectionResearch [
+
+	| section | 
+	section := ARSection new title: 'Research'; text: self researchText. 
+	self declare: section withId: #secResearch.
+	^ section
 ]
 
 { #category : #elements }
@@ -154,15 +187,14 @@ StefSite >> welcomePage [
 	welcomePage := ARPage new.
 	welcomePage name: 'index'.
 	self declarePage: welcomePage withId: #welcomePage.
-	self menu.
-	self block.
-	self sectionCurrentJob.
-	self sectionAwardsAndIndexes.
-	
-	welcomePage addElement: (elements at: #menu).
-	welcomePage addElementInMain: (elements at: #block).
-	welcomePage addElementInMain: (elements at: #secCurrentJob).
-	welcomePage addElementInMain: (elements at: #awards).
+
+	welcomePage addElement: self menu.
+	welcomePage addElementInMain: self block.
+	welcomePage addElementInMain: self sectionCurrentJob.
+	welcomePage addElementInMain: self sectionAwardsAndIndexes.
+	welcomePage addElementInMain: self sectionNews.
+	welcomePage addElementInMain: self sectionResearch.
+
 	^ welcomePage
 	
 ]

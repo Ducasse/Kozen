@@ -40,6 +40,16 @@ ARSite >> folder [
 	^ folder
 ]
 
+{ #category : #operations }
+ARSite >> generate [
+	"self new generate"
+	
+	| visitor |
+	visitor := ARVisitor new.
+	visitor visitSite: self site.
+	
+]
+
 { #category : #initialize }
 ARSite >> initialize [
 
