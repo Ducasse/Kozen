@@ -307,7 +307,7 @@ ARVisitor >> visitRightBlockItem: anItem [
 { #category : #visit }
 ARVisitor >> visitSection: aSection [
 
-	stream nextPutAll:  '<h2><b><a NAME="', aSection title, '">',  aSection title, '</a></b></h2>'.
+	stream nextPutAll:  '<h', aSection levelDigitString,'><b><a NAME="', aSection title, '">',  aSection title, '</a></b></h', aSection levelDigitString,'>'.
 	stream nextPutAll:  aSection text.
 ]
 

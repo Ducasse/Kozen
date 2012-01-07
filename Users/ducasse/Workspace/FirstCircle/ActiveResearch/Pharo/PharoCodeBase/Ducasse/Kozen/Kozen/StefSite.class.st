@@ -151,6 +151,15 @@ StefSite >> sectionCurrentJob [
 ]
 
 { #category : #elements }
+StefSite >> sectionLanguageDesign [
+
+	| section | 
+	section := ARSection new title: 'Language Design'; levelDigitString: '3'; text: self researchText. 
+	self declare: section withId: #secLanguageDesign.
+	^ section
+]
+
+{ #category : #elements }
 StefSite >> sectionNews [
 
 	| section | 
@@ -165,6 +174,15 @@ StefSite >> sectionResearch [
 	| section | 
 	section := ARSection new title: 'Research'; text: self researchText. 
 	self declare: section withId: #secResearch.
+	^ section
+]
+
+{ #category : #elements }
+StefSite >> sectionSoftwareEvolution [
+
+	| section | 
+	section := ARSection new title: 'Maintenance and Software Evolution'; levelDigitString: '3'; text: self researchText ; yourself. 
+	self declare: section withId: #secMaintenance.
 	^ section
 ]
 
@@ -194,7 +212,8 @@ StefSite >> welcomePage [
 	welcomePage addElementInMain: self sectionAwardsAndIndexes.
 	welcomePage addElementInMain: self sectionNews.
 	welcomePage addElementInMain: self sectionResearch.
-
+	welcomePage addElementInMain: self sectionSoftwareEvolution.
+	welcomePage addElementInMain: self sectionLanguageDesign.
 	^ welcomePage
 	
 ]

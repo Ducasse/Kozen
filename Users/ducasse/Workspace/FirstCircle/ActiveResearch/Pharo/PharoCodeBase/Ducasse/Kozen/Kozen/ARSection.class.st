@@ -2,6 +2,7 @@ Class {
 	#name : #ARSection,
 	#superclass : #ARList,
 	#instVars : [
+		'levelNumber',
 		'title',
 		'text'
 	],
@@ -12,6 +13,26 @@ Class {
 ARSection >> accept: aVisitor [
 
 	aVisitor visitSection: self
+]
+
+{ #category : #initialize }
+ARSection >> initialize [
+
+	super initialize.
+	levelNumber := '2'.
+]
+
+{ #category : #accessing }
+ARSection >> levelDigitString [
+
+	^ levelNumber
+]
+
+{ #category : #accessing }
+ARSection >> levelDigitString: aString [
+	"'2' for h2, '3' for h3...."
+
+	levelNumber := aString
 ]
 
 { #category : #accessing }
