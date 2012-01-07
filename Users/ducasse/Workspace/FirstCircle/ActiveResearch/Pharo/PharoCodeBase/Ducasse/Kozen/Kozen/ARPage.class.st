@@ -1,3 +1,9 @@
+"
+ARPage has not been documented yet. The class comment should describe the purpose of the class, its collaborations and its variables.
+
+ARPage should hide the fact that elements can be or not in main.
+Elements should returns what it should.
+"
 Class {
 	#name : #ARPage,
 	#superclass : #ARObject,
@@ -36,7 +42,7 @@ ARPage >> defaultHead [
 
 	^ '<head>
 		<link rel="stylesheet" href="CSS/stef.css"/>
-		<title>Dr. Stéphane Ducasse</title>
+		<title>Dr. St&eacute;phane Ducasse</title>
    </head>'
 ]
 
@@ -49,7 +55,7 @@ ARPage >> defaultName [
 { #category : #default }
 ARPage >> defaultTitle [
 
-	^ 'Dr. Stéphane Ducasse'
+	^ 'Dr. St&eacute;phane Ducasse' 
 ]
 
 { #category : #accessing }
@@ -84,7 +90,7 @@ ARPage >> headerPageTitle [
 { #category : #accessing }
 ARPage >> headerSiteTitle [
 
-	^ 'Stéphane Ducasse'
+	^ 'St&eacute;phane Ducasse'
 ]
 
 { #category : #'initialize-release' }

@@ -1,6 +1,9 @@
 Class {
 	#name : #StefSite,
 	#superclass : #ARSite,
+	#classVars : [
+		'CachedSiteSeer'
+	],
 	#classInstVars : [
 		'site',
 		'menu',
@@ -9,6 +12,28 @@ Class {
 	],
 	#category : #Kozen
 }
+
+{ #category : #'as yet unclassified' }
+StefSite class >> initialize [
+
+	CachedSiteSeer := true.
+]
+
+{ #category : #texts }
+StefSite >> awardText [
+
+	^ '	<div class="itemizedlist"> 
+      <ul type="disc">
+	<li>Distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
+	<li>Veronica Uquillas Gomez won the Benevol most promising young research Award (2011).</li>
+	<li>Mariano Martinez-Peck and Martin Diaz'' Fuel won the 2011 ESUG Technology Award. .</li>
+	<li> <a href="http://books.seaside.st/">Dynamic web development with Seaside</a>: Our new free open-source Seaside book won the ESUG member 2010 best book Award.</li>
+	  <li> Michele Lanza (2003) and Alexandre Bergel (2006) PhD theses won the <a href="http://www.denert-stiftung.de/">Ernest Denert foundation for Software Engineering</a> Award.</li>
+	  
+	  <li> <a href="http://rmod.lille.inria.fr/botsinc/pier">Learning Programming with Robots</a> received the Award of PCPlus magazine of September 2005 and the Bitwise Recommended Award in February 2006.
+	  </ul>'
+
+]
 
 { #category : #elements }
 StefSite >> block [ 
@@ -22,6 +47,16 @@ StefSite >> block [
 	self declare: block withId: #block.
 	^ block
 	
+]
+
+{ #category : #texts }
+StefSite >> citeseerText [
+	
+	|cite |
+	cite := CachedSiteSeer 
+				ifTrue: [self defaultSiteSeer]
+				ifFalse: [(Citeseer rankOf: 'S. Ducasse')].
+	^ 'According to <a href="http://citeseerx.ist.psu.edu/stats/authors">CiteSeer</a>, I''m at rank ', cite asString, ' of most cited computer scientists.'.  
 ]
 
 { #category : #operation }
@@ -40,6 +75,12 @@ StefSite >> currentJobText [
 	^ 'Since June 2011, I''m scientific officer of  <a HREF="http://www.inria.fr/centre-de-recherche-inria/lille-nord-europe">INRIA Lille Nord Europe research center</a>. Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>. I was the leader of the <A HREF="http://www.iam.unibe.ch/~scg/Research/Recast/index.html">RECAST Project</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. Here is a short <a HREF="2011-CV.pdf">CV</a>.' 
 ]
 
+{ #category : #elements }
+StefSite >> defaultSiteSeer [
+
+	^ 3194
+]
+
 { #category : #texts }
 StefSite >> indexesText [
 
@@ -50,6 +91,7 @@ StefSite >> indexesText [
 { #category : #initialize }
 StefSite >> initialize [
 	super initialize.
+	"does not work should use fs"
 	folder := 'Site/'
 ]
 
@@ -67,11 +109,22 @@ StefSite >> menu [
 	menu := ARMenu new.
 	menu addElement: (ARMenuItem new name: 'Home'; link: 'index.html'; yourself).
 	menu addElement: (ARMenuItem new name: 'Publications'; link: 'Publications.html'; yourself).
+	menu addElement: (ARMenuItem new name: 'Books'; link: 'Books.html'; yourself).
+	menu addElement: (ARMenuItem new name: 'Free Smalltalk Books'; link: 'FreeBooks.html'; yourself).
+	menu addElement: (ARMenuItem new name: 'Downloads/Resources'; link: 'Resources.html'; yourself).
+	menu addElement: (ARMenuItem new name: 'Lectures'; link: 'Lectures.html'; yourself).
 	menu addElement: (ARMenuItem new name: 'Coordinates'; link: 'Coordinates.html'; yourself).
-
 	self declare: menu withId: #menu.
 	^ menu 
 	
+]
+
+{ #category : #elements }
+StefSite >> sectionAwardsAndIndexes [
+
+	| section | 
+	section := ARSection new title: 'Awards and Indexes'; text: self indexesText , ' ', self citeseerText,  (Character cr asString), self awardText.
+	self declare: section withId: #awards.
 ]
 
 { #category : #elements }
@@ -104,10 +157,12 @@ StefSite >> welcomePage [
 	self menu.
 	self block.
 	self sectionCurrentJob.
+	self sectionAwardsAndIndexes.
 	
 	welcomePage addElement: (elements at: #menu).
 	welcomePage addElementInMain: (elements at: #block).
 	welcomePage addElementInMain: (elements at: #secCurrentJob).
+	welcomePage addElementInMain: (elements at: #awards).
 	^ welcomePage
 	
 ]

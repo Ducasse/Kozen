@@ -114,10 +114,11 @@ ARVisitor >> ensureIdValue: aTag div: aBlock [
 		div id='menu'"
 
 	self startBalise: self divEncodings attribute: 'id' value: aTag.
+	self cr.
 	aBlock cull: stream.
 	self endDiv.
 	self addComment: 'Closing ' , aTag.
-	self cr
+	
 ]
 
 { #category : #private }
@@ -262,7 +263,8 @@ ARVisitor >> visitMenu: aMenu [
 		div: [ 
 			self
 				ensureIdValue: self tocEncodings
-				div: [ aMenu elements do: [ :each | self visit: each ] separatedBy: [ stream cr ] ] ]
+				div: [ aMenu elements do: [ :each | self visit: each ] 
+										separatedBy: [ stream cr ] ] ]
 ]
 
 { #category : #visit }
@@ -284,7 +286,9 @@ ARVisitor >> visitPage: aPage [
 					self ensureIdValue: self headerSideTitleEncodings div: [ stream nextPutAll: aPage headerSiteTitle ].
 					self ensureIdValue: self headerPageTitleEncodings div: [ stream nextPutAll: aPage headerPageTitle ]].
 			aPage elements do: [ :each | self visit: each ].
-			aPage main elements do: [ :each | self visit: each ] ]]
+			self ensureIdValue: self mainContentEncodings div: [ 
+					aPage main elements do: [ :each | self visit: each ]]			
+			]]
 		ensure: [stream close]
 ]
 
