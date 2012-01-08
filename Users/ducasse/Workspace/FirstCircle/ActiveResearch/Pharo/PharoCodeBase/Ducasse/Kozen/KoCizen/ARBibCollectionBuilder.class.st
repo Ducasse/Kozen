@@ -40,6 +40,15 @@ ARBibCollectionBuilder >> author: aString [
 ]
 
 { #category : #operation }
+ARBibCollectionBuilder >> collectionBasedOnKozenTag: aTag [
+
+	^ ARBibCollection new elements: (self filterKozenTag: '*kzClassbox'); yourself
+	
+
+
+]
+
+{ #category : #operation }
 ARBibCollectionBuilder >> filter: aQuery [
 	
 	^ (bibset entries select: [ :each | aQuery value: each])
