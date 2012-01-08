@@ -42,7 +42,7 @@ ARBibCollectionBuilder >> author: aString [
 { #category : #operation }
 ARBibCollectionBuilder >> collectionBasedOnKozenTag: aTag [
 
-	^ ARBibCollection new elements: (self filterKozenTag: '*kzClassbox'); yourself
+	^ ARBibCollection new elements: (self filterKozenTag: aTag); yourself
 	
 
 
