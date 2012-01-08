@@ -1,6 +1,9 @@
 Class {
 	#name : #StefSite,
 	#superclass : #ARSite,
+	#instVars : [
+		'bibBuilder'
+	],
 	#classVars : [
 		'CachedSiteSeer'
 	],
@@ -33,6 +36,18 @@ StefSite >> awardText [
 	  <li> <a href="http://rmod.lille.inria.fr/botsinc/pier">Learning Programming with Robots</a> received the Award of PCPlus magazine of September 2005 and the Bitwise Recommended Award in February 2006.
 	  </ul>'
 
+]
+
+{ #category : #accessing }
+StefSite >> bibBuilder [
+
+	^ bibBuilder
+]
+
+{ #category : #accessing }
+StefSite >> bibBuilder: aBuilder [
+
+	bibBuilder := aBuilder
 ]
 
 { #category : #elements }
@@ -82,7 +97,8 @@ StefSite >> indexesText [
 StefSite >> initialize [
 	super initialize.
 	"does not work should use fs"
-	folder := 'Site/'
+	folder := 'Site/'.
+	bibBuilder := ARBibCollectionBuilder new author: '*Ducasse*'; loadBib: 'rmod.bib'.
 ]
 
 { #category : #texts }
@@ -109,6 +125,16 @@ StefSite >> menu [
 	
 ]
 
+{ #category : #elements }
+StefSite >> modularisationBibItems [
+	
+	| items |
+	items := bibBuilder filterKozenTag: '*kzClassbox'.
+	^ ARBibCollection new elements: items; yourself
+	
+
+]
+
 { #category : #texts }
 StefSite >> newsText [
 
@@ -121,6 +147,23 @@ StefSite >> newsText [
 	 <li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a software analysis meta-described platform that allows one to understand and analyze object-oriented applications developed in Smalltalk, Java or C++. Moose 4.3 is out.</li>
 	  </ul>
     </div>'
+]
+
+{ #category : #elements }
+StefSite >> researchPage [
+	"self site"
+	"in the future the complete web site here"
+	
+	| welcomePage |
+	welcomePage := ARPage new.
+	welcomePage name: 'Modularisation'.
+	self declarePage: welcomePage withId: #researchPage.
+
+	welcomePage addElement: self menu.
+	welcomePage addElementInMain: (ARSection new title: 'Modularisation'; levelDigitString: '3'; text: 'We explore different kind of techniques to support restructuring and remodularisation of software at different level of abstractions.' ; yourself).
+	welcomePage addElementInMain: self modularisationBibItems.
+	^ welcomePage
+	
 ]
 
 { #category : #texts }
@@ -192,6 +235,7 @@ StefSite >> site [
 	"in the future the complete web site here"
 	
 	self welcomePage.
+	"self researchPage"
 	^ self.
 	
 ]
@@ -213,6 +257,11 @@ StefSite >> welcomePage [
 	welcomePage addElementInMain: self sectionNews.
 	welcomePage addElementInMain: self sectionResearch.
 	welcomePage addElementInMain: self sectionSoftwareEvolution.
+	
+	welcomePage addElementInMain: (ARSection new title: 'Modularisation'; levelDigitString: '3'; text: 'We explore different kind of techniques to support restructuring and remodularisation of software at different level of abstractions.' ; yourself).
+	
+	welcomePage addElementInMain: self modularisationBibItems.
+	
 	welcomePage addElementInMain: self sectionLanguageDesign.
 	^ welcomePage
 	

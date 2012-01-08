@@ -227,6 +227,15 @@ ARVisitor >> visit: anElement [
 ]
 
 { #category : #visit }
+ARVisitor >> visitBibItemCollection: aBibItemCollection [
+	
+	self ensureTag: 'ol' for: [:aStream | 
+		ARBibHTMLOutputer  new 
+			treatEntries: aBibItemCollection elements in: aStream]
+		
+]
+
+{ #category : #visit }
 ARVisitor >> visitDivBlock: aBlock [
 
 	self
