@@ -29,7 +29,7 @@ StefSite >> awardText [
       <ul type="disc">
 	<li>Distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
 	<li>Veronica Uquillas Gomez won the Benevol most promising young research Award (2011).</li>
-	<li>Mariano Martinez-Peck and Martin Diaz'' Fuel won the 2011 ESUG Technology Award. .</li>
+	<li>Mariano Martinez-Peck and Martin Diaz won for Fuel the 2011 ESUG Technology Award. </li>
 	<li> <a href="http://books.seaside.st/">Dynamic web development with Seaside</a>: Our new free open-source Seaside book won the ESUG member 2010 best book Award.</li>
 	  <li> Michele Lanza (2003) and Alexandre Bergel (2006) PhD theses won the <a href="http://www.denert-stiftung.de/">Ernest Denert foundation for Software Engineering</a> Award.</li>
 	  
@@ -74,6 +74,39 @@ StefSite >> citeseerText [
 	^ 'According to <a href="http://citeseerx.ist.psu.edu/stats/authors">CiteSeer</a>, I''m at rank ', cite asString, ' of most cited computer scientists.'.  
 ]
 
+{ #category : #elements }
+StefSite >> createResearchSubTopicPages [
+
+	#(
+		#('Modularisation' 'Software remodularisation' 
+		'We explored various techniques to support software remodularisation and restructuring at different levels of granularity and with different objectives.'
+		'*kzRemodularisation')
+	
+		#('Visualization' 'Software Visualization' 
+		'We explored how program visualization can support software understanding.  We work at different level: system, class, packages, but also using different information: structure, runtime, references. Quite exciting topics.'
+		'*kzVisualization')
+
+	) do: [:each |
+		self createSubTopic: each first title:  each second text: each third  bibTag: each fourth]
+		
+]
+
+{ #category : #elements }
+StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
+
+	
+	| page |
+	page := ARPage new.
+	page name: 'Research Topics'.
+	page filename: file. 
+	self declarePage: page withId: ('research', file) asSymbol.
+	page addElement: self menu.
+	page addElementInMain: (ARSection new title: name ; levelDigitString: '3'; text: text ; yourself).
+	page addElementInMain: (bibBuilder collectionBasedOnKozenTag: bibTag).
+	^ page
+	
+]
+
 { #category : #texts }
 StefSite >> currentJobText [
 
@@ -96,8 +129,6 @@ StefSite >> indexesText [
 { #category : #initialize }
 StefSite >> initialize [
 	super initialize.
-	"does not work should use fs"
-	folder := 'Site/'.
 	bibBuilder := ARBibCollectionBuilder new author: '*Ducasse*'; loadBib: 'rmod.bib'.
 ]
 
@@ -151,18 +182,16 @@ StefSite >> newsText [
 
 { #category : #elements }
 StefSite >> researchPage [
-	"self site"
-	"in the future the complete web site here"
 	
-	| welcomePage |
-	welcomePage := ARPage new.
-	welcomePage name: 'Modularisation'.
-	self declarePage: welcomePage withId: #researchPage.
+	| page |
+	page := ARPage new.
+	page name: 'Modularisation'.
+	self declarePage: page withId: #researchPage.
 
-	welcomePage addElement: self menu.
-	welcomePage addElementInMain: (ARSection new title: 'Modularisation'; levelDigitString: '3'; text: 'We explore different kind of techniques to support restructuring and remodularisation of software at different level of abstractions.' ; yourself).
-	welcomePage addElementInMain: self modularisationBibItems.
-	^ welcomePage
+	page addElement: self menu.
+	page addElementInMain: (ARSection new title: 'Modularisation'; levelDigitString: '3'; text: 'We explore different kind of techniques to support restructuring and remodularisation of software at different level of abstractions.' ; yourself).
+	page addElementInMain: self modularisationBibItems.
+	^ page
 	
 ]
 
@@ -235,7 +264,8 @@ StefSite >> site [
 	"in the future the complete web site here"
 	
 	self welcomePage.
-	"self researchPage"
+	self createResearchSubTopicPages.
+	
 	^ self.
 	
 ]
@@ -247,7 +277,8 @@ StefSite >> welcomePage [
 	
 	| welcomePage |
 	welcomePage := ARPage new.
-	welcomePage name: 'index'.
+	welcomePage name: 'Home'.
+	welcomePage filename: 'index'.
 	self declarePage: welcomePage withId: #welcomePage.
 
 	welcomePage addElement: self menu.
@@ -257,10 +288,6 @@ StefSite >> welcomePage [
 	welcomePage addElementInMain: self sectionNews.
 	welcomePage addElementInMain: self sectionResearch.
 	welcomePage addElementInMain: self sectionSoftwareEvolution.
-	
-	welcomePage addElementInMain: (ARSection new title: 'Modularisation'; levelDigitString: '3'; text: 'We explore different kind of techniques to support restructuring and remodularisation of software at different level of abstractions.' ; yourself).
-	
-	welcomePage addElementInMain: self modularisationBibItems.
 	
 	welcomePage addElementInMain: self sectionLanguageDesign.
 	^ welcomePage

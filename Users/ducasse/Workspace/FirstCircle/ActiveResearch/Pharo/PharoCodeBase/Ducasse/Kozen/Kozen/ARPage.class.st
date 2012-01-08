@@ -13,7 +13,8 @@ Class {
 		'head',
 		'name',
 		'main',
-		'site'
+		'site',
+		'filename'
 	],
 	#category : #Kozen
 }
@@ -67,11 +68,18 @@ ARPage >> elements [
 { #category : #visiting }
 ARPage >> filename [
 	
-	| filename |
-	filename := self name, '.html'.
-	"does not work for file creation should use fs"
-	"^ site ifNil: [filename] ifNotNil: [site folder, filename] "
-	^ filename
+	|fn|
+	filename isNil 
+		ifTrue: [fn := name]
+		ifFalse: [fn := filename].
+	^ fn, '.html'.
+	
+]
+
+{ #category : #visiting }
+ARPage >> filename: aName [
+	
+	filename := aName
 ]
 
 { #category : #accessing }
@@ -128,6 +136,14 @@ ARPage >> name [
 { #category : #accessing }
 ARPage >> name: aString [
 	name := aString
+]
+
+{ #category : #printing }
+ARPage >> printOn: aStream [
+
+	super printOn: aStream.
+	aStream space.
+	aStream nextPutAll: self name. 
 ]
 
 { #category : #accessing }
