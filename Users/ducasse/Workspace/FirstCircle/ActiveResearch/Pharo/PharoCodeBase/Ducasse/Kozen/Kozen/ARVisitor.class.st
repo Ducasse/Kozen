@@ -256,7 +256,7 @@ ARVisitor >> visitImage: aLinkedImage [
 { #category : #visit }
 ARVisitor >> visitItem: anItem [
 
-	self ensureTag: 'li' for: [:aStream | aStream nextPutAll: '<a href"', anItem link, '">', anItem name].
+	self ensureTag: 'li' for: [:aStream | aStream nextPutAll: '<a href="', anItem link, '">', anItem name].
 	stream cr.
 ]
 

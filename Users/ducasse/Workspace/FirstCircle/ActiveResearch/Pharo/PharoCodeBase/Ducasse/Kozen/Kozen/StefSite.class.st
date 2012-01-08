@@ -28,7 +28,7 @@ StefSite >> addLanguageNavigation [
 	| list |
 	list := ARList new. 
 	self languageSubTopics do: [:each |
-		list addElement: (ARItem new name: each second; link: each first)
+		list addElement: (ARItem new name: each second; link: each first, '.html')
 		].
 	^ list
 ]
@@ -39,7 +39,7 @@ StefSite >> addSoftwareEvolutionNavigation [
 	| list |
 	list := ARList new. 
 	self evolutionSubTopics do: [:each |
-		list addElement: (ARItem new name: each second; link: each first)
+		list addElement: (ARItem new name: each second; link: each first, '.html')
 		].
 	^ list
 ]
@@ -234,6 +234,7 @@ StefSite >> menu [
 	| menu |
 	menu := ARMenu new.
 	menu addElement: (ARMenuItem new name: 'Home'; link: 'index.html'; yourself).
+	menu addElement: (ARMenuItem new name: 'Pharo'; link: 'http://www.pharo-project.org'; yourself).
 	menu addElement: (ARMenuItem new name: 'Publications'; link: 'Publications.html'; yourself).
 	menu addElement: (ARMenuItem new name: 'Books'; link: 'Books.html'; yourself).
 	menu addElement: (ARMenuItem new name: 'Free Smalltalk Books'; link: 'FreeBooks.html'; yourself).
