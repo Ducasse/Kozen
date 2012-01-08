@@ -254,6 +254,23 @@ ARVisitor >> visitImage: aLinkedImage [
 ]
 
 { #category : #visit }
+ARVisitor >> visitItem: anItem [
+
+	self ensureTag: 'li' for: [:aStream | aStream nextPutAll: '<a href"', anItem link, '">', anItem name].
+	stream cr.
+]
+
+{ #category : #visit }
+ARVisitor >> visitItemList: aList [
+
+	self ensureAttribute: 'class'
+			 value: 'itemizedlist'
+			 div: [
+				self ensureTag: 'ul' for: 
+					[ :aStream | aList elements do: [:each | self visit: each ] ] ]
+]
+
+{ #category : #visit }
 ARVisitor >> visitLinkedImage: anImage [
 
 	self ensureDiv: [ :aStream | 

@@ -22,6 +22,28 @@ StefSite class >> initialize [
 	CachedSiteSeer := true.
 ]
 
+{ #category : #elements }
+StefSite >> addLanguageNavigation [
+
+	| list |
+	list := ARList new. 
+	self languageSubTopics do: [:each |
+		list addElement: (ARItem new name: each second; link: each first)
+		].
+	^ list
+]
+
+{ #category : #elements }
+StefSite >> addSoftwareEvolutionNavigation [
+
+	| list |
+	list := ARList new. 
+	self evolutionSubTopics do: [:each |
+		list addElement: (ARItem new name: each second; link: each first)
+		].
+	^ list
+]
+
 { #category : #texts }
 StefSite >> awardText [
 
@@ -74,37 +96,45 @@ StefSite >> citeseerText [
 	^ 'According to <a href="http://citeseerx.ist.psu.edu/stats/authors">CiteSeer</a>, I''m at rank ', cite asString, ' of most cited computer scientists.'.  
 ]
 
-{ #category : #elements }
+{ #category : #utils }
 StefSite >> createResearchSubTopicPages [
 
-	#(
-		#('Modularisation' 'Software remodularisation' 
-		'We explored various techniques to support software remodularisation and restructuring at different levels of granularity and with different objectives.'
-		'*kzRemodularisation')
-	
-		#('Visualization' 'Software Visualization' 
-		'We explored how program visualization can support software understanding.  We work at different level: system, class, packages, but also using different information: structure, runtime, references. Quite exciting topics.'
-		'*kzVisualization')
-
-	) do: [:each |
-		self createSubTopic: each first title:  each second text: each third  bibTag: each fourth]
+	self evolutionSubTopics
+		do: [ :each | 
+			self
+				createSubTopic: each first
+				title: each second
+				text: each third
+				bibTag: each fourth.
+			each first ].
 		
+	self languageSubTopics
+		do: [ :each | 
+			self
+				createSubTopic: each first
+				title: each second
+				text: each third
+				bibTag: each fourth.
+			each first ]
 ]
 
-{ #category : #elements }
+{ #category : #utils }
 StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
-
-	
 	| page |
 	page := ARPage new.
 	page name: 'Research Topics'.
-	page filename: file. 
-	self declarePage: page withId: ('research', file) asSymbol.
+	page filename: file.
+	self declarePage: page withId: (self subtopicKey: file).
 	page addElement: self menu.
-	page addElementInMain: (ARSection new title: name ; levelDigitString: '3'; text: text ; yourself).
+	page
+		addElementInMain:
+			(ARSection new
+				title: name;
+				levelDigitString: '3';
+				text: text;
+				yourself).
 	page addElementInMain: (bibBuilder collectionBasedOnKozenTag: bibTag).
 	^ page
-	
 ]
 
 { #category : #texts }
@@ -117,6 +147,35 @@ StefSite >> currentJobText [
 StefSite >> defaultSiteSeer [
 
 	^ 3194
+]
+
+{ #category : #texts }
+StefSite >> evolutionSubTopics [
+	^ #(#('Modularisation' 'Software remodularisation' 
+		'We explored various techniques to support software remodularisation and restructuring at different levels of granularity and with different objectives.'
+		 '*kzRemodularisation*') 
+	
+		#('Visualization' 'Software Visualization' 
+		'We explored how program visualization can support software understanding.  We work at different level: system, class, packages, but also using different information: structure, runtime, references. Quite exciting topics.' 
+		'*kzVisualization*')
+		
+		#('Cycle' 'Cycle and Layer Identification' 
+		'' 
+		'*kzCycle*')
+		
+		#('IDE' 'Integrated Software Developments' 
+		'We explored difference facets of IDEs: from frameworks to build them to dynamic information to use them.' 
+		'*kzIDE*')
+		
+		#('Metric' 'Software Metrics and Quality Models' 
+		'We applied and evaluate software metrics as well as quality models. We worked with PSA and AirFrance in the context of the Squale FUI project. We collaborated with Qualixo. ' 
+		'*kzMetric')
+		
+		#('Dynamic' 'Dynamic information and feature analysis' 
+		'' 
+		'*kzDynamicInformation*')
+		
+		)
 ]
 
 { #category : #texts }
@@ -139,6 +198,36 @@ StefSite >> keywordsText [
 
 ]
 
+{ #category : #texts }
+StefSite >> languageSubTopics [
+	^ #(#('Trait' 'Traits: Intraclass reuse' 
+		'Traits are groups of methods that can be reused orthogonally to inheritance. 
+		We defined Traits which allows one to structure classes orthogonally to inheritance and offer a better composition mechanism than mixins. We formalized traits  and identify the problems with their introduction in strongly-typed languages. We proposed analysis to support the identification of traits in existing applications.  We extended traits with the notion of state and visibility. 
+		
+		 PHP 5.4, PERL-6, Dr-Scheme OO layer, Squeak3.9 and Pharo include traits. Traits influenced Scala (http://scala.epfl.ch/) developed at EPFL. Fortress (a new language for scientific computation developed by G. Steele) is entirely based on a variant of traits (http://labs.oracle.com/projects/plrg/). Several libraries have been developed for Ruby and Javascript. 
+Several research teams proposed formal type systems for traits, showing the interest of the scientific community:  S. Drossopoulos, V. Bono/F. Damiano, L. Liquori and J. Reppy/K. Fisher.'
+		 '*kzTraits*') 
+	
+		
+		#('Classbox' 'Scoping class extensions: Classboxes' 
+		'' 
+		'*kzClassbox*')
+		
+		#('Modules' 'Software Modules and Aspects' 
+		'' 
+		'*kzModule*')
+		
+		#('Web' 'Dynamic Web Development' 
+		'' 
+		'*kzWeb*')
+		
+		#('Reflection' 'Reflective Programming' 
+		'' 
+		'*kzReflection*')
+		
+		)
+]
+
 { #category : #elements }
 StefSite >> menu [
 
@@ -156,16 +245,6 @@ StefSite >> menu [
 	
 ]
 
-{ #category : #elements }
-StefSite >> modularisationBibItems [
-	
-	| items |
-	items := bibBuilder filterKozenTag: '*kzClassbox'.
-	^ ARBibCollection new elements: items; yourself
-	
-
-]
-
 { #category : #texts }
 StefSite >> newsText [
 
@@ -178,21 +257,6 @@ StefSite >> newsText [
 	 <li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a software analysis meta-described platform that allows one to understand and analyze object-oriented applications developed in Smalltalk, Java or C++. Moose 4.3 is out.</li>
 	  </ul>
     </div>'
-]
-
-{ #category : #elements }
-StefSite >> researchPage [
-	
-	| page |
-	page := ARPage new.
-	page name: 'Modularisation'.
-	self declarePage: page withId: #researchPage.
-
-	page addElement: self menu.
-	page addElementInMain: (ARSection new title: 'Modularisation'; levelDigitString: '3'; text: 'We explore different kind of techniques to support restructuring and remodularisation of software at different level of abstractions.' ; yourself).
-	page addElementInMain: self modularisationBibItems.
-	^ page
-	
 ]
 
 { #category : #texts }
@@ -226,7 +290,7 @@ StefSite >> sectionCurrentJob [
 StefSite >> sectionLanguageDesign [
 
 	| section | 
-	section := ARSection new title: 'Language Design'; levelDigitString: '3'; text: self researchText. 
+	section := ARSection new title: 'Language Design'; levelDigitString: '3'; text: 'I''m interested in revisiting foundational bricks of object-oriented languages. Now I start to work on isolation and security in reflective object-oriented languages'. 
 	self declare: section withId: #secLanguageDesign.
 	^ section
 ]
@@ -250,24 +314,60 @@ StefSite >> sectionResearch [
 ]
 
 { #category : #elements }
+StefSite >> sectionService [
+
+	| section | 
+	section := ARSection new title: 'Program Committees'; text: self serviceText. 
+	self declare: section withId: #secResearch.
+	^ section
+]
+
+{ #category : #elements }
 StefSite >> sectionSoftwareEvolution [
 
 	| section | 
-	section := ARSection new title: 'Maintenance and Software Evolution'; levelDigitString: '3'; text: self researchText ; yourself. 
+	section := ARSection new title: 'Maintenance and Software Evolution'; levelDigitString: '3'; text: 'I''m interested in all the aspects of software evolution and maintenance of large systems. I consulted for companies. Do not hesitate to contact me. I''m interested in your problems.' ; yourself. 
 	self declare: section withId: #secMaintenance.
 	^ section
+]
+
+{ #category : #texts }
+StefSite >> serviceText [
+
+	^ ' Here are some of the international conferences I have was PC member. Now we my new responsibilities I refuse more often. 
+	<div class="itemizedlist"> 
+      <ul type="disc">
+	 <li> European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
+	 <li>International Conference on Software Maintenance (ICSM 05, 06, 07, 08, 10, 11) -- Core A.</li>
+	 <li>European Conference on Software Maintenance and Reengineering (CSMR 06, 07, 08).</li>
+	 <li>International Conference on Program Comprehension (ICPC 06, 07, 08).</li>
+	 <li>International Conference on the Unified Modeling Language (UML 03, 04, Models/UML 05, Models 06, 07, 09, 10) -- Core A.</li>
+	 <li>International Dynamic Languages Symposium (DLS 05, 06).</li>
+	 <li>International Symposium on Software Variability: a Programmers Perspective (SVPP 08).</li>
+	 <li>International Conference on Extreme Programming (XP 00, 01).</li>
+	<li> International Conference on Objects, Models, Components, Patterns (TOOLS 2009, 2010, 2011).</li>
+	 <li>Working Conference on Reverse Engineering (WCRE 02, 05, 06, 10).</li>
+	<li> International  Conference on Software Composition (SC 09).</li>
+	</ul>
+	</div>
+'
 ]
 
 { #category : #elements }
 StefSite >> site [
 	"self site"
-	"in the future the complete web site here"
 	
-	self welcomePage.
 	self createResearchSubTopicPages.
+	self welcomePage.
+	
 	
 	^ self.
 	
+]
+
+{ #category : #utils }
+StefSite >> subtopicKey: file [
+	^ ('research' , file) asSymbol
 ]
 
 { #category : #elements }
@@ -288,8 +388,10 @@ StefSite >> welcomePage [
 	welcomePage addElementInMain: self sectionNews.
 	welcomePage addElementInMain: self sectionResearch.
 	welcomePage addElementInMain: self sectionSoftwareEvolution.
-	
+	welcomePage addElementInMain: self addSoftwareEvolutionNavigation.
 	welcomePage addElementInMain: self sectionLanguageDesign.
+	welcomePage addElementInMain: self addLanguageNavigation.
+	welcomePage addElementInMain: self sectionService.
 	^ welcomePage
 	
 ]

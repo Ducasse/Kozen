@@ -7,6 +7,12 @@ Class {
 	#category : #Kozen
 }
 
+{ #category : #visit }
+ARList >> accept: aVisitor [
+
+	aVisitor visitItemList: self
+]
+
 { #category : #elements }
 ARList >> addElement: anElement [
 

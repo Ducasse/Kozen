@@ -8,25 +8,31 @@ Class {
 	#category : #Kozen
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #visit }
+ARItem >> accept: aVisitor [
+
+	aVisitor visitItem: self.
+]
+
+{ #category : #accessing }
 ARItem >> link [
 	
 	^ link
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 ARItem >> link: aName [
 
 	link := aName
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 ARItem >> name [
 
 	^ name
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 ARItem >> name:  aString [
 
 	name := aString
