@@ -199,10 +199,13 @@ StefSite >> evolutionSubTopics [
 		'' 
 		'*kzArchi*')
 		
-		#('Patterns' 'Reengineering Challenges and Patterns' 
+		#('Patterns' 'Evolution, Reengineering Challenges and Patterns' 
 		'' 
 		'*kzPattern*')
 		
+		#('History' 'History-based Analysis and Mining Repositories' 
+		'' 
+		'*kzHistory*')
 		
 		)
 ]
