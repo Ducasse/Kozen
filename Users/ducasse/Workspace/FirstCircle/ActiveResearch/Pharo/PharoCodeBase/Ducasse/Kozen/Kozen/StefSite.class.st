@@ -159,6 +159,14 @@ StefSite >> evolutionSubTopics [
 		'We explored how program visualization can support software understanding.  We work at different level: system, class, packages, but also using different information: structure, runtime, references. Quite exciting topics.' 
 		'*kzVisualization*')
 		
+		#('MetaModeling' 'Meta Modeling' 
+		'' 
+		'*kzMeta*')
+		
+		#('Merging' 'Supporting Merging' 
+		''
+		 '*kzMerging*') 
+		
 		#('Cycle' 'Cycle and Layer Identification' 
 		'' 
 		'*kzCycle*')
@@ -174,6 +182,27 @@ StefSite >> evolutionSubTopics [
 		#('Dynamic' 'Dynamic information and feature analysis' 
 		'' 
 		'*kzDynamicInformation*')
+		
+		#('Duplication' 'Identification of Duplicated Code' 
+		'' 
+		'*kzDuplication*')
+		
+		#('Tools' 'Reengineering Tools, Interexchange, and Infrastructure' 
+		'' 
+		'*kzTools*')
+		
+		#('Checking' 'Checking ' 
+		'' 
+		'*kzChecking*')
+		
+		#('Archi' 'Architecture Extraction and Validation ' 
+		'' 
+		'*kzArchi*')
+		
+		#('Patterns' 'Reengineering Challenges and Patterns' 
+		'' 
+		'*kzPattern*')
+		
 		
 		)
 ]
@@ -200,13 +229,20 @@ StefSite >> keywordsText [
 
 { #category : #texts }
 StefSite >> languageSubTopics [
-	^ #(#('Trait' 'Traits: Intraclass reuse' 
+	^ #(
+	
+		#('Clutter' 'Clutter collector'
+			'Often objects are referenced but not used anymore. We are working on a clutter mechanism that acts as a memory manager to reduce the memory footprint of application and use secondary memory as a paging mechanism.'
+			'*kzClutter*')
+			
+			
+		#('Trait' 'Traits: Intraclass reuse' 
 		'Traits are groups of methods that can be reused orthogonally to inheritance. 
 		We defined Traits which allows one to structure classes orthogonally to inheritance and offer a better composition mechanism than mixins. We formalized traits  and identify the problems with their introduction in strongly-typed languages. We proposed analysis to support the identification of traits in existing applications.  We extended traits with the notion of state and visibility. 
 		
 		 PHP 5.4, PERL-6, Dr-Scheme OO layer, Squeak3.9 and Pharo include traits. Traits influenced Scala (http://scala.epfl.ch/) developed at EPFL. Fortress (a new language for scientific computation developed by G. Steele) is entirely based on a variant of traits (http://labs.oracle.com/projects/plrg/). Several libraries have been developed for Ruby and Javascript. 
 Several research teams proposed formal type systems for traits, showing the interest of the scientific community:  S. Drossopoulos, V. Bono/F. Damiano, L. Liquori and J. Reppy/K. Fisher.'
-		 '*kzTraits*') 
+		 '*kzTrait*') 
 	
 		
 		#('Classbox' 'Scoping class extensions: Classboxes' 
@@ -224,6 +260,10 @@ Several research teams proposed formal type systems for traits, showing the inte
 		#('Reflection' 'Reflective Programming' 
 		'' 
 		'*kzReflection*')
+		
+		#('Varia' 'Components, Encapsulation and Others' 
+		'' 
+		'*kzLanguageDesign*')
 		
 		)
 ]
