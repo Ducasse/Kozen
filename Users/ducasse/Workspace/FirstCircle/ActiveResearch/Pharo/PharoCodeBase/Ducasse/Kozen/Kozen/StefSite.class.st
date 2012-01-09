@@ -203,7 +203,7 @@ StefSite >> evolutionSubTopics [
 		'' 
 		'*kzPattern*')
 		
-		#('History' 'History-based Analysis and Mining Repositories' 
+		#('History' 'History-based Analyses and Mining Repositories' 
 		'' 
 		'*kzHistory*')
 		
