@@ -80,7 +80,7 @@ StefSite >> block [
 	block addElement: (ARImage new image: 'StefFingerOnNose128.jpg'; yourself).
 	block addElement: (ARBlockItem new name: 'INRIA'; link: 'http://www.inria.fr/'; yourself).
 	block addElement: (ARBlockItem new name: 'RMOD'; link: 'http://rmod.lille.inria.fr/'; yourself).
-	block addElement: (ARBlockItem new name: 'Stephane-Ducasse(@)INRIA.FR'; link: 'mailto:stephane.ducasse@inria.fr'; yourself).
+	block addElement: (ARBlockItem new name: 'StephaneDucasse(@At@)inria.fr'; link: 'mailto:stephane.ducasse@inria.fr'; yourself).
 	self declare: block withId: #block.
 	^ block
 	
@@ -249,11 +249,11 @@ Several research teams proposed formal type systems for traits, showing the inte
 	
 		
 		#('Classbox' 'Scoping class extensions: Classboxes' 
-		'' 
+		'Some languages such as Objective-C, Ruby, Python, Smalltalk can define methods in package while their classes is defined in other packages. This allows one to build powerful layers and extend classes. But this poses the questions of the semantics of such constructs. Classboxes is an experimental solution that scope them dynamically and propose a flat view of the world from the extending package perspective.' 
 		'*kzClassbox*')
 		
 		#('Modules' 'Software Modules and Aspects' 
-		'' 
+		'We worked on classboxes and this led us to think deeply about how names are looked up. We also work on aspects and other modular concerns. I spent a lot of time thinking about a good module system for dynamic languages and I will work on it.' 
 		'*kzModule*')
 		
 		#('Web' 'Dynamic Web Development' 
@@ -334,7 +334,7 @@ StefSite >> sectionCurrentJob [
 StefSite >> sectionLanguageDesign [
 
 	| section | 
-	section := ARSection new title: 'Language Design'; levelDigitString: '3'; text: 'I''m interested in revisiting foundational bricks of object-oriented languages. Now I start to work on isolation and security in reflective object-oriented languages'. 
+	section := ARSection new title: 'Language Design'; levelDigitString: '3'; text: 'I''m interested in revisiting foundational bricks of object-oriented languages such as encapsulation, reuse, message passing. Now I start to work on isolation and security in reflective object-oriented languages.'. 
 	self declare: section withId: #secLanguageDesign.
 	^ section
 ]
@@ -378,7 +378,7 @@ StefSite >> sectionSoftwareEvolution [
 { #category : #texts }
 StefSite >> serviceText [
 
-	^ ' Here are some of the international conferences I have was PC member. Now we my new responsibilities I refuse more often. 
+	^ ' Here are some of the international conferences I was PC member. Now with my new responsibilities I decline more often committees participation. 
 	<div class="itemizedlist"> 
       <ul type="disc">
 	 <li> European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
