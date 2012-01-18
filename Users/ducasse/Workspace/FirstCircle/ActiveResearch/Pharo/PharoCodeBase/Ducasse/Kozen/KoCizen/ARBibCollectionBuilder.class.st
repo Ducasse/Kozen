@@ -90,9 +90,11 @@ ARBibCollectionBuilder >> originalBibset [
 { #category : #private }
 ARBibCollectionBuilder >> prepareForAuthor [
 	
-	| qu |
-	qu := self withAuthor.
-	bibset entries: (originalBibset entries select: [ :each | qu value: each])
+	bibset entries: (originalBibset entries select: self withAuthor).
+	bibset entries: (bibset entries reject:  (CZFieldQuery 
+												named: #keywords 
+												checks: [ :value | '*insubmission*' match: value ])).
+	
 ]
 
 { #category : #query }
