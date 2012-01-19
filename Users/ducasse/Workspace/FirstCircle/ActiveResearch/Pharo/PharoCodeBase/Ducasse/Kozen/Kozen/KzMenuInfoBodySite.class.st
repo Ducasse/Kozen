@@ -72,6 +72,11 @@ KzMenuInfoBodySite >> coordinatesMenuItem [
 		yourself
 ]
 
+{ #category : #who }
+KzMenuInfoBodySite >> cssFile [
+	^ 'CSS/stef.css'
+]
+
 { #category : #texts }
 KzMenuInfoBodySite >> currentJobText [
 
@@ -81,6 +86,21 @@ KzMenuInfoBodySite >> currentJobText [
 { #category : #texts }
 KzMenuInfoBodySite >> currentSectionTitle [
 	^ 'Current Situation'
+]
+
+{ #category : #elements }
+KzMenuInfoBodySite >> defineInformationOfPage: welcomePage [
+	welcomePage title: self title.
+	welcomePage cssFile: self cssFile.
+	welcomePage headerSiteTitle: self headerSiteTitle.
+	
+]
+
+{ #category : #elements }
+KzMenuInfoBodySite >> headerSiteTitle [
+
+	^ 'Ze great title'
+	
 ]
 
 { #category : #menu }
@@ -198,6 +218,38 @@ KzMenuInfoBodySite >> sectionNews [
 ]
 
 { #category : #elements }
+KzMenuInfoBodySite >> site [
+	"self site"
+	
+	self createResearchSubTopicPages.
+	self welcomePage.
+	self buildOtherPages.
+	
+	^ self.
+	
+]
+
+{ #category : #who }
+KzMenuInfoBodySite >> title [ 
+
+	^ 'Dr. St&eacute;phane Ducasse' 
+]
+
+{ #category : #elements }
 KzMenuInfoBodySite >> welcomeName [
 	^ 'Home'
+]
+
+{ #category : #elements }
+KzMenuInfoBodySite >> welcomePage [
+	| welcomePage |
+	welcomePage := KZPage new.
+	welcomePage name: self welcomeName.
+	welcomePage filename: 'index'.
+	self defineInformationOfPage: welcomePage.
+	self declarePage: welcomePage withId: #welcomePage.
+	welcomePage addElement: self menu.
+	welcomePage addElementInMain: self block.
+	self buildWelcomePageSectionsOn: welcomePage.
+	^ welcomePage
 ]

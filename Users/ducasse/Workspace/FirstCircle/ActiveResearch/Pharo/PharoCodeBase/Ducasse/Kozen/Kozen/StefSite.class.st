@@ -230,6 +230,13 @@ StefSite >> freeSmalltalkBooksMenuItem [
 		yourself
 ]
 
+{ #category : #who }
+StefSite >> headerSiteTitle [
+	"the title inside the page"
+	
+	^ 'St&eacute;phane Ducasse'
+]
+
 { #category : #block }
 StefSite >> imageName [
 	^ 'StefFingerOnNose128.jpg'
@@ -406,18 +413,6 @@ StefSite >> serviceText [
 '
 ]
 
-{ #category : #elements }
-StefSite >> site [
-	"self site"
-	
-	self createResearchSubTopicPages.
-	self welcomePage.
-	self buildOtherPages.
-	
-	^ self.
-	
-]
-
 { #category : #utils }
 StefSite >> subtopicKey: file [
 	^ ('research' , file) asSymbol
@@ -431,16 +426,8 @@ StefSite >> teachingMenuItem [
 		yourself
 ]
 
-{ #category : #elements }
-StefSite >> welcomePage [
+{ #category : #who }
+StefSite >> title [ 
 
-	| welcomePage |
-	welcomePage := KZPage new.
-	welcomePage name: self welcomeName.
-	welcomePage filename: 'index'.
-	self declarePage: welcomePage withId: #welcomePage.
-	welcomePage addElement: self menu.
-	welcomePage addElementInMain: self block.
-	self buildWelcomePageSectionsOn: welcomePage.
-	^ welcomePage
+	^ 'Dr. St&eacute;phane Ducasse' 
 ]

@@ -11,7 +11,9 @@ Class {
 		'name',
 		'main',
 		'site',
-		'filename'
+		'filename',
+		'cssFile',
+		'headerSiteTitle'
 	],
 	#category : #Kozen
 }
@@ -35,13 +37,20 @@ KZPage >> addElementInMain: anElement [
 	main addElement: anElement.
 ]
 
-{ #category : #default }
-KZPage >> defaultHead [
+{ #category : #accessing }
+KZPage >> cssFile [
+	^cssFile
+]
 
-	^ '<head>
-		<link rel="stylesheet" href="CSS/stef.css"/>
-		<title>Dr. St&eacute;phane Ducasse</title>
-   </head>'
+{ #category : #accessing }
+KZPage >> cssFile: aString [
+	
+	cssFile := aString
+]
+
+{ #category : #default }
+KZPage >> defaultCSSFile [
+	^ 'CSS/stef.css'
 ]
 
 { #category : #default }
@@ -53,7 +62,7 @@ KZPage >> defaultName [
 { #category : #default }
 KZPage >> defaultTitle [
 
-	^ 'Dr. St&eacute;phane Ducasse' 
+	^ 'The title can also give some information about you' 
 ]
 
 { #category : #accessing }
@@ -62,7 +71,7 @@ KZPage >> elements [
 	^ elements
 ]
 
-{ #category : #visiting }
+{ #category : #accessing }
 KZPage >> filename [
 	
 	|fn|
@@ -73,7 +82,7 @@ KZPage >> filename [
 	
 ]
 
-{ #category : #visiting }
+{ #category : #accessing }
 KZPage >> filename: aName [
 	
 	filename := aName
@@ -82,7 +91,14 @@ KZPage >> filename: aName [
 { #category : #accessing }
 KZPage >> head [
 
-	^ head
+	^ '<head>
+		<link rel="stylesheet" href="' , self cssFile
+		,
+			'"/>
+		<title>' , self defaultTitle
+		,
+			'</title>
+   </head>'
 ]
 
 { #category : #accessing }
@@ -94,8 +110,16 @@ KZPage >> headerPageTitle [
 
 { #category : #accessing }
 KZPage >> headerSiteTitle [
+	"the title inside the page"
+	
+	^ headerSiteTitle
+]
 
-	^ 'St&eacute;phane Ducasse'
+{ #category : #accessing }
+KZPage >> headerSiteTitle: aString [
+	"the title inside the page"
+	
+	headerSiteTitle := aString
 ]
 
 { #category : #'initialize-release' }
@@ -103,9 +127,9 @@ KZPage >> initialize [
 
 	super initialize.
 	elements := OrderedCollection new.
-	head := self defaultHead.
 	title := self defaultTitle.
 	name := self defaultName.
+	cssFile := self defaultCSSFile.
 	main := KZDivBlock new attribute: 'id' ; value: 'mainContent'.
 ]
 
@@ -126,7 +150,7 @@ KZPage >> metaHead [
 
 { #category : #accessing }
 KZPage >> name [ 
-
+	"For example the welcomePage can be called Home "
 	^ name
 ]
 
@@ -153,4 +177,16 @@ KZPage >> site [
 KZPage >> site:  aSite [
 
 	site := aSite
+]
+
+{ #category : #accessing }
+KZPage >> title [
+
+	^ title 
+]
+
+{ #category : #accessing }
+KZPage >> title: aString [
+
+	title := aString
 ]
