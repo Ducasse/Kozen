@@ -2,7 +2,7 @@
 Generate collection of bibitems based on tags.
 "
 Class {
-	#name : #ARBibCollectionBuilder,
+	#name : #KZBibCollectionBuilder,
 	#superclass : #CZPersonalGenerator,
 	#instVars : [
 		'dispatchTag',
@@ -15,7 +15,7 @@ Class {
 }
 
 { #category : #examples }
-ARBibCollectionBuilder class >> forStef [
+KZBibCollectionBuilder class >> forStef [
 	"self forStef"
 	
 	^ self new 
@@ -26,55 +26,55 @@ ARBibCollectionBuilder class >> forStef [
 ]
 
 { #category : #accessing }
-ARBibCollectionBuilder >> author [
+KZBibCollectionBuilder >> author [
 	"copy from above for now because I hate CZDocument and I do not like the superclass too"
 	
 	^ author ifNil: [ author := '*Ducasse*']
 ]
 
 { #category : #accessing }
-ARBibCollectionBuilder >> author: aString [
+KZBibCollectionBuilder >> author: aString [
 	"copy from above for now because I hate CZDocument and I do not like the superclass too"
 	
 	 author := aString
 ]
 
 { #category : #operation }
-ARBibCollectionBuilder >> collectionBasedOnKozenTag: aTag [
+KZBibCollectionBuilder >> collectionBasedOnKozenTag: aTag [
 
-	^ ARBibCollection new elements: (self filterKozenTag: aTag); yourself
+	^ KZBibCollection new elements: (self filterKozenTag: aTag); yourself
 	
 
 
 ]
 
 { #category : #operation }
-ARBibCollectionBuilder >> filter: aQuery [
+KZBibCollectionBuilder >> filter: aQuery [
 	
 	^ (bibset entries select: [ :each | aQuery value: each])
 ]
 
 { #category : #operation }
-ARBibCollectionBuilder >> filterKozenTag: aTag [
+KZBibCollectionBuilder >> filterKozenTag: aTag [
 
 	^ self filter:  (self queryForKozenTag: aTag).
 ]
 
 { #category : #initialize }
-ARBibCollectionBuilder >> initializeBibSetFromPath: inputFile [
+KZBibCollectionBuilder >> initializeBibSetFromPath: inputFile [
 	"self new createBibSetFromPath: 'rmod.bib'"
 	
 	bibset := originalBibset := CZFileLoader bibFromFileNamed: inputFile.
 ]
 
 { #category : #operation }
-ARBibCollectionBuilder >> inputFileName:  inputFileString [
+KZBibCollectionBuilder >> inputFileName:  inputFileString [
 
 	inputFileName := inputFileString
 ]
 
 { #category : #operation }
-ARBibCollectionBuilder >> loadBib: aString [
+KZBibCollectionBuilder >> loadBib: aString [
 
 	self initializeBibSetFromPath: aString.
 	self prepareForAuthor.
@@ -82,13 +82,13 @@ ARBibCollectionBuilder >> loadBib: aString [
 ]
 
 { #category : #accessing }
-ARBibCollectionBuilder >> originalBibset [ 
+KZBibCollectionBuilder >> originalBibset [ 
 
 	^ originalBibset 
 ]
 
 { #category : #private }
-ARBibCollectionBuilder >> prepareForAuthor [
+KZBibCollectionBuilder >> prepareForAuthor [
 	
 	bibset entries: (originalBibset entries select: self withAuthor).
 	bibset entries: (bibset entries reject:  (CZFieldQuery 
@@ -98,12 +98,12 @@ ARBibCollectionBuilder >> prepareForAuthor [
 ]
 
 { #category : #query }
-ARBibCollectionBuilder >> queryForKozenTag: aTag [
+KZBibCollectionBuilder >> queryForKozenTag: aTag [
 
 	^ CZFieldQuery named: #keywords checks: [ :value | aTag match: value ]
 ]
 
 { #category : #query }
-ARBibCollectionBuilder >> withAuthor [
+KZBibCollectionBuilder >> withAuthor [
 	^ CZFieldQuery named: #author checks: [ :value | self author match: value ]
 ]

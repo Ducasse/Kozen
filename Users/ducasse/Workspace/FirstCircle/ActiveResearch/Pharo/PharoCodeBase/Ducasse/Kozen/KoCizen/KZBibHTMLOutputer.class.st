@@ -1,5 +1,8 @@
+"
+A specific Citezen outputer for HTML. In the future we should completely rewrite part of Citezen and we may not need this class anymore.
+"
 Class {
-	#name : #ARBibHTMLOutputer,
+	#name : #KZBibHTMLOutputer,
 	#superclass : #CZHtmlOutputer,
 	#instVars : [
 		'fieldOrder'
@@ -8,17 +11,17 @@ Class {
 }
 
 { #category : #accessing }
-ARBibHTMLOutputer >> fieldOrder [
+KZBibHTMLOutputer >> fieldOrder [
 	^ fieldOrder
 ]
 
 { #category : #accessing }
-ARBibHTMLOutputer >> fieldOrder: anObject [
+KZBibHTMLOutputer >> fieldOrder: anObject [
 	fieldOrder := anObject
 ]
 
 { #category : #initialize }
-ARBibHTMLOutputer >> initialize [
+KZBibHTMLOutputer >> initialize [
 
 	super initialize.
 	fieldOrder := #(#author 
@@ -36,7 +39,7 @@ ARBibHTMLOutputer >> initialize [
 ]
 
 { #category : #visit }
-ARBibHTMLOutputer >> visitEntry: anEntry [
+KZBibHTMLOutputer >> visitEntry: anEntry [
 	
 	| fields |
 	fields := anEntry fieldSortedFollowingKeys: fieldOrder. 

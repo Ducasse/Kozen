@@ -5,19 +5,19 @@ during my visit the visitor can decide to invoke a citezen exporter.
 Not clear at the design level yet.
 "
 Class {
-	#name : #ARBibCollection,
-	#superclass : #ARList,
+	#name : #KZBibCollection,
+	#superclass : #KZList,
 	#category : #KoCizen
 }
 
 { #category : #'as yet unclassified' }
-ARBibCollection >> accept: aVisitor [
+KZBibCollection >> accept: aVisitor [
 
 	aVisitor visitBibItemCollection: self
 ]
 
 { #category : #'as yet unclassified' }
-ARBibCollection >> elements: aCol [
+KZBibCollection >> elements: aCol [
 
 	elements := aCol
 ]
