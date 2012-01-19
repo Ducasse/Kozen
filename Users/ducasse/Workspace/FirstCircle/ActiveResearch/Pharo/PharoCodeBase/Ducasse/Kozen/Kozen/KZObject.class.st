@@ -1,5 +1,5 @@
 Class {
-	#name : #ARObject,
+	#name : #KZObject,
 	#superclass : #Object,
 	#instVars : [
 		'value',
@@ -8,28 +8,28 @@ Class {
 	#category : #Kozen
 }
 
-{ #category : #accessing }
-ARObject >> accept: aVisitor [
+{ #category : #visiting }
+KZObject >> accept: aVisitor [
 	
 ]
 
 { #category : #accessing }
-ARObject >> siteId [
+KZObject >> siteId [
 	^ siteId
 ]
 
 { #category : #accessing }
-ARObject >> siteId: anId [
+KZObject >> siteId: anId [
 	"anId should uniquely identify the receiver"
 	siteId := anId
 ]
 
 { #category : #accessing }
-ARObject >> value [
+KZObject >> value [
 	^ value
 ]
 
 { #category : #accessing }
-ARObject >> value: aString [
+KZObject >> value: aString [
 	value := aString
 ]

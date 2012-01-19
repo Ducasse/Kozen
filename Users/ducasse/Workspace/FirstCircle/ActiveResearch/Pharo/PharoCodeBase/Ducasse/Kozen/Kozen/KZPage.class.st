@@ -1,12 +1,9 @@
 "
-ARPage has not been documented yet. The class comment should describe the purpose of the class, its collaborations and its variables.
-
-ARPage should hide the fact that elements can be or not in main.
-Elements should returns what it should.
+I'm a page and as such I contain elements and I'm saved in a file.
 "
 Class {
-	#name : #ARPage,
-	#superclass : #ARObject,
+	#name : #KZPage,
+	#superclass : #KZObject,
 	#instVars : [
 		'title',
 		'elements',
@@ -20,26 +17,26 @@ Class {
 }
 
 { #category : #visiting }
-ARPage >> accept: aVisitor [
+KZPage >> accept: aVisitor [
 
 	aVisitor visitPage: self.
 
 ]
 
 { #category : #adding }
-ARPage >> addElement: anElement [
+KZPage >> addElement: anElement [
 
 	elements add: anElement.
 ]
 
 { #category : #adding }
-ARPage >> addElementInMain: anElement [
+KZPage >> addElementInMain: anElement [
 
 	main addElement: anElement.
 ]
 
 { #category : #default }
-ARPage >> defaultHead [
+KZPage >> defaultHead [
 
 	^ '<head>
 		<link rel="stylesheet" href="CSS/stef.css"/>
@@ -48,25 +45,25 @@ ARPage >> defaultHead [
 ]
 
 { #category : #default }
-ARPage >> defaultName [
+KZPage >> defaultName [
 
 	^ 'Home'
 ]
 
 { #category : #default }
-ARPage >> defaultTitle [
+KZPage >> defaultTitle [
 
 	^ 'Dr. St&eacute;phane Ducasse' 
 ]
 
 { #category : #accessing }
-ARPage >> elements [
+KZPage >> elements [
 
 	^ elements
 ]
 
 { #category : #visiting }
-ARPage >> filename [
+KZPage >> filename [
 	
 	|fn|
 	filename isNil 
@@ -77,43 +74,43 @@ ARPage >> filename [
 ]
 
 { #category : #visiting }
-ARPage >> filename: aName [
+KZPage >> filename: aName [
 	
 	filename := aName
 ]
 
 { #category : #accessing }
-ARPage >> head [
+KZPage >> head [
 
 	^ head
 ]
 
 { #category : #accessing }
-ARPage >> headerPageTitle [
+KZPage >> headerPageTitle [
 
 	^ self name
 
 ]
 
 { #category : #accessing }
-ARPage >> headerSiteTitle [
+KZPage >> headerSiteTitle [
 
 	^ 'St&eacute;phane Ducasse'
 ]
 
 { #category : #'initialize-release' }
-ARPage >> initialize [
+KZPage >> initialize [
 
 	super initialize.
 	elements := OrderedCollection new.
 	head := self defaultHead.
 	title := self defaultTitle.
 	name := self defaultName.
-	main := ARDivBlock new attribute: 'id' ; value: 'mainContent'.
+	main := KZDivBlock new attribute: 'id' ; value: 'mainContent'.
 ]
 
 { #category : #accessing }
-ARPage >> main [
+KZPage >> main [
 	"describes the main part of the body - related to css may be we should change that but 
 	menu should be out and block and section nested in."
 	
@@ -121,25 +118,25 @@ ARPage >> main [
 ]
 
 { #category : #accessing }
-ARPage >> metaHead [
+KZPage >> metaHead [
 
 	^ '<?xml version="1.0" encoding="ISO-8859-1"?>
 	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">'
 ]
 
 { #category : #accessing }
-ARPage >> name [ 
+KZPage >> name [ 
 
 	^ name
 ]
 
 { #category : #accessing }
-ARPage >> name: aString [
+KZPage >> name: aString [
 	name := aString
 ]
 
 { #category : #printing }
-ARPage >> printOn: aStream [
+KZPage >> printOn: aStream [
 
 	super printOn: aStream.
 	aStream space.
@@ -147,13 +144,13 @@ ARPage >> printOn: aStream [
 ]
 
 { #category : #accessing }
-ARPage >> site [
+KZPage >> site [
 
 	^ site
 ]
 
 { #category : #accessing }
-ARPage >> site:  aSite [
+KZPage >> site:  aSite [
 
 	site := aSite
 ]

@@ -1,6 +1,6 @@
 Class {
-	#name : #ARSection,
-	#superclass : #ARList,
+	#name : #KZSection,
+	#superclass : #KZList,
 	#instVars : [
 		'levelNumber',
 		'title',
@@ -10,47 +10,47 @@ Class {
 }
 
 { #category : #accessing }
-ARSection >> accept: aVisitor [
+KZSection >> accept: aVisitor [
 
 	aVisitor visitSection: self
 ]
 
 { #category : #initialize }
-ARSection >> initialize [
+KZSection >> initialize [
 
 	super initialize.
 	levelNumber := '2'.
 ]
 
 { #category : #accessing }
-ARSection >> levelDigitString [
+KZSection >> levelDigitString [
 
 	^ levelNumber
 ]
 
 { #category : #accessing }
-ARSection >> levelDigitString: aString [
+KZSection >> levelDigitString: aString [
 	"'2' for h2, '3' for h3...."
 
 	levelNumber := aString
 ]
 
 { #category : #accessing }
-ARSection >> text [
+KZSection >> text [
 	^ text
 ]
 
 { #category : #accessing }
-ARSection >> text: anObject [
+KZSection >> text: anObject [
 	text := anObject
 ]
 
 { #category : #accessing }
-ARSection >> title [
+KZSection >> title [
 	^ title
 ]
 
 { #category : #accessing }
-ARSection >> title: anObject [
+KZSection >> title: anObject [
 	title := anObject
 ]

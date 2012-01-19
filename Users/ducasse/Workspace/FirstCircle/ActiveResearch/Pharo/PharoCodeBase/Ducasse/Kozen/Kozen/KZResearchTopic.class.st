@@ -1,6 +1,6 @@
 Class {
-	#name : #ARResearchTopic,
-	#superclass : #ARList,
+	#name : #KZResearchTopic,
+	#superclass : #KZList,
 	#instVars : [
 		'text',
 		'bibItems'

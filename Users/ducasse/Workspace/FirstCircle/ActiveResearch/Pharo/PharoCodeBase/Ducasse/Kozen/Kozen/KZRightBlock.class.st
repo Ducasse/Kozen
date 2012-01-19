@@ -1,11 +1,11 @@
 Class {
-	#name : #ARRightBlock,
-	#superclass : #ARList,
+	#name : #KZRightBlock,
+	#superclass : #KZList,
 	#category : #Kozen
 }
 
 { #category : #visit }
-ARRightBlock >> accept: aVisitor [
+KZRightBlock >> accept: aVisitor [
 
 	aVisitor visitRightBlock: self.
 ]

@@ -2,7 +2,7 @@
 ARVisitor is a web site visitor. 
 "
 Class {
-	#name : #ARVisitor,
+	#name : #KZVisitor,
 	#superclass : #Object,
 	#instVars : [
 		'site',
@@ -12,7 +12,7 @@ Class {
 }
 
 { #category : #private }
-ARVisitor >> addComment: aComment [
+KZVisitor >> addComment: aComment [
 	stream 
 		nextPutAll: '    <!--'; 
 		nextPutAll: aComment; 
@@ -21,35 +21,35 @@ ARVisitor >> addComment: aComment [
 ]
 
 { #category : #default }
-ARVisitor >> bodyEncodings [
+KZVisitor >> bodyEncodings [
 	^ 'body'
 ]
 
 { #category : #operation }
-ARVisitor >> contents [
+KZVisitor >> contents [
 
 	^ stream contents
 ]
 
 { #category : #private }
-ARVisitor >> cr [
+KZVisitor >> cr [
 
 	stream nextPut: Character cr
 ]
 
 { #category : #private }
-ARVisitor >> div [
+KZVisitor >> div [
 
 	self startBalise: 'div'
 ]
 
 { #category : #default }
-ARVisitor >> divEncodings [
+KZVisitor >> divEncodings [
 	^ 'div'
 ]
 
 { #category : #private }
-ARVisitor >> endBalise: aString [
+KZVisitor >> endBalise: aString [
 
 	stream nextPut: $< ; nextPut: $/.
 	stream nextPutAll: aString.
@@ -60,7 +60,7 @@ ARVisitor >> endBalise: aString [
 ]
 
 { #category : #private }
-ARVisitor >> endBaliseCr: aString [
+KZVisitor >> endBaliseCr: aString [
 
 	self endBalise: aString.
 	self cr.
@@ -70,19 +70,19 @@ ARVisitor >> endBaliseCr: aString [
 ]
 
 { #category : #private }
-ARVisitor >> endBody [
+KZVisitor >> endBody [
 
 	self endBalise: 'body'.
 ]
 
 { #category : #private }
-ARVisitor >> endDiv [
+KZVisitor >> endDiv [
 
 	self endBalise: 'div'
 ]
 
 { #category : #operation }
-ARVisitor >> ensureAttribute: aKey value: aTag div: aBlock [
+KZVisitor >> ensureAttribute: aKey value: aTag div: aBlock [
 	"ensureDiv: aBlock key: id tagged: menu ->
 		div id='menu'"
 
@@ -94,14 +94,14 @@ ARVisitor >> ensureAttribute: aKey value: aTag div: aBlock [
 ]
 
 { #category : #operation }
-ARVisitor >> ensureBody: aBlock [
+KZVisitor >> ensureBody: aBlock [
 	self startBalise: self bodyEncodings.
 	aBlock cull: stream.
 	self endBalise: self bodyEncodings
 ]
 
 { #category : #operation }
-ARVisitor >> ensureDiv: aBlock [
+KZVisitor >> ensureDiv: aBlock [
 	
 	self div.
 	aBlock value: stream.
@@ -109,7 +109,7 @@ ARVisitor >> ensureDiv: aBlock [
 ]
 
 { #category : #operation }
-ARVisitor >> ensureIdValue: aTag div: aBlock [
+KZVisitor >> ensureIdValue: aTag div: aBlock [
 	"ensureDiv: aBlock key: id tagged: menu ->
 		div id='menu'"
 
@@ -122,7 +122,7 @@ ARVisitor >> ensureIdValue: aTag div: aBlock [
 ]
 
 { #category : #private }
-ARVisitor >> ensureTag: aString for: aBlock [
+KZVisitor >> ensureTag: aString for: aBlock [
 
 	self startBalise: aString.
 	aBlock value: stream.
@@ -130,22 +130,22 @@ ARVisitor >> ensureTag: aString for: aBlock [
 ]
 
 { #category : #default }
-ARVisitor >> headerEncodings [
+KZVisitor >> headerEncodings [
 	^ 'header'
 ]
 
 { #category : #default }
-ARVisitor >> headerPageTitleEncodings [
+KZVisitor >> headerPageTitleEncodings [
 	^ 'headerPageTitle'
 ]
 
 { #category : #default }
-ARVisitor >> headerSideTitleEncodings [
+KZVisitor >> headerSideTitleEncodings [
 	^ 'headerSideTitle'
 ]
 
 { #category : #private }
-ARVisitor >> href: url name: aString [
+KZVisitor >> href: url name: aString [
 
 	stream 
 		nextPutAll: '<a href="';
@@ -156,32 +156,32 @@ ARVisitor >> href: url name: aString [
 ]
 
 { #category : #visit }
-ARVisitor >> mainContentEncodings [
+KZVisitor >> mainContentEncodings [
 	^ 'mainContent'
 ]
 
 { #category : #default }
-ARVisitor >> menuEncodings [
+KZVisitor >> menuEncodings [
 	^ 'menu'
 ]
 
 { #category : #visit }
-ARVisitor >> newFileFor: aPage [
+KZVisitor >> newFileFor: aPage [
 	^ FileStream forceNewFileNamed: aPage filename
 ]
 
 { #category : #default }
-ARVisitor >> personalDetailsEncodings [
+KZVisitor >> personalDetailsEncodings [
 	^ 'personalDetails'
 ]
 
 { #category : #default }
-ARVisitor >> personalDetailsItemEncodings [
+KZVisitor >> personalDetailsItemEncodings [
 	^ 'personalDetailsItem'
 ]
 
 { #category : #private }
-ARVisitor >> startBalise: aString [
+KZVisitor >> startBalise: aString [
 
 	stream nextPut: $<.
 	stream nextPutAll: aString.
@@ -192,7 +192,7 @@ ARVisitor >> startBalise: aString [
 ]
 
 { #category : #private }
-ARVisitor >> startBalise:  balise attribute: aKey value: aTag. [
+KZVisitor >> startBalise:  balise attribute: aKey value: aTag. [
 	
 	stream 
 		nextPut: $<; 
@@ -205,38 +205,38 @@ ARVisitor >> startBalise:  balise attribute: aKey value: aTag. [
 ]
 
 { #category : #private }
-ARVisitor >> startBody [
+KZVisitor >> startBody [
 
 	self startBalise: 'body'.
 ]
 
 { #category : #default }
-ARVisitor >> tocEncodings [
+KZVisitor >> tocEncodings [
 	^ 'toc'
 ]
 
 { #category : #default }
-ARVisitor >> tocItemEncodings [
+KZVisitor >> tocItemEncodings [
 	^ 'tocItem'
 ]
 
 { #category : #visit }
-ARVisitor >> visit: anElement [
+KZVisitor >> visit: anElement [
 
 	anElement accept: self
 ]
 
 { #category : #visit }
-ARVisitor >> visitBibItemCollection: aBibItemCollection [
+KZVisitor >> visitBibItemCollection: aBibItemCollection [
 	
 	self ensureTag: 'ol' for: [:aStream | 
-		ARBibHTMLOutputer  new 
+		KZBibHTMLOutputer  new 
 			treatEntries: aBibItemCollection elements in: aStream]
 		
 ]
 
 { #category : #visit }
-ARVisitor >> visitDivBlock: aBlock [
+KZVisitor >> visitDivBlock: aBlock [
 
 	self
 		ensureIdValue: self mainContentEncodings
@@ -244,7 +244,7 @@ ARVisitor >> visitDivBlock: aBlock [
 ]
 
 { #category : #visit }
-ARVisitor >> visitImage: aLinkedImage [
+KZVisitor >> visitImage: aLinkedImage [
 
 	self ensureDiv: [ :aStream | 
 			aStream 
@@ -254,14 +254,14 @@ ARVisitor >> visitImage: aLinkedImage [
 ]
 
 { #category : #visit }
-ARVisitor >> visitItem: anItem [
+KZVisitor >> visitItem: anItem [
 
 	self ensureTag: 'li' for: [:aStream | aStream nextPutAll: '<a href="', anItem link, '">', anItem name].
 	stream cr.
 ]
 
 { #category : #visit }
-ARVisitor >> visitItemList: aList [
+KZVisitor >> visitItemList: aList [
 
 	self ensureAttribute: 'class'
 			 value: 'itemizedlist'
@@ -271,7 +271,7 @@ ARVisitor >> visitItemList: aList [
 ]
 
 { #category : #visit }
-ARVisitor >> visitLinkedImage: anImage [
+KZVisitor >> visitLinkedImage: anImage [
 
 	self ensureDiv: [ :aStream | 
 			aStream 
@@ -283,7 +283,7 @@ ARVisitor >> visitLinkedImage: anImage [
 ]
 
 { #category : #visit }
-ARVisitor >> visitMenu: aMenu [
+KZVisitor >> visitMenu: aMenu [
 	self
 		ensureIdValue: self menuEncodings
 		div: [ 
@@ -294,12 +294,12 @@ ARVisitor >> visitMenu: aMenu [
 ]
 
 { #category : #visit }
-ARVisitor >> visitMenuItem: aMenuItem [
+KZVisitor >> visitMenuItem: aMenuItem [
 	self ensureIdValue: self tocItemEncodings div: [ self href: aMenuItem link name: aMenuItem name ]
 ]
 
 { #category : #visit }
-ARVisitor >> visitPage: aPage [
+KZVisitor >> visitPage: aPage [
 	
 	[stream := self newFileFor: aPage.
 	stream nextPutAll: aPage metaHead.
@@ -319,26 +319,26 @@ ARVisitor >> visitPage: aPage [
 ]
 
 { #category : #visit }
-ARVisitor >> visitRightBlock: aBlock [
+KZVisitor >> visitRightBlock: aBlock [
 	self
 		ensureIdValue: self personalDetailsEncodings
 		div: [ aBlock elements do: [ :each | self visit: each ] separatedBy: [ stream cr ] ]
 ]
 
 { #category : #visit }
-ARVisitor >> visitRightBlockItem: anItem [
+KZVisitor >> visitRightBlockItem: anItem [
 	self ensureIdValue: self personalDetailsItemEncodings div: [ self href: anItem link name: anItem name ]
 ]
 
 { #category : #visit }
-ARVisitor >> visitSection: aSection [
+KZVisitor >> visitSection: aSection [
 
 	stream nextPutAll:  '<h', aSection levelDigitString,'><b><a NAME="', aSection title, '">',  aSection title, '</a></b></h', aSection levelDigitString,'>'.
 	stream nextPutAll:  aSection text.
 ]
 
 { #category : #visit }
-ARVisitor >> visitSite: aSite [
+KZVisitor >> visitSite: aSite [
 
 	aSite pages do: [:each | self visit: each].
 ]

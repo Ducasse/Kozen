@@ -8,8 +8,8 @@
 
 "
 Class {
-	#name : #ARDivBlock,
-	#superclass : #ARList,
+	#name : #KZDivBlock,
+	#superclass : #KZList,
 	#instVars : [
 		'attribute'
 	],
@@ -17,19 +17,19 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-ARDivBlock >> accept: aVisitor [
+KZDivBlock >> accept: aVisitor [
 
 	aVisitor visitDivBlock: self.
 
 ]
 
 { #category : #'as yet unclassified' }
-ARDivBlock >> attribute [
+KZDivBlock >> attribute [
 	^ attribute
 ]
 
 { #category : #'as yet unclassified' }
-ARDivBlock >> attribute: aString [
+KZDivBlock >> attribute: aString [
 	
 	attribute := aString
 ]

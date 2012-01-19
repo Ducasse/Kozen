@@ -1,25 +1,25 @@
 Class {
-	#name : #ARImage,
-	#superclass : #ARObject,
+	#name : #KZImage,
+	#superclass : #KZObject,
 	#instVars : [
 		'image'
 	],
 	#category : #Kozen
 }
 
-{ #category : #accessing }
-ARImage >> accept: aVisitor [
+{ #category : #visiting }
+KZImage >> accept: aVisitor [
 
 	aVisitor visitImage: self.
 
 ]
 
 { #category : #accessing }
-ARImage >> image [
+KZImage >> image [
 	^ image
 ]
 
 { #category : #accessing }
-ARImage >> image: anObject [
+KZImage >> image: anObject [
 	image := anObject
 ]

@@ -1,6 +1,6 @@
 Class {
-	#name : #ARItem,
-	#superclass : #ARObject,
+	#name : #KZItem,
+	#superclass : #KZObject,
 	#instVars : [
 		'name',
 		'link'
@@ -9,31 +9,31 @@ Class {
 }
 
 { #category : #visit }
-ARItem >> accept: aVisitor [
+KZItem >> accept: aVisitor [
 
 	aVisitor visitItem: self.
 ]
 
 { #category : #accessing }
-ARItem >> link [
+KZItem >> link [
 	
 	^ link
 ]
 
 { #category : #accessing }
-ARItem >> link: aName [
+KZItem >> link: aName [
 
 	link := aName
 ]
 
 { #category : #accessing }
-ARItem >> name [
+KZItem >> name [
 
 	^ name
 ]
 
 { #category : #accessing }
-ARItem >> name:  aString [
+KZItem >> name:  aString [
 
 	name := aString
 ]

@@ -1,11 +1,11 @@
 Class {
-	#name : #ARMenu,
-	#superclass : #ARList,
+	#name : #KZMenu,
+	#superclass : #KZList,
 	#category : #Kozen
 }
 
 { #category : #visit }
-ARMenu >> accept: aVisitor [
+KZMenu >> accept: aVisitor [
 
 	aVisitor visitMenu: self.
 

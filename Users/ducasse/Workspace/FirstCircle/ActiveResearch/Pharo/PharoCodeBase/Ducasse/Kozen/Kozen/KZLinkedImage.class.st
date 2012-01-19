@@ -1,6 +1,6 @@
 Class {
-	#name : #ARLinkedImage,
-	#superclass : #ARImage,
+	#name : #KZLinkedImage,
+	#superclass : #KZImage,
 	#instVars : [
 		'link'
 	],
@@ -8,17 +8,17 @@ Class {
 }
 
 { #category : #visit }
-ARLinkedImage >> accept: aVisitor [
+KZLinkedImage >> accept: aVisitor [
 
 	aVisitor visitLinkedImage: self
 ]
 
 { #category : #accessing }
-ARLinkedImage >> link [
+KZLinkedImage >> link [
 	^ link
 ]
 
 { #category : #accessing }
-ARLinkedImage >> link: anObject [
+KZLinkedImage >> link: anObject [
 	link := anObject
 ]

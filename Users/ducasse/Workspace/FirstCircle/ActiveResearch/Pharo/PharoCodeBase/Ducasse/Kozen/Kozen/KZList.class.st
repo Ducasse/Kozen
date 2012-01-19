@@ -1,6 +1,6 @@
 Class {
-	#name : #ARList,
-	#superclass : #ARObject,
+	#name : #KZList,
+	#superclass : #KZObject,
 	#instVars : [
 		'elements'
 	],
@@ -8,25 +8,25 @@ Class {
 }
 
 { #category : #visit }
-ARList >> accept: aVisitor [
+KZList >> accept: aVisitor [
 
 	aVisitor visitItemList: self
 ]
 
 { #category : #elements }
-ARList >> addElement: anElement [
+KZList >> addElement: anElement [
 
 	elements add: anElement
 ]
 
 { #category : #elements }
-ARList >> elements [
+KZList >> elements [
 
 	^ elements
 ]
 
 { #category : #initialize }
-ARList >> initialize [
+KZList >> initialize [
 
 	super initialize.
 	elements := OrderedCollection new.

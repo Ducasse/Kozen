@@ -1,9 +1,9 @@
+"
+StefSite generate
+"
 Class {
 	#name : #StefSite,
-	#superclass : #ARSite,
-	#instVars : [
-		'bibBuilder'
-	],
+	#superclass : #KzMenuInfoBodySite,
 	#classVars : [
 		'CachedSiteSeer'
 	],
@@ -16,7 +16,7 @@ Class {
 	#category : #Kozen
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #initialization }
 StefSite class >> initialize [
 
 	CachedSiteSeer := true.
@@ -26,9 +26,9 @@ StefSite class >> initialize [
 StefSite >> addLanguageNavigation [
 
 	| list |
-	list := ARList new. 
+	list := KZList new. 
 	self languageSubTopics do: [:each |
-		list addElement: (ARItem new name: each second; link: each first, '.html')
+		list addElement: (KZItem new name: each second; link: each first, '.html')
 		].
 	^ list
 ]
@@ -37,9 +37,9 @@ StefSite >> addLanguageNavigation [
 StefSite >> addSoftwareEvolutionNavigation [
 
 	| list |
-	list := ARList new. 
+	list := KZList new. 
 	self evolutionSubTopics do: [:each |
-		list addElement: (ARItem new name: each second; link: each first, '.html')
+		list addElement: (KZItem new name: each second; link: each first, '.html')
 		].
 	^ list
 ]
@@ -60,30 +60,37 @@ StefSite >> awardText [
 
 ]
 
-{ #category : #accessing }
-StefSite >> bibBuilder [
-
-	^ bibBuilder
+{ #category : #menu }
+StefSite >> booksMenuItem [
+	^ KZMenuItem new
+		name: 'Books';
+		link: 'Books.html';
+		yourself
 ]
 
-{ #category : #accessing }
-StefSite >> bibBuilder: aBuilder [
-
-	bibBuilder := aBuilder
+{ #category : #menu }
+StefSite >> buildMenuBodyOn: menu [
+	menu addElement: self homeMenuItem.
+	menu addElement: self pharoMenuItem.
+	menu addElement: self publicationMenuItem.
+	menu addElement: self booksMenuItem.
+	menu addElement: self freeSmalltalkBooksMenuItem.
+	menu addElement: self resourcesMenuItem.
+	menu addElement: self teachingMenuItem.
+	menu addElement: self coordinatesMenuItem
 ]
 
 { #category : #elements }
-StefSite >> block [ 
-
-	| block |
-	block := ARRightBlock new.
-	block addElement: (ARImage new image: 'StefFingerOnNose128.jpg'; yourself).
-	block addElement: (ARBlockItem new name: 'INRIA'; link: 'http://www.inria.fr/'; yourself).
-	block addElement: (ARBlockItem new name: 'RMOD'; link: 'http://rmod.lille.inria.fr/'; yourself).
-	block addElement: (ARBlockItem new name: 'StephaneDucasse(@At@)inria.fr'; link: 'mailto:stephane.ducasse@inria.fr'; yourself).
-	self declare: block withId: #block.
-	^ block
-	
+StefSite >> buildWelcomePageSectionsOn: welcomePage [
+	welcomePage addElementInMain: self sectionCurrentJob.
+	welcomePage addElementInMain: self sectionAwardsAndIndexes.
+	welcomePage addElementInMain: self sectionNews.
+	welcomePage addElementInMain: self sectionResearch.
+	welcomePage addElementInMain: self sectionSoftwareEvolution.
+	welcomePage addElementInMain: self addSoftwareEvolutionNavigation.
+	welcomePage addElementInMain: self sectionLanguageDesign.
+	welcomePage addElementInMain: self addLanguageNavigation.
+	welcomePage addElementInMain: self sectionService
 ]
 
 { #category : #texts }
@@ -121,14 +128,14 @@ StefSite >> createResearchSubTopicPages [
 { #category : #utils }
 StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 	| page |
-	page := ARPage new.
+	page := KZPage new.
 	page name: 'Research Topics'.
 	page filename: file.
 	self declarePage: page withId: (self subtopicKey: file).
 	page addElement: self menu.
 	page
 		addElementInMain:
-			(ARSection new
+			(KZSection new
 				title: name;
 				levelDigitString: '3';
 				text: text;
@@ -141,6 +148,11 @@ StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 StefSite >> currentJobText [
 
 	^ 'Since June 2011, I''m scientific officer of  <a HREF="http://www.inria.fr/centre-de-recherche-inria/lille-nord-europe">INRIA Lille Nord Europe research center</a>. Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>. I was the leader of the <A HREF="http://www.iam.unibe.ch/~scg/Research/Recast/index.html">RECAST Project</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. Here is a short <a HREF="2011-CV.pdf">CV</a>.' 
+]
+
+{ #category : #texts }
+StefSite >> currentSectionTitle [
+	^ 'Current responsibilities'
 ]
 
 { #category : #initialize }
@@ -210,17 +222,24 @@ StefSite >> evolutionSubTopics [
 		)
 ]
 
+{ #category : #menu }
+StefSite >> freeSmalltalkBooksMenuItem [
+	^ KZMenuItem new
+		name: 'Free Smalltalk Books';
+		link: 'FreeBooks.html';
+		yourself
+]
+
+{ #category : #block }
+StefSite >> imageName [
+	^ 'StefFingerOnNose128.jpg'
+]
+
 { #category : #texts }
 StefSite >> indexesText [
 
 	^ 'According to google scholar my h-index is 41 and my g-index is 70 - Maximum Cites: 343.'
 
-]
-
-{ #category : #initialize }
-StefSite >> initialize [
-	super initialize.
-	bibBuilder := ARBibCollectionBuilder new author: '*Ducasse*'; loadBib: 'rmod.bib'.
 ]
 
 { #category : #texts }
@@ -271,22 +290,14 @@ Several research teams proposed formal type systems for traits, showing the inte
 		)
 ]
 
-{ #category : #elements }
-StefSite >> menu [
+{ #category : #mail }
+StefSite >> mailText [
+	^ 'StephaneDucasse(@At@)inria.fr'
+]
 
-	| menu |
-	menu := ARMenu new.
-	menu addElement: (ARMenuItem new name: 'Home'; link: 'index.html'; yourself).
-	menu addElement: (ARMenuItem new name: 'Pharo'; link: 'http://www.pharo-project.org'; yourself).
-	menu addElement: (ARMenuItem new name: 'Publications'; link: 'Publications.html'; yourself).
-	menu addElement: (ARMenuItem new name: 'Books'; link: 'Books.html'; yourself).
-	menu addElement: (ARMenuItem new name: 'Free Smalltalk Books'; link: 'FreeBooks.html'; yourself).
-	menu addElement: (ARMenuItem new name: 'Downloads/Resources'; link: 'Resources.html'; yourself).
-	menu addElement: (ARMenuItem new name: 'Lectures and Presentations'; link: 'Teaching.html'; yourself).
-	menu addElement: (ARMenuItem new name: 'Coordinates'; link: 'Coordinates.html'; yourself).
-	self declare: menu withId: #menu.
-	^ menu 
-	
+{ #category : #mail }
+StefSite >> mailtoString [
+	^ 'mailto:stephane.ducasse@inria.fr'
 ]
 
 { #category : #texts }
@@ -303,6 +314,14 @@ StefSite >> newsText [
     </div>'
 ]
 
+{ #category : #menu }
+StefSite >> publicationMenuItem [
+	^ KZMenuItem new
+		name: 'Publications';
+		link: 'Publications.html';
+		yourself
+]
+
 { #category : #texts }
 StefSite >> researchText [
 
@@ -312,21 +331,20 @@ StefSite >> researchText [
 	'
 ]
 
+{ #category : #menu }
+StefSite >> resourcesMenuItem [
+	^ KZMenuItem new
+		name: 'Downloads/Resources';
+		link: 'Resources.html';
+		yourself
+]
+
 { #category : #elements }
 StefSite >> sectionAwardsAndIndexes [
 
 	| section | 
-	section := ARSection new title: 'Awards and Indexes'; text: self indexesText , ' ', self citeseerText,  (Character cr asString), self awardText.
+	section := KZSection new title: 'Awards and Indexes'; text: self indexesText , ' ', self citeseerText,  (Character cr asString), self awardText.
 	self declare: section withId: #secAwards.
-	^ section
-]
-
-{ #category : #elements }
-StefSite >> sectionCurrentJob [
-
-	| section | 
-	section := ARSection new title: 'Current responsibilities'; text: self currentJobText.
-	self declare: section withId: #secCurrentJob.
 	^ section
 ]
 
@@ -334,17 +352,8 @@ StefSite >> sectionCurrentJob [
 StefSite >> sectionLanguageDesign [
 
 	| section | 
-	section := ARSection new title: 'Language Design'; levelDigitString: '3'; text: 'I''m interested in revisiting foundational bricks of object-oriented languages such as encapsulation, reuse, message passing. Now I start to work on isolation and security in reflective object-oriented languages.'. 
+	section := KZSection new title: 'Language Design'; levelDigitString: '3'; text: 'I''m interested in revisiting foundational bricks of object-oriented languages such as encapsulation, reuse, message passing. Now I start to work on isolation and security in reflective object-oriented languages.'. 
 	self declare: section withId: #secLanguageDesign.
-	^ section
-]
-
-{ #category : #elements }
-StefSite >> sectionNews [
-
-	| section | 
-	section := ARSection new title: 'News'; text: self newsText. 
-	self declare: section withId: #secNews.
 	^ section
 ]
 
@@ -352,7 +361,7 @@ StefSite >> sectionNews [
 StefSite >> sectionResearch [
 
 	| section | 
-	section := ARSection new title: 'Research'; text: self researchText. 
+	section := KZSection new title: 'Research'; text: self researchText. 
 	self declare: section withId: #secResearch.
 	^ section
 ]
@@ -361,7 +370,7 @@ StefSite >> sectionResearch [
 StefSite >> sectionService [
 
 	| section | 
-	section := ARSection new title: 'Program Committees'; text: self serviceText. 
+	section := KZSection new title: 'Program Committees'; text: self serviceText. 
 	self declare: section withId: #secResearch.
 	^ section
 ]
@@ -370,7 +379,7 @@ StefSite >> sectionService [
 StefSite >> sectionSoftwareEvolution [
 
 	| section | 
-	section := ARSection new title: 'Maintenance and Software Evolution'; levelDigitString: '3'; text: 'I''m interested in all the aspects of software evolution and maintenance of large systems. I consulted for companies. Do not hesitate to contact me. I''m interested in your problems.' ; yourself. 
+	section := KZSection new title: 'Maintenance and Software Evolution'; levelDigitString: '3'; text: 'I''m interested in all the aspects of software evolution and maintenance of large systems. I consulted for companies. Do not hesitate to contact me. I''m interested in your problems.' ; yourself. 
 	self declare: section withId: #secMaintenance.
 	^ section
 ]
@@ -403,7 +412,7 @@ StefSite >> site [
 	
 	self createResearchSubTopicPages.
 	self welcomePage.
-	
+	self buildOtherPages.
 	
 	^ self.
 	
@@ -414,28 +423,24 @@ StefSite >> subtopicKey: file [
 	^ ('research' , file) asSymbol
 ]
 
+{ #category : #menu }
+StefSite >> teachingMenuItem [
+	^ KZMenuItem new
+		name: 'Lectures and Presentations';
+		link: 'Teaching.html';
+		yourself
+]
+
 { #category : #elements }
 StefSite >> welcomePage [
-	"self site"
-	"in the future the complete web site here"
-	
+
 	| welcomePage |
-	welcomePage := ARPage new.
-	welcomePage name: 'Home'.
+	welcomePage := KZPage new.
+	welcomePage name: self welcomeName.
 	welcomePage filename: 'index'.
 	self declarePage: welcomePage withId: #welcomePage.
-
 	welcomePage addElement: self menu.
 	welcomePage addElementInMain: self block.
-	welcomePage addElementInMain: self sectionCurrentJob.
-	welcomePage addElementInMain: self sectionAwardsAndIndexes.
-	welcomePage addElementInMain: self sectionNews.
-	welcomePage addElementInMain: self sectionResearch.
-	welcomePage addElementInMain: self sectionSoftwareEvolution.
-	welcomePage addElementInMain: self addSoftwareEvolutionNavigation.
-	welcomePage addElementInMain: self sectionLanguageDesign.
-	welcomePage addElementInMain: self addLanguageNavigation.
-	welcomePage addElementInMain: self sectionService.
+	self buildWelcomePageSectionsOn: welcomePage.
 	^ welcomePage
-	
 ]

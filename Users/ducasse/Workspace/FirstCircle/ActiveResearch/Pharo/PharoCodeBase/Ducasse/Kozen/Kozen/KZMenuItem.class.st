@@ -1,11 +1,11 @@
 Class {
-	#name : #ARMenuItem,
-	#superclass : #ARItem,
+	#name : #KZMenuItem,
+	#superclass : #KZItem,
 	#category : #Kozen
 }
 
 { #category : #'as yet unclassified' }
-ARMenuItem >> accept: aVisitor [
+KZMenuItem >> accept: aVisitor [
 
 	aVisitor visitMenuItem: self.
 
