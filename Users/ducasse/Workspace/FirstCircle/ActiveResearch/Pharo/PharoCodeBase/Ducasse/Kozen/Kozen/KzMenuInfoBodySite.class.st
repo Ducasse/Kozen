@@ -14,18 +14,6 @@ KzMenuInfoBodySite class >> generate [
 ]
 
 { #category : #accessing }
-KzMenuInfoBodySite >> bibBuilder [
-
-	^ bibBuilder
-]
-
-{ #category : #accessing }
-KzMenuInfoBodySite >> bibBuilder: aBuilder [
-
-	bibBuilder := aBuilder
-]
-
-{ #category : #accessing }
 KzMenuInfoBodySite >> block [
 	| block |
 	block := KZRightBlock new.
@@ -42,7 +30,7 @@ KzMenuInfoBodySite >> buildBlockBodyOn: block [
 	block addElement: self mailToBlockItem
 ]
 
-{ #category : #menu }
+{ #category : #'custom-points' }
 KzMenuInfoBodySite >> buildMenuBodyOn: menu [
 	"Subclasses can change the menu items simply by changing this method"
 
@@ -51,17 +39,17 @@ KzMenuInfoBodySite >> buildMenuBodyOn: menu [
 	menu addElement: self coordinatesMenuItem
 ]
 
-{ #category : #elements }
+{ #category : #'custom-points' }
 KzMenuInfoBodySite >> buildOtherPages [
 
 	
 ]
 
-{ #category : #elements }
+{ #category : #'custom-points' }
 KzMenuInfoBodySite >> buildWelcomePageSectionsOn: welcomePage [
 	welcomePage addElementInMain: self sectionCurrentJob.
 	welcomePage addElementInMain: self sectionNews.	
-	welcomePage addElementInMain: self sectionService
+	
 ]
 
 { #category : #menu }
@@ -72,18 +60,18 @@ KzMenuInfoBodySite >> coordinatesMenuItem [
 		yourself
 ]
 
-{ #category : #who }
+{ #category : #'custom-points-who' }
 KzMenuInfoBodySite >> cssFile [
 	^ 'CSS/stef.css'
 ]
 
-{ #category : #texts }
+{ #category : #'custom-points-who' }
 KzMenuInfoBodySite >> currentJobText [
 
 	^ 'I''m ZZZ and I have a lot of fun doing KKK .' 
 ]
 
-{ #category : #texts }
+{ #category : #'custom-points' }
 KzMenuInfoBodySite >> currentSectionTitle [
 	^ 'Current Situation'
 ]
@@ -96,7 +84,7 @@ KzMenuInfoBodySite >> defineInformationOfPage: welcomePage [
 	
 ]
 
-{ #category : #elements }
+{ #category : #'custom-points-who' }
 KzMenuInfoBodySite >> headerSiteTitle [
 
 	^ 'Ze great title'
@@ -118,15 +106,9 @@ KzMenuInfoBodySite >> imageItem [
 		yourself
 ]
 
-{ #category : #block }
+{ #category : #'custom-points' }
 KzMenuInfoBodySite >> imageName [
 	^ 'PictureToBeDisplayedIn128Pixels.jpg'
-]
-
-{ #category : #initialize }
-KzMenuInfoBodySite >> initialize [
-	super initialize.
-	bibBuilder := KZBibCollectionBuilder new author: '*Ducasse*'; loadBib: 'rmod.bib'.
 ]
 
 { #category : #block }
@@ -137,7 +119,7 @@ KzMenuInfoBodySite >> inriaBlockItem [
 		yourself
 ]
 
-{ #category : #elements }
+{ #category : #'custom-points-who' }
 KzMenuInfoBodySite >> mailText [
 	^ 'XXXX(@At@)YYYY.HHH'
 ]
@@ -150,7 +132,7 @@ KzMenuInfoBodySite >> mailToBlockItem [
 		yourself
 ]
 
-{ #category : #elements }
+{ #category : #'custom-points-who' }
 KzMenuInfoBodySite >> mailtoString [
 	^ 'mailto:real.address@foo.bar'
 ]
@@ -164,12 +146,12 @@ KzMenuInfoBodySite >> menu [
 	^ menu
 ]
 
-{ #category : #texts }
+{ #category : #'custom-points' }
 KzMenuInfoBodySite >> newsSectionTitle [
 	^ 'News'
 ]
 
-{ #category : #texts }
+{ #category : #'custom-points' }
 KzMenuInfoBodySite >> newsText [
 
 	^ '<div class="itemizedlist"> 
@@ -217,11 +199,10 @@ KzMenuInfoBodySite >> sectionNews [
 	^ section
 ]
 
-{ #category : #elements }
+{ #category : #'custom-points' }
 KzMenuInfoBodySite >> site [
 	"self site"
 	
-	self createResearchSubTopicPages.
 	self welcomePage.
 	self buildOtherPages.
 	
@@ -229,13 +210,13 @@ KzMenuInfoBodySite >> site [
 	
 ]
 
-{ #category : #who }
+{ #category : #'custom-points-who' }
 KzMenuInfoBodySite >> title [ 
 
 	^ 'Dr. St&eacute;phane Ducasse' 
 ]
 
-{ #category : #elements }
+{ #category : #'custom-points' }
 KzMenuInfoBodySite >> welcomeName [
 	^ 'Home'
 ]

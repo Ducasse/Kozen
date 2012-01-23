@@ -60,6 +60,18 @@ StefSite >> awardText [
 
 ]
 
+{ #category : #accessing }
+StefSite >> bibBuilder [
+
+	^ bibBuilder
+]
+
+{ #category : #accessing }
+StefSite >> bibBuilder: aBuilder [
+
+	bibBuilder := aBuilder
+]
+
 { #category : #menu }
 StefSite >> booksMenuItem [
 	^ KZMenuItem new
@@ -249,6 +261,12 @@ StefSite >> indexesText [
 
 ]
 
+{ #category : #initialize }
+StefSite >> initialize [
+	super initialize.
+	bibBuilder := KZBibCollectionBuilder new author: '*Ducasse*'; loadBib: 'rmod.bib'.
+]
+
 { #category : #texts }
 StefSite >> keywordsText [
 
@@ -411,6 +429,18 @@ StefSite >> serviceText [
 	</ul>
 	</div>
 '
+]
+
+{ #category : #elements }
+StefSite >> site [
+	"self site"
+	
+	self createResearchSubTopicPages.
+	self welcomePage.
+	self buildOtherPages.
+	
+	^ self.
+	
 ]
 
 { #category : #utils }
