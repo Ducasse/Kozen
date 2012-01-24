@@ -140,9 +140,7 @@ StefSite >> createResearchSubTopicPages [
 { #category : #utils }
 StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 	| page |
-	page := KZPage new.
-	page name: 'Research Topics'.
-	page filename: file.
+	page := KZPage name: 'Research Topics' filename: file.
 	self declarePage: page withId: (self subtopicKey: file).
 	page addElement: self menu.
 	page
@@ -429,18 +427,6 @@ StefSite >> serviceText [
 	</ul>
 	</div>
 '
-]
-
-{ #category : #elements }
-StefSite >> site [
-	"self site"
-	
-	self createResearchSubTopicPages.
-	self welcomePage.
-	self buildOtherPages.
-	
-	^ self.
-	
 ]
 
 { #category : #utils }
