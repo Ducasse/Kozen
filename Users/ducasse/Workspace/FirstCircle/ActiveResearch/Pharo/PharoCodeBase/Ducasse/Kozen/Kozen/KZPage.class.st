@@ -18,6 +18,12 @@ Class {
 	#category : #Kozen
 }
 
+{ #category : #'instance creation' }
+KZPage class >> name: aString filename: aFileName [
+
+	^ self new name: aString; filename: aFileName; yourself
+]
+
 { #category : #visiting }
 KZPage >> accept: aVisitor [
 

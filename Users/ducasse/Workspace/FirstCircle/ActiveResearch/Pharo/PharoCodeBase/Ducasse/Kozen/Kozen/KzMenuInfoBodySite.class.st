@@ -52,12 +52,64 @@ KzMenuInfoBodySite >> buildWelcomePageSectionsOn: welcomePage [
 	
 ]
 
+{ #category : #elements }
+KzMenuInfoBodySite >> coordinatesBody [
+
+	| section | 
+	section := KZSection new title: 'Snail Mail' ; text: self coordinatesText.
+	self declare: section withId: #secCoordinates.
+	^ section
+]
+
+{ #category : #elements }
+KzMenuInfoBodySite >> coordinatesFileName. [
+	^ 'Coordinates'
+]
+
 { #category : #menu }
 KzMenuInfoBodySite >> coordinatesMenuItem [
 	^ KZMenuItem new
 		name: 'Coordinates';
-		link: 'Coordinates.html';
+		link: self coordinatesFileName, '.html';
 		yourself
+]
+
+{ #category : #elements }
+KzMenuInfoBodySite >> coordinatesName [
+	"Returns the title of the coordinates page"
+	
+	^ 'Coordinates'
+]
+
+{ #category : #elements }
+KzMenuInfoBodySite >> coordinatesPage [
+	| coordinatePage |
+	coordinatePage := KZPage name: self coordinatesName filename: self coordinatesFileName.
+	self declarePage: coordinatePage withId: #coordinatesPage.
+	coordinatePage addElement: self menu.
+	coordinatePage addElementInMain: self block.
+	coordinatePage addElementInMain: self coordinatesBody.
+	^ coordinatePage
+]
+
+{ #category : #elements }
+KzMenuInfoBodySite >> coordinatesText [
+
+	^ 'Pay attention my snail mail address is not where my office is. If you want to 
+	visit me <A href="http://rmod.lille.inria.fr/">check that page</a>.
+	
+	Pay attention that you really put INRIA in the address. 
+	
+	<p>Address: <br>
+		INRIA - S. Ducasse, 40, avenue Halley, <br>
+		Parc Scientifique de la Haute Borne, <br>
+		Bat.A, Park Plaza <br
+		Villeneuve d''Ascq  59650 <br>
+		France <br>
+		Tel:33 (0)3 20 43 42 56<br>
+		Fax:33 (0)3 59 57 78 50<br>
+    </p>'
+
 ]
 
 { #category : #'custom-points-who' }
@@ -74,6 +126,14 @@ KzMenuInfoBodySite >> currentJobText [
 { #category : #'custom-points' }
 KzMenuInfoBodySite >> currentSectionTitle [
 	^ 'Current Situation'
+]
+
+{ #category : #operations }
+KzMenuInfoBodySite >> declarePage: aPage withId: aSymbol [
+
+	super declarePage: aPage withId: aSymbol.
+	self defineInformationOfPage: aPage.
+	
 ]
 
 { #category : #elements }
@@ -203,7 +263,9 @@ KzMenuInfoBodySite >> sectionNews [
 KzMenuInfoBodySite >> site [
 	"self site"
 	
+	self createResearchSubTopicPages.
 	self welcomePage.
+	self coordinatesPage.
 	self buildOtherPages.
 	
 	^ self.
@@ -224,10 +286,7 @@ KzMenuInfoBodySite >> welcomeName [
 { #category : #elements }
 KzMenuInfoBodySite >> welcomePage [
 	| welcomePage |
-	welcomePage := KZPage new.
-	welcomePage name: self welcomeName.
-	welcomePage filename: 'index'.
-	self defineInformationOfPage: welcomePage.
+	welcomePage := KZPage  name: self welcomeName filename: 'index'.
 	self declarePage: welcomePage withId: #welcomePage.
 	welcomePage addElement: self menu.
 	welcomePage addElementInMain: self block.
