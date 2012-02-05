@@ -199,7 +199,7 @@ StefSite >> defaultSiteSeer [
 StefSite >> editorialSubTopics [
 	^ #(
 		
-		#('Editor' 'Proceedings Editor ' 
+		#('Editor' 'Workshop Proceedings ' 
 		'Here are some of the proceedings of workshops and other activities I got over the year.' 
 		'*kzEditor*')
 		
