@@ -355,18 +355,6 @@ Several research teams proposed formal type systems for traits, showing the inte
 		#('Dependencies' 'Object Dependencies' 
 		'This work (done during my PhD) was looking at how to introduce kind of connector between objects by having first dependencies.' 
 		'*kzDependency*')
-		
-		#('Editor' 'Proceedings Editor ' 
-		'Here are some of the proceedings of workshops and other activities I got over the year.' 
-		'*kzEditor*')
-		
-		#('Teaching' 'Teaching and Educative Support' 
-		'I''m interested in how to teach computer sciences. I supervized Hilaire Fernandes on how computer sciences can support math teaching.' 
-		'*kzTeaching*')
-		
-		#('Vulgarisation' 'Computer Science Vulgarisation' 
-		'I wrote several articles around programming language topics for mass journals.' 
-		'*kzVulgarisation*')
 		)
 ]
 
