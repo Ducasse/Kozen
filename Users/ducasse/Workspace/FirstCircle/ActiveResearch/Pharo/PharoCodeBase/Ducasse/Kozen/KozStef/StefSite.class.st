@@ -16,10 +16,40 @@ Class {
 	#category : #KozStef
 }
 
+{ #category : #help }
+StefSite class >> bibEntriesWithoutKzAnnotation [
+	"self bibEntriesWithoutKzAnnotation"
+	
+	| bibset |
+	bibset := CZFileLoader  bibFromFileNamed: 'rmod.bib'.
+	bibset := bibset select: (CZFieldQuery named: #author checks: [:each | ('*Ducasse*') match: each]).
+	^ bibset reject: [:each | '*kz*' match: (each at: #keywords) value ].
+]
+
+{ #category : #help }
+StefSite class >> help [
+	"self help"
+	
+	| bibset |
+	bibset := CZFileLoader  bibFromFileNamed: 'rmod.bib'.
+	^ bibset select: [:each | '*kz*' match: (each at: #keywords) value ].
+]
+
 { #category : #initialization }
 StefSite class >> initialize [
 
 	CachedSiteSeer := true.
+]
+
+{ #category : #elements }
+StefSite >> addEditorialNavigation [
+
+	| list |
+	list := KZList new. 
+	self editorialSubTopics do: [:each |
+		list addElement: (KZItem new name: each second; link: each first, '.html')
+		].
+	^ list
 ]
 
 { #category : #elements }
@@ -102,6 +132,8 @@ StefSite >> buildWelcomePageSectionsOn: welcomePage [
 	welcomePage addElementInMain: self addSoftwareEvolutionNavigation.
 	welcomePage addElementInMain: self sectionLanguageDesign.
 	welcomePage addElementInMain: self addLanguageNavigation.
+	welcomePage addElementInMain: self sectionEditorial.
+	welcomePage addElementInMain: self addEditorialNavigation.
 	welcomePage addElementInMain: self sectionService
 ]
 
@@ -118,7 +150,7 @@ StefSite >> citeseerText [
 { #category : #utils }
 StefSite >> createResearchSubTopicPages [
 
-	self evolutionSubTopics
+	self evolutionSubTopics, self languageSubTopics, self editorialSubTopics
 		do: [ :each | 
 			self
 				createSubTopic: each first
@@ -127,14 +159,6 @@ StefSite >> createResearchSubTopicPages [
 				bibTag: each fourth.
 			each first ].
 		
-	self languageSubTopics
-		do: [ :each | 
-			self
-				createSubTopic: each first
-				title: each second
-				text: each third
-				bibTag: each fourth.
-			each first ]
 ]
 
 { #category : #utils }
@@ -172,6 +196,24 @@ StefSite >> defaultSiteSeer [
 ]
 
 { #category : #texts }
+StefSite >> editorialSubTopics [
+	^ #(
+		
+		#('Editor' 'Proceedings Editor ' 
+		'Here are some of the proceedings of workshops and other activities I got over the year.' 
+		'*kzEditor*')
+		
+		#('Teaching' 'Teaching and Educative Support' 
+		'I''m interested in how to teach computer sciences. I supervized Hilaire Fernandes on how computer sciences can support math teaching.' 
+		'*kzTeaching*')
+		
+		#('Vulgarisation' 'Computer Science Vulgarisation' 
+		'I wrote several articles around programming language topics for mass journals.' 
+		'*kzVulgarisation*')
+		)
+]
+
+{ #category : #texts }
 StefSite >> evolutionSubTopics [
 	^ #(#('Modularisation' 'Software remodularisation' 
 		'We explored various techniques to support software remodularisation and restructuring at different levels of granularity and with different objectives.'
@@ -182,15 +224,15 @@ StefSite >> evolutionSubTopics [
 		'*kzVisualization*')
 		
 		#('MetaModeling' 'Meta Modeling' 
-		'' 
+		'As a reflective programmer, I''m also expert in meta modelling.' 
 		'*kzMeta*')
 		
 		#('Merging' 'Supporting Merging' 
-		''
+		'During development, supporting merge activities is often ignored. I work with Veronica Uquillas-Gomez on merge support.'
 		 '*kzMerging*') 
 		
 		#('Cycle' 'Cycle and Layer Identification' 
-		'' 
+		'We explored how to help software engineers to take decisions related to cycles in large software systems.' 
 		'*kzCycle*')
 		
 		#('IDE' 'Integrated Software Developments' 
@@ -202,7 +244,7 @@ StefSite >> evolutionSubTopics [
 		'*kzMetric')
 		
 		#('Dynamic' 'Dynamic information and feature analysis' 
-		'' 
+		'We used runtime information to understand or verify runtime system aspects. We also used it to characterize features.' 
 		'*kzDynamicInformation*')
 		
 		#('Duplication' 'Identification of Duplicated Code' 
@@ -213,8 +255,8 @@ StefSite >> evolutionSubTopics [
 		'' 
 		'*kzTools*')
 		
-		#('Checking' 'Checking ' 
-		'' 
+		#('Checking' 'Rules Checking' 
+		'I''m really interested in using rules checking for building more robust software.' 
 		'*kzChecking*')
 		
 		#('Archi' 'Architecture Extraction and Validation ' 
@@ -299,17 +341,32 @@ Several research teams proposed formal type systems for traits, showing the inte
 		'*kzModule*')
 		
 		#('Web' 'Dynamic Web Development' 
-		'' 
+		'I helped people to publish their results on web programming. I do not consider these publications as my work but just a way to help other works to be documented and presented scientifically.' 
 		'*kzWeb*')
 		
-		#('Reflection' 'Reflective Programming' 
+		#('Reflection' 'Reflective Programming and Code Manipulation' 
 		'' 
 		'*kzReflection*')
 		
-		#('Varia' 'Components, Encapsulation and Others' 
-		'' 
+		#('Varia' 'Components, Encapsulation and Language Infrastructure Related Topics' 
+		'This section lists the works related to several aspects of object-oriented systems: proxies, serialization, encapsulation.' 
 		'*kzLanguageDesign*')
 		
+		#('Dependencies' 'Object Dependencies' 
+		'This work (done during my PhD) was looking at how to introduce kind of connector between objects by having first dependencies.' 
+		'*kzDependency*')
+		
+		#('Editor' 'Proceedings Editor ' 
+		'Here are some of the proceedings of workshops and other activities I got over the year.' 
+		'*kzEditor*')
+		
+		#('Teaching' 'Teaching and Educative Support' 
+		'I''m interested in how to teach computer sciences. I supervized Hilaire Fernandes on how computer sciences can support math teaching.' 
+		'*kzTeaching*')
+		
+		#('Vulgarisation' 'Computer Science Vulgarisation' 
+		'I wrote several articles around programming language topics for mass journals.' 
+		'*kzVulgarisation*')
 		)
 ]
 
@@ -368,6 +425,15 @@ StefSite >> sectionAwardsAndIndexes [
 	| section | 
 	section := KZSection new title: 'Awards and Indexes'; text: self indexesText , ' ', self citeseerText,  (Character cr asString), self awardText.
 	self declare: section withId: #secAwards.
+	^ section
+]
+
+{ #category : #elements }
+StefSite >> sectionEditorial [
+
+	| section | 
+	section := KZSection new title: 'Editorial, teaching and vulgarisation'; levelDigitString: '3'; text: ''. 
+	self declare: section withId: #secEditorial.
 	^ section
 ]
 
