@@ -296,16 +296,6 @@ KzMenuInfoBodySite class >> generate [
 	self new generate
 ]
 
-{ #category : #initialization }
-KzMenuInfoBodySite class >> installCSS [
-
-	| wk |
-	wk := FSFilesystem disk workingDirectory.
-	(wk / self cssDirectoryName) ensureDirectory.
-	(wk / self cssDirectoryName / self cssFilename) writeStreamDo: 
-		[:st | st nextPutAll: self class defaultCSS ]
-]
-
 { #category : #accessing }
 KzMenuInfoBodySite >> block [
 	| block |
@@ -460,7 +450,7 @@ KzMenuInfoBodySite >> defineInformationOfPage: welcomePage [
 
 { #category : #'custom-points' }
 KzMenuInfoBodySite >> generate [
-	
+	"Generate the directory for the CSS and the default CSS."
 	self installCSS.
 	super generate.
 ]
@@ -511,7 +501,11 @@ KzMenuInfoBodySite >> inriaBlockItem [
 { #category : #initialize }
 KzMenuInfoBodySite >> installCSS [
 
-
+	| wk |
+	wk := FSFilesystem disk workingDirectory.
+	(wk / self cssDirectoryName) ensureDirectory.
+	(wk / self cssDirectoryName / self cssFilename) writeStreamDo: 
+		[:st | st nextPutAll: self class defaultCSS ]
 ]
 
 { #category : #'custom-points-who' }
