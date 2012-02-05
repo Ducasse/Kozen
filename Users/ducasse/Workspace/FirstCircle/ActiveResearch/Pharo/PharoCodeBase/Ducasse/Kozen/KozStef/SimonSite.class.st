@@ -21,11 +21,6 @@ SimonSite >> buildWelcomePageSectionsOn: welcomePage [
 ]
 
 { #category : #'custom-points-who' }
-SimonSite >> cssFile [
-	^ 'CSS/stef.css'
-]
-
-{ #category : #'custom-points-who' }
 SimonSite >> currentJobText [
 
 	^ 'I''m post doc in the RMOD Team. I worked on Component Identification using dynamic information.' 
