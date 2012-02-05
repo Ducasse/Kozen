@@ -1,3 +1,8 @@
+"
+I'm responsible for building a web site like http://stephane.ducasse.free.fr
+
+I will generate a set of web page (to be customized by the users) as well as a CSS. 
+"
 Class {
 	#name : #KzMenuInfoBodySite,
 	#superclass : #KZSite,
