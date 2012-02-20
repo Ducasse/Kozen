@@ -1,3 +1,6 @@
+"
+A KZSite represents all the information for a site composed by pages. 
+"
 Class {
 	#name : #KZSite,
 	#superclass : #Object,
