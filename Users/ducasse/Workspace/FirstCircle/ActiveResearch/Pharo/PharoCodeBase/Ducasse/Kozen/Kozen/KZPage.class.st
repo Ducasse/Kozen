@@ -101,7 +101,7 @@ KZPage >> head [
 		<link rel="stylesheet" href="' , self cssFile
 		,
 			'"/>
-		<title>' , self defaultTitle
+		<title>' , self title
 		,
 			'</title>
    </head>'
