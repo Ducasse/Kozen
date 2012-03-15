@@ -1,5 +1,7 @@
 "
-StefSite generate
+StefSite new 
+	bibSetFromFile: 'rmod.bib';
+	generate
 "
 Class {
 	#name : #StefSite,
@@ -383,6 +385,13 @@ StefSite >> bibBuilder: aBuilder [
 	bibBuilder := aBuilder
 ]
 
+{ #category : #elements }
+StefSite >> bibSetFromFile: aFileName [
+
+	super bibSetFromFile: aFileName.
+	bibBuilder originalBibSet: bibSet.
+]
+
 { #category : #menu }
 StefSite >> booksMenuItem [
 	^ KZMenuItem new
@@ -587,7 +596,7 @@ StefSite >> initialize [
 	super initialize.
 	self cssDirectoryName: 'CSS'.
 	self cssFilename: 'Stef.css'.
-	bibBuilder := KZBibCollectionBuilder new author: '*Ducasse*'; loadBib: 'rmod.bib'.
+	bibBuilder := KZBibCollectionBuilder new author: '*Ducasse*'
 ]
 
 { #category : #texts }
