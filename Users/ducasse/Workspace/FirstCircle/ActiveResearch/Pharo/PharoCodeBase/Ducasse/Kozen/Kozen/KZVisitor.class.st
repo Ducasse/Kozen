@@ -5,7 +5,6 @@ Class {
 	#name : #KZVisitor,
 	#superclass : #Object,
 	#instVars : [
-		'site',
 		'stream'
 	],
 	#category : #Kozen
@@ -257,7 +256,12 @@ KZVisitor >> visitImage: aLinkedImage [
 { #category : #visit }
 KZVisitor >> visitItem: anItem [
 
-	self ensureTag: 'li' for: [:aStream | aStream nextPutAll: '<a href="', anItem link, '">', anItem name].
+	self ensureTag: 'li' for: [:aStream | 
+							aStream 
+								nextPutAll: '<a href="'; 
+								nextPutAll: anItem link;
+								nextPutAll: '">';
+								nextPutAll: anItem name].
 	stream cr.
 ]
 
@@ -334,8 +338,17 @@ KZVisitor >> visitRightBlockItem: anItem [
 { #category : #visit }
 KZVisitor >> visitSection: aSection [
 
-	stream nextPutAll:  '<h', aSection levelDigitString,'><b><a NAME="', aSection title, '">',  aSection title, '</a></b></h', aSection levelDigitString,'>'.
-	stream nextPutAll:  aSection text.
+	stream
+		nextPutAll:  '<h';
+		nextPutAll: aSection levelDigitString;
+		nextPutAll: '><b><a NAME="';
+		nextPutAll: aSection title;
+		nextPutAll: '">';
+		nextPutAll: aSection title;
+		nextPutAll: '</a></b></h';
+		nextPutAll: aSection levelDigitString;
+		nextPutAll: '>';
+		nextPutAll:  aSection text.
 ]
 
 { #category : #visit }

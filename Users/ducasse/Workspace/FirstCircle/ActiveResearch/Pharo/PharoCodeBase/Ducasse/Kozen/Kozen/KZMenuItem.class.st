@@ -4,7 +4,7 @@ Class {
 	#category : #Kozen
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #visitor }
 KZMenuItem >> accept: aVisitor [
 
 	aVisitor visitMenuItem: self.

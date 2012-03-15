@@ -16,19 +16,19 @@ Class {
 	#category : #Kozen
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #visiting }
 KZDivBlock >> accept: aVisitor [
 
 	aVisitor visitDivBlock: self.
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 KZDivBlock >> attribute [
 	^ attribute
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 KZDivBlock >> attribute: aString [
 	
 	attribute := aString

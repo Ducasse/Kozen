@@ -7,7 +7,6 @@ Class {
 	#instVars : [
 		'title',
 		'elements',
-		'head',
 		'name',
 		'main',
 		'site',
@@ -79,13 +78,11 @@ KZPage >> elements [
 
 { #category : #accessing }
 KZPage >> filename [
-	
-	|fn|
-	filename isNil 
-		ifTrue: [fn := name]
-		ifFalse: [fn := filename].
-	^ fn, '.html'.
-	
+	| fn |
+	fn := filename isNil
+		ifTrue: [ name ]
+		ifFalse: [ filename ].
+	^ fn , '.html'
 ]
 
 { #category : #accessing }

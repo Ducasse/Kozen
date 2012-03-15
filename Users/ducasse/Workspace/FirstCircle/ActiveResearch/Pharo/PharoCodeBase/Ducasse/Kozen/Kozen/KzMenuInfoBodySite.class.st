@@ -604,8 +604,6 @@ KzMenuInfoBodySite >> sectionNews [
 { #category : #'custom-points' }
 KzMenuInfoBodySite >> site [
 	"self site"
-	
-	self createResearchSubTopicPages.
 	self welcomePage.
 	self coordinatesPage.
 	self buildOtherPages.

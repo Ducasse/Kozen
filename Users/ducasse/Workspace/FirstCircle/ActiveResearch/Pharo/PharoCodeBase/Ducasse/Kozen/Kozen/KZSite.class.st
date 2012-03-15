@@ -6,8 +6,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'elements',
-		'pages',
-		'folder'
+		'pages'
 	],
 	#category : #Kozen
 }
@@ -54,6 +53,13 @@ KZSite >> initialize [
 { #category : #operations }
 KZSite >> pages [
 	^ pages
+]
+
+{ #category : #'as yet unclassified' }
+KZSite >> site [
+
+	self subclassResponsibility
+	
 ]
 
 { #category : #operations }
