@@ -1,79 +1,59 @@
 "
-Generate collection of bibitems based on tags.
+A builder to create collection of CZEntries wrapped into a Kozen structure. 
 "
 Class {
 	#name : #KZBibCollectionBuilder,
-	#superclass : #CZPersonalGenerator,
+	#superclass : #CZVisitor,
 	#instVars : [
 		'dispatchTag',
-		'outbibset',
 		'bibset',
-		'originalBibset',
-		'author2'
+		'author'
 	],
 	#category : #KoCizen
 }
 
-{ #category : #examples }
-KZBibCollectionBuilder class >> forStef [
-	"self forStef"
-	
-	^ self new 
-		author: '*Ducasse*';
-		loadBib: 'rmod.bib'.
-		
-		
-]
-
 { #category : #accessing }
 KZBibCollectionBuilder >> author [
-	"copy from above for now because I hate CZDocument and I do not like the superclass too"
-	
+
 	^ author ifNil: [ author := '*Ducasse*']
 ]
 
 { #category : #accessing }
 KZBibCollectionBuilder >> author: aString [
-	"copy from above for now because I hate CZDocument and I do not like the superclass too"
-	
+	"author argument should be in the form: '*Ducasse*' for example."
 	 author := aString
 ]
 
-{ #category : #operation }
+{ #category : #public }
 KZBibCollectionBuilder >> collectionBasedOnKozenTag: aTag [
-
+	"Return a KZ collection holding CZEntries having a given tag"
+	
 	^ KZBibCollection new elements: (self filterKozenTag: aTag); yourself
 	
 
 
 ]
 
-{ #category : #operation }
+{ #category : #private }
 KZBibCollectionBuilder >> filter: aQuery [
 	
 	^ (bibset entries select: [ :each | aQuery value: each])
 ]
 
-{ #category : #operation }
+{ #category : #private }
 KZBibCollectionBuilder >> filterKozenTag: aTag [
 
 	^ self filter:  (self queryForKozenTag: aTag).
 ]
 
-{ #category : #initialize }
+{ #category : #file }
 KZBibCollectionBuilder >> initializeBibSetFromPath: inputFile [
 	"self new createBibSetFromPath: 'rmod.bib'"
 	
-	bibset := originalBibset := CZFileLoader bibFromFileNamed: inputFile.
+	bibset  := CZFileLoader bibFromFileNamed: inputFile.
 ]
 
-{ #category : #operation }
-KZBibCollectionBuilder >> inputFileName:  inputFileString [
-
-	inputFileName := inputFileString
-]
-
-{ #category : #operation }
+{ #category : #file }
 KZBibCollectionBuilder >> loadBib: aString [
 
 	self initializeBibSetFromPath: aString.
@@ -82,28 +62,29 @@ KZBibCollectionBuilder >> loadBib: aString [
 ]
 
 { #category : #accessing }
-KZBibCollectionBuilder >> originalBibset [ 
-
-	^ originalBibset 
+KZBibCollectionBuilder >> originalBibSet: aCZSet [ 
+	
+	bibset := aCZSet.
+	self prepareForAuthor.
 ]
 
 { #category : #private }
 KZBibCollectionBuilder >> prepareForAuthor [
 	
-	bibset entries: (originalBibset entries select: self withAuthor).
+	bibset entries: (bibset entries select: self queryWithAuthor).
 	bibset entries: (bibset entries reject:  (CZFieldQuery 
 												named: #keywords 
 												checks: [ :value | '*insubmission*' match: value ])).
 	
 ]
 
-{ #category : #query }
+{ #category : #queries }
 KZBibCollectionBuilder >> queryForKozenTag: aTag [
 
 	^ CZFieldQuery named: #keywords checks: [ :value | aTag match: value ]
 ]
 
-{ #category : #query }
-KZBibCollectionBuilder >> withAuthor [
+{ #category : #queries }
+KZBibCollectionBuilder >> queryWithAuthor [
 	^ CZFieldQuery named: #author checks: [ :value | self author match: value ]
 ]
