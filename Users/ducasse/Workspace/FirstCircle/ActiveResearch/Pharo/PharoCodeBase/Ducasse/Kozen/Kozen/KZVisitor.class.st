@@ -230,8 +230,9 @@ KZVisitor >> visit: anElement [
 KZVisitor >> visitBibItemCollection: aBibItemCollection [
 	
 	self ensureTag: 'ol' for: [:aStream | 
-		KZBibHTMLOutputer  new 
-			treatEntries: aBibItemCollection elements in: aStream]
+		CZHTMLGenerator new 
+			outputStream: aStream;
+			visit: (CZSet new addAll: aBibItemCollection elements ; yourself)]
 		
 ]
 

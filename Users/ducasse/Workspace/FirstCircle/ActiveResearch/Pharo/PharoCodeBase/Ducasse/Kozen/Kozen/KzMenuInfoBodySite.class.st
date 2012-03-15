@@ -9,7 +9,8 @@ Class {
 	#instVars : [
 		'bibBuilder',
 		'cssDirectoryName',
-		'cssFilename'
+		'cssFilename',
+		'bibSet'
 	],
 	#category : #Kozen
 }
@@ -299,6 +300,13 @@ A:active {
 KzMenuInfoBodySite class >> generate [
 	"self generate"
 	self new generate
+]
+
+{ #category : #initialize }
+KzMenuInfoBodySite >> bibSetFromFile: inputFile [
+	"self new createBibSetFromPath: 'rmod.bib'"
+	
+	bibSet  := CZFileLoader bibFromFileNamed: inputFile.
 ]
 
 { #category : #accessing }
