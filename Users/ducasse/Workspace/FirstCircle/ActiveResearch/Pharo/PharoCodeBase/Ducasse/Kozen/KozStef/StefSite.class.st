@@ -775,6 +775,19 @@ StefSite >> serviceText [
 '
 ]
 
+{ #category : #elements }
+StefSite >> site [
+	"self site"
+	
+	self createResearchSubTopicPages.
+	self welcomePage.
+	self coordinatesPage.
+	self buildOtherPages.
+	
+	^ self
+	
+]
+
 { #category : #utils }
 StefSite >> subtopicKey: file [
 	^ ('research' , file) asSymbol
