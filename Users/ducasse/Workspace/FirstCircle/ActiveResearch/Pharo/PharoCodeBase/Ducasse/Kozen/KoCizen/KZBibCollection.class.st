@@ -10,13 +10,13 @@ Class {
 	#category : #KoCizen
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #visiting }
 KZBibCollection >> accept: aVisitor [
 
 	aVisitor visitBibItemCollection: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 KZBibCollection >> elements: aCol [
 
 	elements := aCol

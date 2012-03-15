@@ -5,7 +5,6 @@ Class {
 	#name : #KZBibCollectionBuilder,
 	#superclass : #CZVisitor,
 	#instVars : [
-		'dispatchTag',
 		'bibset',
 		'author'
 	],
