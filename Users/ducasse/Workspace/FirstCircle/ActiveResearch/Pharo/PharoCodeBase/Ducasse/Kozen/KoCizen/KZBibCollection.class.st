@@ -11,7 +11,7 @@ Class {
 }
 
 { #category : #visiting }
-KZBibCollection >> accept: aVisitor [
+KZBibCollection >> acceptVisitor: aVisitor [
 
 	aVisitor visitBibItemCollection: self
 ]
