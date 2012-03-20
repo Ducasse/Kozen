@@ -17,7 +17,7 @@ Class {
 }
 
 { #category : #visiting }
-KZDivBlock >> accept: aVisitor [
+KZDivBlock >> acceptVisitor: aVisitor [
 
 	aVisitor visitDivBlock: self.
 

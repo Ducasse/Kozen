@@ -607,7 +607,6 @@ KzMenuInfoBodySite >> site [
 	self welcomePage.
 	self coordinatesPage.
 	self buildOtherPages.
-	
 	^ self.
 	
 ]

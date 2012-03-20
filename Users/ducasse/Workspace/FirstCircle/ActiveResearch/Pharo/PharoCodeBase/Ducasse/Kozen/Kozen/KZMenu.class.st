@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #visit }
-KZMenu >> accept: aVisitor [
+KZMenu >> acceptVisitor: aVisitor [
 
 	aVisitor visitMenu: self.
 

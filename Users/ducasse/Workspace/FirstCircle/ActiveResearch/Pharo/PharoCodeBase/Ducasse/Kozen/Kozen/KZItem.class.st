@@ -9,7 +9,7 @@ Class {
 }
 
 { #category : #visit }
-KZItem >> accept: aVisitor [
+KZItem >> acceptVisitor: aVisitor [
 
 	aVisitor visitItem: self.
 ]

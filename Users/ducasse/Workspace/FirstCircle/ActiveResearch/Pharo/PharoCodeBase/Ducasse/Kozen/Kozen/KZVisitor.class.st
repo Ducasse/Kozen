@@ -222,7 +222,7 @@ KZVisitor >> tocItemEncodings [
 { #category : #visit }
 KZVisitor >> visit: anElement [
 
-	anElement accept: self
+	anElement acceptVisitor: self
 ]
 
 { #category : #visit }
@@ -235,12 +235,27 @@ KZVisitor >> visitBibItemCollection: aBibItemCollection [
 		
 ]
 
+{ #category : #'visit citezen' }
+KZVisitor >> visitBibSet: aCZSet [
+
+	self visitBibItemCollection: aCZSet entries.
+]
+
 { #category : #visit }
 KZVisitor >> visitDivBlock: aBlock [
 
 	self
 		ensureIdValue: self mainContentEncodings
 		div: [ aBlock elements do: [ :each | self visit: each ] separatedBy: [ stream cr ] ]
+]
+
+{ #category : #'visit citezen' }
+KZVisitor >> visitDoc: aCZDocument [
+
+	aCZDocument elements do: [:each |
+			CZHTMLGenerator new 
+				outputStream: stream;
+				visit: each]
 ]
 
 { #category : #visit }
@@ -295,7 +310,7 @@ KZVisitor >> visitMenu: aMenu [
 			self
 				ensureIdValue: self tocEncodings
 				div: [ aMenu elements do: [ :each | self visit: each ] 
-										separatedBy: [ stream cr ] ] ]
+											separatedBy: [ stream cr ] ] ]
 ]
 
 { #category : #visit }

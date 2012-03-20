@@ -24,7 +24,7 @@ KZPage class >> name: aString filename: aFileName [
 ]
 
 { #category : #visiting }
-KZPage >> accept: aVisitor [
+KZPage >> acceptVisitor: aVisitor [
 
 	aVisitor visitPage: self.
 

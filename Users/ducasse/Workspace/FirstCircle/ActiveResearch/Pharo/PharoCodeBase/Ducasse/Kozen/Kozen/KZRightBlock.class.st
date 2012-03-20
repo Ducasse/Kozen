@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #visit }
-KZRightBlock >> accept: aVisitor [
+KZRightBlock >> acceptVisitor: aVisitor [
 
 	aVisitor visitRightBlock: self.
 ]

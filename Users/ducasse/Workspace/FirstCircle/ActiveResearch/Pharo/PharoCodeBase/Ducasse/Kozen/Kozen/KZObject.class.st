@@ -9,7 +9,7 @@ Class {
 }
 
 { #category : #visiting }
-KZObject >> accept: aVisitor [
+KZObject >> acceptVisitor: aVisitor [
 	
 ]
 

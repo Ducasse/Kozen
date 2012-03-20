@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #visit }
-KZLinkedImage >> accept: aVisitor [
+KZLinkedImage >> acceptVisitor: aVisitor [
 
 	aVisitor visitLinkedImage: self
 ]

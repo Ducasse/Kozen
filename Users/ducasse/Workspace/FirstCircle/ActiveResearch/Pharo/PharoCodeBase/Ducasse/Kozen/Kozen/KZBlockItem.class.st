@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #visit }
-KZBlockItem >> accept: aVisitor [
+KZBlockItem >> acceptVisitor: aVisitor [
 
 	aVisitor visitRightBlockItem: self.
 

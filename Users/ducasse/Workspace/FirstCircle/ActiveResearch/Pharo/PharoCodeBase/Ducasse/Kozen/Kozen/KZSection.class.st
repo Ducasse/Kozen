@@ -10,7 +10,7 @@ Class {
 }
 
 { #category : #accessing }
-KZSection >> accept: aVisitor [
+KZSection >> acceptVisitor: aVisitor [
 
 	aVisitor visitSection: self
 ]

@@ -11,6 +11,12 @@ Class {
 	#category : #Kozen
 }
 
+{ #category : #visiting }
+KZSite >> acceptVisitor: aVisitor [
+
+	aVisitor visitSite: aVisitor
+]
+
 { #category : #initialize }
 KZSite >> addPage: aPage [
 
@@ -55,7 +61,7 @@ KZSite >> pages [
 	^ pages
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 KZSite >> site [
 
 	self subclassResponsibility

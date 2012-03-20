@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #visit }
-KZList >> accept: aVisitor [
+KZList >> acceptVisitor: aVisitor [
 
 	aVisitor visitItemList: self
 ]
