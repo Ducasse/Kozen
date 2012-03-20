@@ -362,6 +362,7 @@ StefSite >> awardText [
 
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
+	<li><li>Received a "Prime d''excellence scientifique" from INRIA (2012).</li>
 	<li>Distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
 	<li>Veronica Uquillas Gomez won the Benevol most promising young research Award (2011).</li>
 	<li>Mariano Martinez-Peck and Martin Diaz won for Fuel the 2011 ESUG Technology Award. </li>
@@ -682,6 +683,23 @@ StefSite >> publicationMenuItem [
 		yourself
 ]
 
+{ #category : #'as yet unclassified' }
+StefSite >> publicationPage [
+	| publicationPage doc |
+	publicationPage := KZPage  name: 'Publications' filename: 'Publications'.
+	self declarePage: publicationPage withId: #publicationPage.
+	publicationPage addElement: self menu.
+	publicationPage addElementInMain: self block.
+	
+	"right now we parse two times the bib should be moved to the initialize."
+	doc := StefPublicationsDocBuilder new
+		bibset: bibSet;
+		setFilteringOn.
+	publicationPage
+		addElementInMain: doc build document.
+	^ publicationPage
+]
+
 { #category : #texts }
 StefSite >> researchText [
 
@@ -783,7 +801,7 @@ StefSite >> site [
 	self welcomePage.
 	self coordinatesPage.
 	self buildOtherPages.
-	
+	self publicationPage. "to be moved higher in the future"
 	^ self
 	
 ]
