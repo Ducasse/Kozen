@@ -362,7 +362,7 @@ StefSite >> awardText [
 
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
-	<li><li>Received a "Prime d''excellence scientifique" from INRIA (2012).</li>
+	<li>Received a "Prime d''excellence scientifique" from INRIA (2012).</li>
 	<li>Distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
 	<li>Veronica Uquillas Gomez won the Benevol most promising young research Award (2011).</li>
 	<li>Mariano Martinez-Peck and Martin Diaz won for Fuel the 2011 ESUG Technology Award. </li>
