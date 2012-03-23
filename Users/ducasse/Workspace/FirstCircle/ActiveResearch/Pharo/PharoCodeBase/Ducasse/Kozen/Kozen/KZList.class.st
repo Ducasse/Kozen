@@ -1,3 +1,6 @@
+"
+A KZList is sequence of more elements
+"
 Class {
 	#name : #KZList,
 	#superclass : #KZObject,

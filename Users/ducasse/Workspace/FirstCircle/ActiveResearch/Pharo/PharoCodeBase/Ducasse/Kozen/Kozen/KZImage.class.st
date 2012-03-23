@@ -1,3 +1,6 @@
+"
+A KZImage is a simple image
+"
 Class {
 	#name : #KZImage,
 	#superclass : #KZObject,

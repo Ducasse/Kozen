@@ -1,3 +1,6 @@
+"
+A KZRightBlock is kind of navigation bar
+"
 Class {
 	#name : #KZRightBlock,
 	#superclass : #KZList,

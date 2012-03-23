@@ -1,3 +1,7 @@
+"
+A KZLinkedImage is an image associated with a link.
+
+"
 Class {
 	#name : #KZLinkedImage,
 	#superclass : #KZImage,

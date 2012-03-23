@@ -1,3 +1,6 @@
+"
+A KZSection is a section with a title and a level
+"
 Class {
 	#name : #KZSection,
 	#superclass : #KZList,

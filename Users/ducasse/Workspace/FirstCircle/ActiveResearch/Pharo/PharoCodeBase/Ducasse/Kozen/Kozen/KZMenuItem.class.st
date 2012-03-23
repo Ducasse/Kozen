@@ -1,3 +1,6 @@
+"
+A KZMenuItem is item for menu navigation
+"
 Class {
 	#name : #KZMenuItem,
 	#superclass : #KZItem,

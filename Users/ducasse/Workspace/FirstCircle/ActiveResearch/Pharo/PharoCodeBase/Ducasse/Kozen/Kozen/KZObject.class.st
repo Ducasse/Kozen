@@ -1,3 +1,6 @@
+"
+A KZObject is the root of Kozen object : objects that models a web site.
+"
 Class {
 	#name : #KZObject,
 	#superclass : #Object,

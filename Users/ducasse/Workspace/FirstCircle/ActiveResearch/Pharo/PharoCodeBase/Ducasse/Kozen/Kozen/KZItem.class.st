@@ -1,3 +1,6 @@
+"
+A KZItem is item of menu or menu like list.
+"
 Class {
 	#name : #KZItem,
 	#superclass : #KZObject,

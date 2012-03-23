@@ -1,3 +1,6 @@
+"
+A KZMenu is menu holdeing several menu items
+"
 Class {
 	#name : #KZMenu,
 	#superclass : #KZList,
