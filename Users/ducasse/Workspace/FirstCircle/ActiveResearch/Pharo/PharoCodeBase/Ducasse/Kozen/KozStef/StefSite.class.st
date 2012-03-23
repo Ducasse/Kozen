@@ -675,29 +675,18 @@ StefSite >> newsText [
     </div>'
 ]
 
+{ #category : #publications }
+StefSite >> publicationBuilderClass [ 
+
+	^ StefPublicationsDocBuilder 
+]
+
 { #category : #menu }
 StefSite >> publicationMenuItem [
 	^ KZMenuItem new
 		name: 'Publications';
 		link: 'Publications.html';
 		yourself
-]
-
-{ #category : #'as yet unclassified' }
-StefSite >> publicationPage [
-	| publicationPage doc |
-	publicationPage := KZPage  name: 'Publications' filename: 'Publications'.
-	self declarePage: publicationPage withId: #publicationPage.
-	publicationPage addElement: self menu.
-	publicationPage addElementInMain: self block.
-	
-	"right now we parse two times the bib should be moved to the initialize."
-	doc := StefPublicationsDocBuilder new
-		bibset: bibSet;
-		setFilteringOn.
-	publicationPage
-		addElementInMain: doc build document.
-	^ publicationPage
 ]
 
 { #category : #texts }
@@ -798,10 +787,7 @@ StefSite >> site [
 	"self site"
 	
 	self createResearchSubTopicPages.
-	self welcomePage.
-	self coordinatesPage.
-	self buildOtherPages.
-	self publicationPage. "to be moved higher in the future"
+	super site.
 	^ self
 	
 ]
