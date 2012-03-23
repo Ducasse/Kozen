@@ -573,6 +573,27 @@ KzMenuInfoBodySite >> pharoMenuItem [
 		yourself
 ]
 
+{ #category : #publications }
+KzMenuInfoBodySite >> publicationBuilderClass [
+	
+	^ CZSingleAuthorDocBuilder
+]
+
+{ #category : #publications }
+KzMenuInfoBodySite >> publicationPage [
+	| publicationPage doc |
+	publicationPage := KZPage  name: 'Publications' filename: 'Publications'.
+	self declarePage: publicationPage withId: #publicationPage.
+	publicationPage addElement: self menu.
+	publicationPage addElementInMain: self block.
+	
+	doc := self publicationBuilderClass new
+				bibset: bibSet;
+				setFilteringOn.
+	publicationPage addElementInMain: doc build document.
+	^ publicationPage
+]
+
 { #category : #block }
 KzMenuInfoBodySite >> rmodBlockItem [
 	^ KZBlockItem new
@@ -604,10 +625,12 @@ KzMenuInfoBodySite >> sectionNews [
 { #category : #'custom-points' }
 KzMenuInfoBodySite >> site [
 	"self site"
+	
 	self welcomePage.
 	self coordinatesPage.
 	self buildOtherPages.
-	^ self.
+	self publicationPage. 
+	^ self
 	
 ]
 
