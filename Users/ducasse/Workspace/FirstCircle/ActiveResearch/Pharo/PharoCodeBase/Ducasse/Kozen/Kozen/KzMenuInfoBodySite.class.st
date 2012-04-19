@@ -515,7 +515,7 @@ KzMenuInfoBodySite >> inriaBlockItem [
 KzMenuInfoBodySite >> installCSS [
 
 	| wk |
-	wk := FSFilesystem disk workingDirectory.
+	wk := FileSystem disk workingDirectory.
 	(wk / self cssDirectoryName) ensureDirectory.
 	(wk / self cssDirectoryName / self cssFilename) writeStreamDo: 
 		[:st | st nextPutAll: self class defaultCSS ]
