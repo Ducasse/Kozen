@@ -302,6 +302,18 @@ KzMenuInfoBodySite class >> generate [
 	self new generate
 ]
 
+{ #category : #'as yet unclassified' }
+KzMenuInfoBodySite >> bibBuilder [
+
+	^ bibBuilder
+]
+
+{ #category : #'as yet unclassified' }
+KzMenuInfoBodySite >> bibBuilder: aBuilder [
+
+	bibBuilder := aBuilder
+]
+
 { #category : #initialize }
 KzMenuInfoBodySite >> bibSetFromFile: inputFile [
 	"self new createBibSetFromPath: 'rmod.bib'"

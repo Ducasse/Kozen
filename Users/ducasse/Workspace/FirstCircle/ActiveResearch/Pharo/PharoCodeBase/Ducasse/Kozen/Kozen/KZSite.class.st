@@ -17,12 +17,6 @@ KZSite >> acceptVisitor: aVisitor [
 	aVisitor visitSite: aVisitor
 ]
 
-{ #category : #initialize }
-KZSite >> addPage: aPage [
-
-	pages add: aPage
-]
-
 { #category : #operations }
 KZSite >> declare: anElement withId: anID [
 	"Declare the element with a given id so that we can link back to it"
