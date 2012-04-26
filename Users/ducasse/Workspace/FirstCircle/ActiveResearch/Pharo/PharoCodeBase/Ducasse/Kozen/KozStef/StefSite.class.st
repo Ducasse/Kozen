@@ -28,7 +28,7 @@ StefSite class >> bibEntriesWithoutKzAnnotation [
 	^ bibset reject: [:each | '*kz*' match: (each at: #keywords) value ].
 ]
 
-{ #category : #initialization }
+{ #category : #initialize }
 StefSite class >> defaultCSS [
 
  	^ 'body{
@@ -318,7 +318,7 @@ StefSite class >> help [
 	^ bibset select: [:each | '*kz*' match: (each at: #keywords) value ].
 ]
 
-{ #category : #initialization }
+{ #category : #initialize }
 StefSite class >> initialize [
 
 	CachedSiteSeer := true.
@@ -372,18 +372,6 @@ StefSite >> awardText [
 	  <li> <a href="http://rmod.lille.inria.fr/botsinc/pier">Learning Programming with Robots</a> received the Award of PCPlus magazine of September 2005 and the Bitwise Recommended Award in February 2006.
 	  </ul>'
 
-]
-
-{ #category : #accessing }
-StefSite >> bibBuilder [
-
-	^ bibBuilder
-]
-
-{ #category : #accessing }
-StefSite >> bibBuilder: aBuilder [
-
-	bibBuilder := aBuilder
 ]
 
 { #category : #elements }
