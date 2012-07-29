@@ -2,6 +2,8 @@
 StefSite new 
 	bibSetFromFile: 'rmod.bib';
 	generate
+	
+Right now the bibfile is not automatically generated (probably because it is in a footer of the xhtml page and as such not a visitable element that would be special and kick in the bib generation)
 "
 Class {
 	#name : #StefSite,
