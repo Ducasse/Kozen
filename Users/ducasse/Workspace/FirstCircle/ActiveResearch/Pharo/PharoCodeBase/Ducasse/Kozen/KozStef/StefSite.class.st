@@ -425,7 +425,7 @@ StefSite >> citeseerText [
 	cite := CachedSiteSeer 
 				ifTrue: [self defaultSiteSeer]
 				ifFalse: [(Citeseer rankOf: 'S. Ducasse')].
-	^ 'According to <a href="http://citeseerx.ist.psu.edu/stats/authors">CiteSeer</a>, I''m at rank ', cite asString, ' of most cited computer scientists.'.  
+	^ 'According to <a href="http://citeseerx.ist.psu.edu/stats/authors">CiteSeer</a>, I''m at rank ', cite asString, ' of most cited computer scientists. I do not think that this is of important but people like numbers. All these numbers are just numbers, I try to publish the best results and ideas I have with my co-workers.'.  
 ]
 
 { #category : #utils }
@@ -578,7 +578,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'According to google scholar my h-index is 41 and my g-index is 70 - Maximum Cites: 343.'
+	^ 'According to google scholar my h-index is 42 and my g-index is 70 - Maximum Cites: 343.'
 
 ]
 
@@ -656,9 +656,9 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
-		<li>I was general chair of <a href="http://www.esug.org/wiki/pier/Conferences/2011"> ESUG 2011</a>. </li>
+		<li>I was general chair of <a href="http://www.esug.org/wiki/pier/Conferences/2012"> ESUG 2012</a>. </li>
 		<li>We got a new associated team named Plomo with Pleiad of University of Chile at Santiago.</li>
-	  <li>We are setting up an INRIA consortium with industrial partners around <a href="http://www.pharo-project.org">Pharo</a>. Pharo 1.3 is out and 1.4 is in alpha.</li>
+	  <li>We are setting up an INRIA consortium with industrial partners around <a href="http://www.pharo-project.org">Pharo</a>. Pharo 1.4 is out and 2.0 is in alpha.</li>
 	  <li><a href="http://www.pharo-project.org/pharobyexample/">Pharo By Example</a> is free and out (in spanish, french, english and  japanese)!</li>
 	 <li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a software analysis meta-described platform that allows one to understand and analyze object-oriented applications developed in Smalltalk, Java or C++. Moose 4.3 is out.</li>
 	  </ul>
@@ -753,7 +753,7 @@ StefSite >> sectionSoftwareEvolution [
 { #category : #texts }
 StefSite >> serviceText [
 
-	^ ' Here are some of the international conferences I was PC member. Now with my new responsibilities I decline more often committees participation. 
+	^ ' Here are some of the international conferences I was PC member. Now with my new responsibilities I decline more often committees participation. I declined for ECOOP 2012, for OOPSLA 2006 and PLDI 2007. 
 	<div class="itemizedlist"> 
       <ul type="disc">
 	 <li> European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
