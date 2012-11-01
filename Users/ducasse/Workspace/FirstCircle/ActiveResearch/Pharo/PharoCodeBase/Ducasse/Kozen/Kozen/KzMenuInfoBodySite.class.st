@@ -432,7 +432,7 @@ KzMenuInfoBodySite >> cssDirectoryName: aString [
 
 { #category : #'custom-points-who' }
 KzMenuInfoBodySite >> cssFile [
-	^ self cssDirectoryName, FileDirectory slash, self cssFilename
+	^ self cssDirectoryName, FileSystem disk separator asString , self cssFilename
 ]
 
 { #category : #accessing }
