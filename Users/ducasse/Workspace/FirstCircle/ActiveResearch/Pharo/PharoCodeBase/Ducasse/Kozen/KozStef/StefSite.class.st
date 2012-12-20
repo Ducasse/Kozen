@@ -364,7 +364,7 @@ StefSite >> awardText [
 
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
-      <li>Since December 2012, I was promoted Directeur scientififque premiere classe. </li>
+      <li>Since December 2012, I was promoted Directeur de Recherche de première classe. </li>
 	<li>I received a "Prime d''excellence scientifique" from INRIA (2012).</li>
 	<li>I distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
 	<li>Veronica Uquillas Gomez won the Benevol most promising young research Award (2011).</li>
