@@ -7,7 +7,7 @@ Right now the bibfile is not automatically generated (probably because it is in 
 "
 Class {
 	#name : #StefSite,
-	#superclass : #KzMenuInfoBodySite,
+	#superclass : #SmartPublicationSite,
 	#classVars : [
 		'CachedSiteSeer'
 	],
@@ -430,20 +430,6 @@ StefSite >> citeseerText [
 ]
 
 { #category : #utils }
-StefSite >> createResearchSubTopicPages [
-
-	self evolutionSubTopics, self languageSubTopics, self editorialSubTopics
-		do: [ :each | 
-			self
-				createSubTopic: each first
-				title: each second
-				text: each third
-				bibTag: each fourth.
-			each first ].
-		
-]
-
-{ #category : #utils }
 StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 	| page |
 	page := KZPage name: 'Research Topics' filename: file.
@@ -477,7 +463,7 @@ StefSite >> defaultSiteSeer [
 	^ 3194
 ]
 
-{ #category : #texts }
+{ #category : #topics }
 StefSite >> editorialSubTopics [
 	^ #(
 		
@@ -495,7 +481,7 @@ StefSite >> editorialSubTopics [
 		)
 ]
 
-{ #category : #texts }
+{ #category : #topics }
 StefSite >> evolutionSubTopics [
 	^ #(#('Modularisation' 'Software remodularisation' 
 		'We explored various techniques to support software remodularisation and restructuring at different levels of granularity and with different objectives.'
@@ -579,7 +565,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'According to google scholar my h-index is 42 and my g-index is 70 - Maximum Cites: 343.'
+	^ 'According to google scholar my h-index is 42 and my g-index is 70 - Maximum Cites: 343. I do not think that this is of important. All these numbers are just numbers. I try to publish the best results  I have with my co-workers and thank them for their energy.'
 
 ]
 
@@ -598,7 +584,7 @@ StefSite >> keywordsText [
 
 ]
 
-{ #category : #texts }
+{ #category : #topics }
 StefSite >> languageSubTopics [
 	^ #(
 	
@@ -701,7 +687,9 @@ StefSite >> resourcesMenuItem [
 StefSite >> sectionAwardsAndIndexes [
 
 	| section | 
-	section := KZSection new title: 'Awards and Indexes'; text: self indexesText , ' ', self citeseerText,  (Character cr asString), self awardText.
+	section := KZSection new title: 'Awards and Indexes'; 
+		text: self indexesText , ' ',  
+			(Character cr asString), self awardText.
 	self declare: section withId: #secAwards.
 	^ section
 ]
@@ -773,19 +761,11 @@ StefSite >> serviceText [
 '
 ]
 
-{ #category : #elements }
-StefSite >> site [
-	"self site"
-	
-	self createResearchSubTopicPages.
-	super site.
-	^ self
-	
-]
+{ #category : #subtopics }
+StefSite >> subtopics [
 
-{ #category : #utils }
-StefSite >> subtopicKey: file [
-	^ ('research' , file) asSymbol
+	^ self evolutionSubTopics, self languageSubTopics, self editorialSubTopics
+		
 ]
 
 { #category : #menu }
