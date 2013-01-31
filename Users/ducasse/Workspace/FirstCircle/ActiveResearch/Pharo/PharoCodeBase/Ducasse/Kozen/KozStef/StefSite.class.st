@@ -742,7 +742,7 @@ StefSite >> sectionSoftwareEvolution [
 { #category : #texts }
 StefSite >> serviceText [
 
-	^ ' Here are some of the international conferences I was PC member. Now with my new responsibilities I decline more often committees participation. I declined for ECOOP 2012, for OOPSLA 2006 and PLDI 2007. 
+	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committees participation. I declined for ICSE 2013, ECOOP 2012, PLDI 2007 and OOPSLA 2006. 
 	<div class="itemizedlist"> 
       <ul type="disc">
 	 <li> European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
