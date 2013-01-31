@@ -302,13 +302,13 @@ KzMenuInfoBodySite class >> generate [
 	self new generate
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 KzMenuInfoBodySite >> bibBuilder [
 
 	^ bibBuilder
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 KzMenuInfoBodySite >> bibBuilder: aBuilder [
 
 	bibBuilder := aBuilder
