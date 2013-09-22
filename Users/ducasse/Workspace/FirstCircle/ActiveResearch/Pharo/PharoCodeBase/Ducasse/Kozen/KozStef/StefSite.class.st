@@ -365,6 +365,7 @@ StefSite >> awardText [
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
       <li>Since December 2012, I was promoted first class Directeur de Recherche. </li>
+<li>Guillermo Polito won for OZ the 2013 ESUG Technology Award. </li>
 	<li>I received a "Prime d''excellence scientifique" from INRIA (2012).</li>
 	<li>I distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
 	<li>Veronica Uquillas Gomez won the Benevol most promising young research Award (2011).</li>
@@ -449,7 +450,7 @@ StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 { #category : #texts }
 StefSite >> currentJobText [
 
-	^ 'Since June 2011, I''m scientific officer of  <a HREF="http://www.inria.fr/centre-de-recherche-inria/lille-nord-europe">INRIA Lille Nord Europe research center</a>. Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>. I was the leader of the <A HREF="http://www.iam.unibe.ch/~scg/Research/Recast/index.html">RECAST Project</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. Here is a short <a HREF="2011-CV.pdf">CV</a>.' 
+	^ 'Since June 2011, I''m scientific officer of  <a HREF="http://www.inria.fr/centre-de-recherche-inria/lille-nord-europe">INRIA Lille Nord Europe research center</a>. Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. I co-founded <a HREF="http://www.synectique.eu/">Synectique</a>, a company that offers specific tools for Software analysis.  I''m one of the leader of <a HREF=''http://www.pharo.org''>Pharo</a>: a new exciting dynamic language. Here is a short <a HREF="2011-CV.pdf">CV</a>.' 
 ]
 
 { #category : #texts }
@@ -565,7 +566,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'According to google scholar my h-index is 42 and my g-index is 70 - Maximum Cites: 343. I do not think that this is of important. All these numbers are just numbers. I try to publish the best results  I have with my co-workers and thank them for their energy.'
+	^ 'According to google scholar my h-index is 46 - Maximum Cites: 8031. I do not think that this is of important. All these numbers are just numbers. I try to publish the best results  I have with my co-workers and thank them for their energy.'
 
 ]
 
@@ -643,11 +644,12 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
-		<li>I was general chair of <a href="http://www.esug.org/wiki/pier/Conferences/2012"> ESUG 2012</a>. </li>
-		<li>We got a new associated team named Plomo with Pleiad of University of Chile at Santiago.</li>
-	  <li>We are setting up an INRIA consortium with industrial partners around <a href="http://www.pharo-project.org">Pharo</a>. Pharo 1.4 is out and 2.0 is in alpha.</li>
+<li><a href="http://rmod.lille.inria.fr/pbe2/">Deep into Pharo</a> is free and available after four years of work!</li>
+		<li>I was general chair of <a href="http://www.esug.org/wiki/pier/Conferences/2013"> ESUG 2013</a>. </li>
+		<li>We got an associated team named Plomo with Pleiad of University of Chile at Santiago.</li>
+	  <li>We are setting up an INRIA consortium with industrial partners around <a href="http://www.pharo-project.org">Pharo</a>. Pharo 2.0 is out and 3.0 is in alpha.</li>
 	  <li><a href="http://www.pharo-project.org/pharobyexample/">Pharo By Example</a> is free and out (in spanish, french, english and  japanese)!</li>
-	 <li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a software analysis meta-described platform that allows one to understand and analyze object-oriented applications developed in Smalltalk, Java or C++. Moose 4.3 is out.</li>
+	 <li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a data and software analysis meta-described platform. Moose 4.8 is out.</li>
 	  </ul>
     </div>'
 ]
@@ -742,7 +744,7 @@ StefSite >> sectionSoftwareEvolution [
 { #category : #texts }
 StefSite >> serviceText [
 
-	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committees participation. I declined for ICSE 2013, ECOOP 2012, PLDI 2007 and OOPSLA 2006. 
+	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committee participation. I declined for ICSE 2013, ECOOP 2013, ECOOP 2014, PLDI 2007 and OOPSLA 2006. 
 	<div class="itemizedlist"> 
       <ul type="disc">
 	 <li> European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
