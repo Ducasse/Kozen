@@ -7,6 +7,13 @@ Class {
 { #category : #subtopics }
 SmartPublicationSite >> createResearchSubTopicPages [
 
+	"Here is an example of the format used to characterize a topics:
+	#(
+		#('Classbox' 'Scoping class extensions: Classboxes' 
+		'Some languages such as Objective-C, Ruby, Python, Smalltalk can define methods in package while their classes is defined in other packages. This allows one to build powerful layers and extend classes. But this poses the questions of the semantics of such constructs. Classboxes is an experimental solution that scope them dynamically and propose a flat view of the world from the extending package perspective.' 
+		'*kzClassbox*')	
+		)"
+
 	self subtopics 
 		do: [ :each | 
 			self
@@ -34,18 +41,6 @@ SmartPublicationSite >> createSubTopic: file title: name text: text bibTag: bibT
 	^ page
 ]
 
-{ #category : #subtopics }
-SmartPublicationSite >> languageSubTopics [
-
-	^ #(
-	
-		#('Classbox' 'Scoping class extensions: Classboxes' 
-		'Some languages such as Objective-C, Ruby, Python, Smalltalk can define methods in package while their classes is defined in other packages. This allows one to build powerful layers and extend classes. But this poses the questions of the semantics of such constructs. Classboxes is an experimental solution that scope them dynamically and propose a flat view of the world from the extending package perspective.' 
-		'*kzClassbox*')
-			
-		)
-]
-
 { #category : #'custom-points' }
 SmartPublicationSite >> site [
 	"self site"
@@ -63,8 +58,15 @@ SmartPublicationSite >> subtopicKey: file [
 
 { #category : #subtopics }
 SmartPublicationSite >> subtopics [
+	"Hook method, should return a similar structure. Here is an example."
 
-	^ self languageSubTopics
+	^  #(
+	
+		#('Classbox' 'Scoping class extensions: Classboxes' 
+		'Some languages such as Objective-C, Ruby, Python, Smalltalk can define methods in package while their classes is defined in other packages. This allows one to build powerful layers and extend classes. But this poses the questions of the semantics of such constructs. Classboxes is an experimental solution that scope them dynamically and propose a flat view of the world from the extending package perspective.' 
+		'*kzClassbox*')
+			
+		)
 ]
 
 { #category : #elements }
