@@ -529,7 +529,7 @@ KzMenuInfoBodySite >> installCSS [
 
 	| wk |
 	wk := FileSystem disk workingDirectory.
-	(wk / self cssDirectoryName) ensureDirectory.
+	(wk / self cssDirectoryName) ensureCreateDirectory.
 	(wk / self cssDirectoryName / self cssFilename) writeStreamDo: 
 		[:st | st nextPutAll: self class defaultCSS ]
 ]
