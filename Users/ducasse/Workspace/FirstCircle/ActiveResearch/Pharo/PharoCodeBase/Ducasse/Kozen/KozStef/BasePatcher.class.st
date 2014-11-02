@@ -1,18 +1,22 @@
 "
 I'm responsible to expand 
 
-<base href=""$basehref"" /> into
+-BASE- into
 
-<base href=""http://sdmeta.gforge.inria.fr/"" />
-
-BasePatcher new 
-	contentsOf: (FileSystem workingDirectory / 'Books.html');
-	hasBaseVariable2  
+<base href=""http://sdmeta.gforge.inria.fr/"" />	
 	
 BasePatcher new 
 	streamOf: (FileSystem workingDirectory / 'Books.html');
 	linesDo
 
+
+The following expressions show that there is a different between a string stored inside a method and a stream from file. No idea why.
+
+BasePatcher new 
+	contentsOf: (FileSystem workingDirectory / 'Books.html');
+	tryingContents  
+	
+BasePatcher new trying	
 "
 Class {
 	#name : #BasePatcher,
@@ -73,6 +77,21 @@ BasePatcher >> initialize [
 
 { #category : #lines }
 BasePatcher >> linesDo [
+
+	[stream atEnd] whileFalse: 
+		[ | line |
+		line := stream upTo: Character cr.
+		Transcript show: '.' ; cr. 
+		('*-BASE-*' match: line)
+			ifTrue: [ Transcript show: '<base>http://sdmeta.gforge.inria.fr</base>';cr ].
+		(self hasEndHead: line)
+			ifTrue: [ ^self ] 
+		 ]
+	
+]
+
+{ #category : #lines }
+BasePatcher >> linesDo2 [
 
 	[stream atEnd] whileFalse: 
 		[ | line |
@@ -283,7 +302,7 @@ href="http://www.iam.unibe.ch/~ducasse/Programmez/OnTheWeb/SUnitEnglish2.pdf">
 BasePatcher >> streamOf: aFileSystemFile [
 	"self new contentsOf: (FileSystem workingDirectory / 'Books.html') "
 	stream := aFileSystemFile readStream 
-					converter: Latin1TextConverter new; yourself.
+					"converter: Latin1TextConverter new; yourself."
 					
 ]
 
@@ -298,7 +317,7 @@ BasePatcher >> trying [
 
 { #category : #trying }
 BasePatcher >> tryingContents [
-	"self new tryings"
+	"self new tryingContents"
 	
 	^ self sample 
 		copyWithRegex: '-BASE-'
