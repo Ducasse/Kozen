@@ -3,7 +3,20 @@ StefSite new
 	bibSetFromFile: 'rmod.bib';
 	generate
 	
+RegexBasePatcher new
+	inDirectory: FileSystem workingDirectory;  
+	expandAllExpandableFiles.
+	
+	
+	
 Right now the bibfile is not automatically generated (probably because it is in a footer of the xhtml page and as such not a visitable element that would be special and kick in the bib generation)
+
+
+cpAllSHTML -> copy tokozenFolder
+cpAllHTML 
+cd public_html
+	freeweb pour faire un sync
+
 "
 Class {
 	#name : #StefSite,
@@ -770,7 +783,7 @@ StefSite >> serviceText [
 '
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #subtopics }
 StefSite >> subTopicFile: file [
 	^  subtopicFilePrefix, file
 

@@ -1,9 +1,14 @@
 "
 RegexBasePatcher new
 	inDirectory: FileSystem workingDirectory;  
-	fromFile: 'Books.html'  
-	toFile: 'Books2.html' ; 
+	fromFile: 'Books.shtml'  
+	toFile: 'Books.html' ; 
 	expand
+
+
+RegexBasePatcher new
+	inDirectory: FileSystem workingDirectory;  
+	expandAllExpandableFiles.
 
 "
 Class {

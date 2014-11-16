@@ -38,9 +38,12 @@ LineBasePatcher >> expand [
 ]
 
 { #category : #prepare }
-LineBasePatcher >> expandAllExandableFiles [
+LineBasePatcher >> expandAllExpandableFiles [
 
-	self 
+	self filesToBeExpanded do: [ :each | 
+			self fromFile: each basename toFile:  (each base, '.html').
+			self expand.
+			]
 ]
 
 { #category : #files }
@@ -65,11 +68,11 @@ LineBasePatcher >> from: inStream to: outStream [
 ]
 
 { #category : #prepare }
-LineBasePatcher >> fromFile: inputFile toFile: outputFile [
+LineBasePatcher >> fromFile: inputFileString toFile: outputFileString [
 	<precondition: 'inDirectory: was invoked'>
 	
-	inputStream := (inDirectory / inputFile) readStream.
-	outputStream :=  (inDirectory / outputFile) writeStream
+	inputStream := (inDirectory / inputFileString) readStream.
+	outputStream :=  (inDirectory / outputFileString) writeStream
 ]
 
 { #category : #testing }
@@ -127,6 +130,13 @@ LineBasePatcher >> optimizeLinesDo [
 					outputStream
 						nextPutAll: line;
 						cr ] ]
+]
+
+{ #category : #files }
+LineBasePatcher >> shtmlFiles [
+	"self new inDirectory: FileSystem workingDirectory;  shtmlFiles"
+	
+	^ inDirectory allChildren select: [ :each | each basename endsWith: 'shtml' ]
 ]
 
 { #category : #processing }
