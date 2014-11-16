@@ -276,7 +276,9 @@ KZVisitor >> visitItem: anItem [
 								nextPutAll: '<a href="'; 
 								nextPutAll: anItem link;
 								nextPutAll: '">';
-								nextPutAll: anItem name].
+								nextPutAll: anItem name;
+								nextPutAll: '</a>'
+							 ].
 	stream cr.
 ]
 
