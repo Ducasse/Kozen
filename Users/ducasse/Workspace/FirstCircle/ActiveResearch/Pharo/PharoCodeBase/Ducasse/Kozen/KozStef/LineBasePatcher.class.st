@@ -10,7 +10,7 @@ LineBasePatcher new
 	inDirectory: FileSystem workingDirectory;  
 	fromFile: 'Books.html'  
 	toFile: 'Books2.html' ; 
-	linesDo3
+	expand
 
 
 
@@ -25,6 +25,37 @@ Class {
 	],
 	#category : #KozStef
 }
+
+{ #category : #processing }
+LineBasePatcher >> baseString [
+	^ ' <base href="http://sdmeta.gforge.inria.fr/" />'
+]
+
+{ #category : #processing }
+LineBasePatcher >> expand [
+
+	self optimizeLinesDo 
+]
+
+{ #category : #prepare }
+LineBasePatcher >> expandAllExandableFiles [
+
+	self 
+]
+
+{ #category : #files }
+LineBasePatcher >> filesToBeExpanded [
+	"self new inDirectory: FileSystem workingDirectory;  filesToBeExpanded"
+	
+	^ self filesWithoutTopics select: [ :each | self hasBaseVariable: (each contents)]
+]
+
+{ #category : #files }
+LineBasePatcher >> filesWithoutTopics [
+	"self new inDirectory: FileSystem workingDirectory;  filesToBeExpanded"
+	
+	^ self htmlFiles reject: [ :each | each basename beginsWith: 'Topics' ]
+]
 
 { #category : #prepare }
 LineBasePatcher >> from: inStream to: outStream [
@@ -42,11 +73,19 @@ LineBasePatcher >> fromFile: inputFile toFile: outputFile [
 ]
 
 { #category : #testing }
-LineBasePatcher >> hasEndHead: line [
+LineBasePatcher >> hasBaseVariable: string [ 
+	
+	| re |
+	re := '.*-BASE-.*' asRegexIgnoringCase.
+	^ re matchesPrefix: string.
+]
+
+{ #category : #testing }
+LineBasePatcher >> hasEndHead: string [
 	
 	| re |
 	re := '.*</head>.*' asRegexIgnoringCase.
-	^ re matchesPrefix: line.
+	^ re matchesPrefix: string.
 ]
 
 { #category : #files }
@@ -63,7 +102,35 @@ LineBasePatcher >> inDirectory: aFileDirectory [
 ]
 
 { #category : #processing }
-LineBasePatcher >> linesDo [
+LineBasePatcher >> optimizeLinesDo [
+	| check |
+	check := true.
+	[ inputStream atEnd ]
+		whileFalse: [ 
+			| line |
+			line := inputStream upTo: Character cr.
+			check
+				ifTrue: [ 
+					('*-BASE-*' match: line)
+						ifTrue: [ 
+							outputStream
+								nextPutAll: self baseString;
+								cr ]
+						ifFalse: [ 
+							outputStream
+								nextPutAll: line;
+								cr ] ].
+			(self hasEndHead: line)
+				ifTrue: [ check := false ].
+			check
+				ifFalse: [ 
+					outputStream
+						nextPutAll: line;
+						cr ] ]
+]
+
+{ #category : #processing }
+LineBasePatcher >> unoptimizedLinesDo [
 
 	
 	[ inputStream atEnd ] whileFalse: 
@@ -72,27 +139,6 @@ LineBasePatcher >> linesDo [
 		('*-BASE-*' match: line)
 			ifTrue: [ outputStream nextPutAll: '<base>http://sdmeta.gforge.inria.fr</base>' ; cr ]
 			ifFalse: [ outputStream nextPutAll: line ; cr ].	 
-		]
-	
-]
-
-{ #category : #processing }
-LineBasePatcher >> linesDo3 [
-
-	| check |
-	check := true. 
-	[ inputStream atEnd ] whileFalse: 
-		[ | line |
-		line := inputStream upTo: Character cr.
-		check 
-			ifTrue: [ ('*-BASE-*' match: line)
-						ifTrue: [ outputStream nextPutAll: '<base>http://sdmeta.gforge.inria.fr</base>' ; cr ]
-						ifFalse: [ outputStream nextPutAll: line ; cr ].	 
-						].
-		(self hasEndHead: line)
-			ifTrue: [ check := false].
-		check ifFalse: [  
-			outputStream nextPutAll: line ; cr ].	 
 		]
 	
 ]

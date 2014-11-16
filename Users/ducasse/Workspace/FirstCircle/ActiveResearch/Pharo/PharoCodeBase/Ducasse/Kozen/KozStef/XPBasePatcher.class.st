@@ -19,7 +19,7 @@ BasePatcher new
 BasePatcher new trying	
 "
 Class {
-	#name : #BasePatcher,
+	#name : #XPBasePatcher,
 	#superclass : #Object,
 	#instVars : [
 		'contents',
@@ -30,24 +30,24 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-BasePatcher class >> onPath: aDirectory [
+XPBasePatcher class >> onPath: aDirectory [
 
 	
 ]
 
 { #category : #trying }
-BasePatcher >> baseString [
-	^ '<base>http://sdmeta.gforge.inria.fr </base>'
+XPBasePatcher >> baseString [
+	^ '<base>http://sdmeta.gforge.inria.fr</base>'
 ]
 
 { #category : #'setting context' }
-BasePatcher >> contentsOf: aFileSystemFile [
+XPBasePatcher >> contentsOf: aFileSystemFile [
 	"self new contentsOf: (FileSystem workingDirectory / 'Books.html') "
 	contents := aFileSystemFile readStream contents
 ]
 
 { #category : #lines }
-BasePatcher >> hasBaseVariable: line [
+XPBasePatcher >> hasBaseVariable: line [
 	
 	| re |
 	re := '.*-BASE-.*' asRegexIgnoringCase.
@@ -55,7 +55,7 @@ BasePatcher >> hasBaseVariable: line [
 ]
 
 { #category : #lines }
-BasePatcher >> hasEndHead: line [
+XPBasePatcher >> hasEndHead: line [
 	
 	| re |
 	re := '.*</head>.*' asRegexIgnoringCase.
@@ -63,20 +63,20 @@ BasePatcher >> hasEndHead: line [
 ]
 
 { #category : #'setting context' }
-BasePatcher >> htmlFiles [
+XPBasePatcher >> htmlFiles [
 
 	^ FileSystem workingDirectory fileNames select: [ :each | htmlRegex matches:  each ]
 ]
 
 { #category : #initialization }
-BasePatcher >> initialize [
+XPBasePatcher >> initialize [
 
 	super initialize.
 	htmlRegex := '.*\.html' asRegex.
 ]
 
 { #category : #lines }
-BasePatcher >> linesDo [
+XPBasePatcher >> linesDo [
 
 	[stream atEnd] whileFalse: 
 		[ | line |
@@ -91,7 +91,7 @@ BasePatcher >> linesDo [
 ]
 
 { #category : #lines }
-BasePatcher >> linesDo2 [
+XPBasePatcher >> linesDo2 [
 
 	[stream atEnd] whileFalse: 
 		[ | line |
@@ -105,7 +105,7 @@ BasePatcher >> linesDo2 [
 ]
 
 { #category : #trying }
-BasePatcher >> sample [
+XPBasePatcher >> sample [
 
 
 	^ '<?xml version="1.0" encoding="ISO-8859-1"?>
@@ -118,7 +118,7 @@ BasePatcher >> sample [
 ]
 
 { #category : #trying }
-BasePatcher >> sample2 [
+XPBasePatcher >> sample2 [
 
 
 	^ '<?xml version="1.0" encoding="ISO-8859-1"?>
@@ -299,7 +299,7 @@ href="http://www.iam.unibe.ch/~ducasse/Programmez/OnTheWeb/SUnitEnglish2.pdf">
 ]
 
 { #category : #'setting context' }
-BasePatcher >> streamOf: aFileSystemFile [
+XPBasePatcher >> streamOf: aFileSystemFile [
 	"self new contentsOf: (FileSystem workingDirectory / 'Books.html') "
 	stream := aFileSystemFile readStream 
 					"converter: Latin1TextConverter new; yourself."
@@ -307,7 +307,7 @@ BasePatcher >> streamOf: aFileSystemFile [
 ]
 
 { #category : #trying }
-BasePatcher >> trying [
+XPBasePatcher >> trying [
 	"self new trying"
 	
 	^ self sample
@@ -316,16 +316,16 @@ BasePatcher >> trying [
 ]
 
 { #category : #trying }
-BasePatcher >> tryingContents [
+XPBasePatcher >> tryingContents [
 	"self new tryingContents"
 	
 	^ self sample 
 		copyWithRegex: '-BASE-'
-		 matchesReplacedWith: contents.
+		 matchesReplacedWith: self baseString.
 ]
 
 { #category : #experience }
-BasePatcher >> untilHead [
+XPBasePatcher >> untilHead [
 	
 	| re |
 	re := '[\w\W]*<head>(.*)-BASE-(.*)</head>' asRegexIgnoringCase.

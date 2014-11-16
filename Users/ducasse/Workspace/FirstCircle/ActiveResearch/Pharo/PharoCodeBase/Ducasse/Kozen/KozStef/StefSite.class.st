@@ -8,6 +8,9 @@ Right now the bibfile is not automatically generated (probably because it is in 
 Class {
 	#name : #StefSite,
 	#superclass : #SmartPublicationSite,
+	#instVars : [
+		'subtopicFilePrefix'
+	],
 	#classVars : [
 		'CachedSiteSeer'
 	],
@@ -333,12 +336,9 @@ StefSite class >> initialize [
 
 { #category : #elements }
 StefSite >> addEditorialNavigation [
-
 	| list |
-	list := KZList new. 
-	self editorialSubTopics do: [:each |
-		list addElement: (KZItem new name: each second; link: each first, '.html')
-		].
+	list := KZList new.
+	self editorialSubTopics do: [ :each | list addElement: (self subTopicItemNamed: each) ].
 	^ list
 ]
 
@@ -348,7 +348,7 @@ StefSite >> addLanguageNavigation [
 	| list |
 	list := KZList new. 
 	self languageSubTopics do: [:each |
-		list addElement: (KZItem new name: each second; link: each first, '.html')
+		list addElement: (self subTopicItemNamed: each)
 		].
 	^ list
 ]
@@ -359,7 +359,7 @@ StefSite >> addSoftwareEvolutionNavigation [
 	| list |
 	list := KZList new. 
 	self evolutionSubTopics do: [:each |
-		list addElement: (KZItem new name: each second; link: each first, '.html')
+		list addElement: (self subTopicItemNamed: each)
 		].
 	^ list
 ]
@@ -438,7 +438,7 @@ StefSite >> citeseerText [
 { #category : #utils }
 StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 	| page |
-	page := KZPage name: 'Research Topics' filename: file.
+	page := KZPage name: 'Research Topics' filename: (subtopicFilePrefix, file).
 	self declarePage: page withId: (self subtopicKey: file).
 	page addElement: self menu.
 	page
@@ -578,6 +578,7 @@ StefSite >> indexesText [
 { #category : #initialize }
 StefSite >> initialize [
 	super initialize.
+	self subtopicPrefix: 'Topics'.
 	self cssDirectoryName: 'CSS'.
 	self cssFilename: 'Stef.css'.
 	bibBuilder := KZBibCollectionBuilder new author: '*Ducasse*'
@@ -767,6 +768,26 @@ StefSite >> serviceText [
 	</ul>
 	</div>
 '
+]
+
+{ #category : #'as yet unclassified' }
+StefSite >> subTopicFile: file [
+	^  subtopicFilePrefix, file
+
+	
+]
+
+{ #category : #elements }
+StefSite >> subTopicItemNamed: each [
+	^ KZItem new
+		name: each second;
+		link: subtopicFilePrefix , each first , '.html'
+]
+
+{ #category : #initialize }
+StefSite >> subtopicPrefix: aString [
+
+	subtopicFilePrefix := aString
 ]
 
 { #category : #subtopics }
