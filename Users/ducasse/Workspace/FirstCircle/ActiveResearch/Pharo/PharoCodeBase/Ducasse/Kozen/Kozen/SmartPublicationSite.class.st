@@ -27,7 +27,7 @@ SmartPublicationSite >> createResearchSubTopicPages [
 { #category : #subtopics }
 SmartPublicationSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 	| page |
-	page := KZPage name: 'Research Topics' filename: file.
+	page := KZPage name: (self topicPageName: name) filename: (self subTopicFile: file).
 	self declarePage: page withId: (self subtopicKey: file).
 	page addElement: self menu.
 	page
@@ -51,6 +51,13 @@ SmartPublicationSite >> site [
 	
 ]
 
+{ #category : #subtopics }
+SmartPublicationSite >> subTopicFile: file [
+	^ file
+
+	
+]
+
 { #category : #'custom-points-who' }
 SmartPublicationSite >> subtopicKey: file [
 	^ ('research' , file) asSymbol
@@ -67,6 +74,12 @@ SmartPublicationSite >> subtopics [
 		'*kzClassbox*')
 			
 		)
+]
+
+{ #category : #subtopics }
+SmartPublicationSite >> topicPageName: name [
+
+	^ 'Research Topics'
 ]
 
 { #category : #elements }
