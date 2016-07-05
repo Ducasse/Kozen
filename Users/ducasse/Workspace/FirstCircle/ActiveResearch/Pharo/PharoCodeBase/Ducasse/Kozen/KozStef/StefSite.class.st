@@ -383,16 +383,10 @@ StefSite >> awardText [
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
       <li>Since December 2012, I was promoted first class Directeur de Recherche. </li>
-<li>Guillermo Polito won for OZ the 2013 ESUG Technology Award. </li>
 	<li>I received a "Prime d''excellence scientifique" from INRIA (2012).</li>
-	<li>I distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
+	<li>I got distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
 	<li>Veronica Uquillas Gomez won the Benevol most promising young research Award (2011).</li>
-	<li>Mariano Martinez-Peck and Martin Diaz won for Fuel the 2011 ESUG Technology Award. </li>
-	<li><a href="http://books.seaside.st/">Dynamic web development with Seaside</a>: Our new free open-source Seaside book won the ESUG member 2010 best book Award.</li>
-	  <li>Michele Lanza (2003) and Alexandre Bergel (2006) PhD theses won the <a href="http://www.denert-stiftung.de/">Ernest Denert foundation for Software Engineering</a> Award.</li>
-	  
-	  <li> <a href="http://rmod.lille.inria.fr/botsinc/pier">Learning Programming with Robots</a> received the Award of PCPlus magazine of September 2005 and the Bitwise Recommended Award in February 2006.
-	  </ul>'
+	</ul>'
 
 ]
 
@@ -584,7 +578,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'According to google scholar my h-index is 47 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en"> schoolar.g</a>). I try to publish the best results I have with my co-workers and thank them for their energy.'
+	^ 'According to google scholar my h-index is 49 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en"> schoolar.g</a>). I try to publish the best results I have with my co-workers and thank them for their energy.'
 
 ]
 
@@ -650,12 +644,12 @@ Several research teams proposed formal type systems for traits, showing the inte
 
 { #category : #mail }
 StefSite >> mailText [
-	^ 'StephaneDucasse(@At@)inria.fr'
+	^ 'stephane.ducasse(@At@)inria.fr'
 ]
 
 { #category : #mail }
 StefSite >> mailtoString [
-	^ 'mailto:stephane.ducasse@inria.fr'
+	^ 'mailto:stephane.ducasse(@At@)inria.fr'
 ]
 
 { #category : #texts }
@@ -663,14 +657,17 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
- <li>We  set up an INRIA consortium with industrial partners around <a href="http://consortium.pharo.org">Pharo</a>. Pharo 3.0 is out and 4.0 is in alpha. There is now an academic partnership.</li>
-<li><a href="http://rmod.lille.inria.fr/pbe2/">Deep into Pharo</a> is free and available after four years of work!</li>
-		<li>I''m general chair of <a href="http://www.esug.org/wiki/pier/Conferences/2014"> ESUG 2014</a>. We got too many talks :) </li>
-		<li>We got an associated team named Plomo with Pleiad of University of Chile at Santiago.</li>
-	  <li><a href="http://www.pharo.org/pharobyexample/">Pharo By Example</a> is free and out (in spanish, french, english and  japanese)!</li>
-	 <li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a data and software analysis meta-described platform. Moose 4.9 is out. Now working on Moose 5.0</li>
-	  </ul>
-    </div>'
+ <li>We  set up an INRIA consortium with industrial partners around <a href="http://consortium.pharo.org">Pharo</a>. There is an academic partnership, so if you teach Pharo or use it in your research - join.</li>
+<li><a href="http://mooc.pharo.org/">Pharo Mooc got 3000 registered followers!</li>
+<li><a href="http://books.pharo.org/">Entreprise Pharo: a Web Perspective</a> is out!</li>
+<li><a href="http://books.pharo.org/">Deep into Pharo</a> is free and available after four years of work!</li>
+<li>I''m general chair of <a href="http://www.esug.org/wiki/pier/Conferences/2016"> ESUG 2016</a>. We got too many talks :) 
+<li>Guillermo Polito is now CNRS engineer! And this is hyper cool.</li>
+<li>Anne Etien got her HDR!</li>
+<li><a href="http://2015.splashcon.org/event/sle2015-papers-stephane-ducasse-keynote">Was keynote at SLE 2015</a></li>
+</li>
+</ul>
+</div>'
 ]
 
 { #category : #publications }
@@ -763,7 +760,7 @@ StefSite >> sectionSoftwareEvolution [
 { #category : #texts }
 StefSite >> serviceText [
 
-	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committee participation. I declined for ICSE 2013, ECOOP 2013, ECOOP 2014, ECOOP 2015 (but I will be the workshop chair),  PLDI 2007 and OOPSLA 2006. 
+	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committee participation. I declined for ICSE 2013, ECOOP 2013, ECOOP 2014, ECOOP 2015, ECOOP 2016 (but I will be the workshop chair),  PLDI 2007 and OOPSLA 2006. 
 	<div class="itemizedlist"> 
       <ul type="disc">
        <li>APSEC 14</li>
@@ -777,7 +774,8 @@ StefSite >> serviceText [
 	 <li>International Conference on Extreme Programming (XP 00, 01).</li>
 	<li> International Conference on Objects, Models, Components, Patterns (TOOLS 2009, 2010, 2011).</li>
 	 <li>Working Conference on Reverse Engineering (WCRE 02, 05, 06, 10).</li>
-	<li> International  Conference on Software Composition (SC 09).</li>
+	<li>International  Conference on Software Composition (SC 09).</li>
+	<li>Onward! (ECOOP 15) -- I like the idea to push new ideas.</li>
 	</ul>
 	</div>
 '
