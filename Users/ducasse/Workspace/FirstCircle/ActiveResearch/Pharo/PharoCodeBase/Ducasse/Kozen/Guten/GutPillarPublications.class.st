@@ -4,7 +4,8 @@ A simple pillar component to add list of publication into pillar.
 
 ./pillar export --to=pillar Example.pillar
 
-	
+
+${publications:bibFile=rmod.bib|author=Ducasse}$
 "
 Class {
 	#name : #GutPillarPublications,
