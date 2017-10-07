@@ -383,10 +383,16 @@ StefSite >> awardText [
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
       <li>Since December 2012, I was promoted first class Directeur de Recherche. </li>
+<li>Guillermo Polito won for OZ the 2013 ESUG Technology Award. </li>
 	<li>I received a "Prime d''excellence scientifique" from INRIA (2012).</li>
-	<li>I got distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
+	<li>I distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
 	<li>Veronica Uquillas Gomez won the Benevol most promising young research Award (2011).</li>
-	</ul>'
+	<li>Mariano Martinez-Peck and Martin Diaz won for Fuel the 2011 ESUG Technology Award. </li>
+	<li><a href="http://books.seaside.st/">Dynamic web development with Seaside</a>: Our new free open-source Seaside book won the ESUG member 2010 best book Award.</li>
+	  <li>Michele Lanza (2003) and Alexandre Bergel (2006) PhD theses won the <a href="http://www.denert-stiftung.de/">Ernest Denert foundation for Software Engineering</a> Award.</li>
+	  
+	  <li> <a href="http://rmod.lille.inria.fr/botsinc/pier">Learning Programming with Robots</a> received the Award of PCPlus magazine of September 2005 and the Bitwise Recommended Award in February 2006.
+	  </ul>'
 
 ]
 
@@ -462,7 +468,7 @@ StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 { #category : #texts }
 StefSite >> currentJobText [
 
-	^ 'Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. I co-founded <a HREF="http://www.synectique.eu/">Synectique</a>, a company that offers specific tools for Software analysis.  I''m one of the leader of <a HREF=''http://www.pharo.org''>Pharo</a>: a new exciting dynamic language. Here is a short <a HREF="2013-CV.pdf">CV</a>.' 
+	^ 'Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. I co-founded <a HREF="http://www.synectique.eu/">Synectique</a>, a company that offers specific tools for Software analysis.  I''m one of the leader of <a HREF=''http://www.pharo.org''>Pharo</a>: a new exciting dynamic language. Here is a short <a HREF="2017-MayEng.pdf">CV</a>.' 
 ]
 
 { #category : #texts }
@@ -578,7 +584,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'According to google scholar my h-index is 49 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en"> schoolar.g</a>). I try to publish the best results I have with my co-workers and thank them for their energy.'
+	^ 'According to google scholar my h-index is 53 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). I try to publish the best results I have with my co-workers and thank them for their energy.'
 
 ]
 
@@ -644,12 +650,12 @@ Several research teams proposed formal type systems for traits, showing the inte
 
 { #category : #mail }
 StefSite >> mailText [
-	^ 'stephane.ducasse(@At@)inria.fr'
+	^ 'StephaneDucasse(@At@)inria.fr'
 ]
 
 { #category : #mail }
 StefSite >> mailtoString [
-	^ 'mailto:stephane.ducasse(@At@)inria.fr'
+	^ 'mailto:stephane.ducasse@inria.fr'
 ]
 
 { #category : #texts }
@@ -657,17 +663,21 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
- <li>We  set up an INRIA consortium with industrial partners around <a href="http://consortium.pharo.org">Pharo</a>. There is an academic partnership, so if you teach Pharo or use it in your research - join.</li>
-<li><a href="http://mooc.pharo.org/">Pharo Mooc got 3000 registered followers!</li>
-<li><a href="http://books.pharo.org/">Entreprise Pharo: a Web Perspective</a> is out!</li>
-<li><a href="http://books.pharo.org/">Deep into Pharo</a> is free and available after four years of work!</li>
-<li>I''m general chair of <a href="http://www.esug.org/wiki/pier/Conferences/2016"> ESUG 2016</a>. We got too many talks :) 
-<li>Guillermo Polito is now CNRS engineer! And this is hyper cool.</li>
-<li>Anne Etien got her HDR!</li>
-<li><a href="http://2015.splashcon.org/event/sle2015-papers-stephane-ducasse-keynote">Was keynote at SLE 2015</a></li>
-</li>
-</ul>
-</div>'
+  <li>I''m editor of a booklet collection. Check <a href="http://books.pharo.org">http://books.pharo.org</a></li>
+<li>My new book: Learning OOP, design and TDD in Pharo is out <a href="http://books.pharo.org">http://books.pharo.org</a></li>
+<li>New lectures on Object-Oriented Programming and Design is out. Check <a href="http://lectures.pharo.org"></a>
+<li>New version of the Pharo Mooc will be run on France Universite numerique. Check <a href="http://mooc.pharo.org">http://mooc.pharo.org</a></li>
+ 
+<li> We set up an INRIA consortium with industrial partners around <a href="http://consortium.pharo.org">Pharo</a>. Join! There is also an academic partnership.</li>
+		
+	
+	  <li><a href="http://books.pharo.org/">Pharo By Example (Updated)</a> is free and out (in spanish, french, english and  japanese)! Check the Updated version for Pharo 50</li>
+	
+	<li><a href="http://books.pharo.org/">Entreprise Pharo: a Web perspective</a> is available and contains many really good chapters.</li>
+	
+	<li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a data and software analysis meta-described platform. Check the newest version!</li>
+	  </ul>
+    </div>'
 ]
 
 { #category : #publications }
@@ -760,7 +770,7 @@ StefSite >> sectionSoftwareEvolution [
 { #category : #texts }
 StefSite >> serviceText [
 
-	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committee participation. I declined for ICSE 2013, ECOOP 2013, ECOOP 2014, ECOOP 2015, ECOOP 2016 (but I will be the workshop chair),  PLDI 2007 and OOPSLA 2006. 
+	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committee participation. I declined for ICSE 2013, ECOOP 2013, ECOOP 2014, ECOOP 2015 (but I will be the workshop chair),  PLDI 2007 and OOPSLA 2006. 
 	<div class="itemizedlist"> 
       <ul type="disc">
        <li>APSEC 14</li>
@@ -774,8 +784,7 @@ StefSite >> serviceText [
 	 <li>International Conference on Extreme Programming (XP 00, 01).</li>
 	<li> International Conference on Objects, Models, Components, Patterns (TOOLS 2009, 2010, 2011).</li>
 	 <li>Working Conference on Reverse Engineering (WCRE 02, 05, 06, 10).</li>
-	<li>International  Conference on Software Composition (SC 09).</li>
-	<li>Onward! (ECOOP 15) -- I like the idea to push new ideas.</li>
+	<li> International  Conference on Software Composition (SC 09).</li>
 	</ul>
 	</div>
 '
