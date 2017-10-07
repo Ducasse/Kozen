@@ -542,7 +542,7 @@ StefSite >> evolutionSubTopics [
 		'' 
 		'*kzTools*')
 		
-		#('Checking' 'Rules Checking' 
+		#('CheckingTesting' 'Rules Checking and Testing' 
 		'I''m really interested in using rules checking for building more robust software.' 
 		'*kzChecking*')
 		
@@ -608,11 +608,11 @@ StefSite >> keywordsText [
 StefSite >> languageSubTopics [
 	^ #(
 	
-		#('Clutter' 'Clutter collector'
-			'Often objects are referenced but not used anymore. We are working on a clutter mechanism that acts as a memory manager to reduce the memory footprint of application and use secondary memory as a paging mechanism.'
-			'*kzClutter*')
-			
-			
+	#('LanguageDesign' 'Components, Encapsulation and Language Infrastructure Related Topics' 
+		'This section lists the works related to several aspects of object-oriented systems: proxies, serialization, encapsulation and more.' 
+		'*kzLanguageDesign*')
+	
+
 		#('Trait' 'Traits: Intraclass reuse' 
 		'Traits are groups of methods that can be reused orthogonally to inheritance. 
 		We defined Traits which allows one to structure classes orthogonally to inheritance and offer a better composition mechanism than mixins. We formalized traits  and identify the problems with their introduction in strongly-typed languages. We proposed analysis to support the identification of traits in existing applications.  We extended traits with the notion of state and visibility. 
@@ -630,17 +630,23 @@ Several research teams proposed formal type systems for traits, showing the inte
 		'We worked on classboxes and this led us to think deeply about how names are looked up. We also work on aspects and other modular concerns. I spent a lot of time thinking about a good module system for dynamic languages and I will work on it.' 
 		'*kzModule*')
 		
+		
+		
 		#('Web' 'Dynamic Web Development' 
 		'I helped people to publish their results on web programming. I do not consider these publications as my work but just a way to help other works to be documented and presented scientifically.' 
 		'*kzWeb*')
 		
-		#('Reflection' 'Reflective Programming and Code Manipulation' 
-		'' 
+		#('Reflection' 'Reflective Programming,Code Manipulation and Bootstrap' 
+		'In recent years, I work on bootstrap and minimal kernels.' 
 		'*kzReflection*')
 		
-		#('Varia' 'Components, Encapsulation and Language Infrastructure Related Topics' 
-		'This section lists the works related to several aspects of object-oriented systems: proxies, serialization, encapsulation.' 
-		'*kzLanguageDesign*')
+		#('Clutter' 'Clutter collector'
+			'Often objects are referenced but not used anymore. We are working on a clutter mechanism that acts as a memory manager to reduce the memory footprint of application and use secondary memory as a paging mechanism.'
+			'*kzClutter*')
+		
+		#('Other' 'Some other work' 
+		'' 
+		'*kzOther*')
 		
 		#('Dependencies' 'Object Dependencies' 
 		'This work (done during my PhD) was looking at how to introduce kind of connector between objects by having first dependencies.' 
