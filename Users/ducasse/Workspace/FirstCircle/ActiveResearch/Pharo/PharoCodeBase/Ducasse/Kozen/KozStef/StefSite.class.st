@@ -383,15 +383,13 @@ StefSite >> awardText [
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
       <li>Since December 2012, I was promoted first class Directeur de Recherche. </li>
-<li>Guillermo Polito won for OZ the 2013 ESUG Technology Award. </li>
-	<li>I received a "Prime d''excellence scientifique" from INRIA (2012).</li>
-	<li>I distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
+	<li>I received a "Prime d''excellence scientifique" from INRIA (2016).</li>
+	<li>I got distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
 	<li>Veronica Uquillas Gomez won the Benevol most promising young research Award (2011).</li>
 	<li>Mariano Martinez-Peck and Martin Diaz won for Fuel the 2011 ESUG Technology Award. </li>
 	<li><a href="http://books.seaside.st/">Dynamic web development with Seaside</a>: Our new free open-source Seaside book won the ESUG member 2010 best book Award.</li>
 	  <li>Michele Lanza (2003) and Alexandre Bergel (2006) PhD theses won the <a href="http://www.denert-stiftung.de/">Ernest Denert foundation for Software Engineering</a> Award.</li>
-	  
-	  <li> <a href="http://rmod.lille.inria.fr/botsinc/pier">Learning Programming with Robots</a> received the Award of PCPlus magazine of September 2005 and the Bitwise Recommended Award in February 2006.
+	  <li>"Learning Programming with Robots" received the Award of PCPlus magazine of September 2005 and the Bitwise Recommended Award in February 2006.
 	  </ul>'
 
 ]
@@ -502,7 +500,12 @@ StefSite >> editorialSubTopics [
 
 { #category : #topics }
 StefSite >> evolutionSubTopics [
-	^ #(#('Modularisation' 'Software remodularisation' 
+	^ #(
+	#('Blockchain' 'Software engineering for the blockchain' 
+		'We are working on tools and analyses for blockchain.'
+		 '*kzBlockchain*') 
+	
+	#('Modularisation' 'Software remodularisation' 
 		'We explored various techniques to support software remodularisation and restructuring at different levels of granularity and with different objectives.'
 		 '*kzRemodularisation*') 
 	
@@ -669,18 +672,13 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
-  <li>I''m editor of a booklet collection. Check <a href="http://books.pharo.org">http://books.pharo.org</a></li>
+<li>I''m editor of a booklet collection. Check <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>My new book: Learning OOP, design and TDD in Pharo is out <a href="http://books.pharo.org">http://books.pharo.org</a></li>
-<li>New lectures on Object-Oriented Programming and Design is out. Check <a href="http://lectures.pharo.org"></a>
-<li>New version of the Pharo Mooc will be run on France Universite numerique. Check <a href="http://mooc.pharo.org">http://mooc.pharo.org</a></li>
- 
-<li> We set up an INRIA consortium with industrial partners around <a href="http://consortium.pharo.org">Pharo</a>. Join! There is also an academic partnership.</li>
-		
-	
+<li>New lectures on Object-Oriented Programming and Design is out. Check <a href="http://lectures.pharo.org">http://lectures.pharo.org</a>
+<li>Pharo Mooc got super appreciated. Check testimonies and all the files are freely accessible at <a href="http://mooc.pharo.org">http://mooc.pharo.org</a></li>
+<li>Pharo consortium is now hosted under the Inria Foundation<a href="http://consortium.pharo.org">http://consortium.pharo.org</a>. Join! There is also an academic partnership.</li>
 	  <li><a href="http://books.pharo.org/">Pharo By Example (Updated)</a> is free and out (in spanish, french, english and  japanese)! Check the Updated version for Pharo 50</li>
-	
 	<li><a href="http://books.pharo.org/">Entreprise Pharo: a Web perspective</a> is available and contains many really good chapters.</li>
-	
 	<li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a data and software analysis meta-described platform. Check the newest version!</li>
 	  </ul>
     </div>'
@@ -776,10 +774,12 @@ StefSite >> sectionSoftwareEvolution [
 { #category : #texts }
 StefSite >> serviceText [
 
-	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committee participation. I declined for ICSE 2013, ECOOP 2013, ECOOP 2014, ECOOP 2015 (but I will be the workshop chair),  PLDI 2007 and OOPSLA 2006. 
+	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committee participation. I declined for ICSE 2013, ECOOP 2013, ECOOP 2014, ECOOP 2015 (but I was be the workshop chair),  PLDI 2007 and OOPSLA 2006.  I declined to be associate editor of SCP Journal because of the Elsevier policy regarding articles access. I also think that people should have less power and that there is a too large concentration in PCs. Some recent experiences showed that a PC would reject 60% of the papers than another would accept. Therefore we should really pay attention to our process in general and the conclusions we draw about them. 
+	
 	<div class="itemizedlist"> 
       <ul type="disc">
        <li>APSEC 14</li>
+       <li>Onward 18</li>
 	 <li>European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
 	 <li>International Conference on Software Maintenance (ICSM 05, 06, 07, 08, 10, 11) -- Core A.</li>
 	 <li>European Conference on Software Maintenance and Reengineering (CSMR 06, 07, 08).</li>
