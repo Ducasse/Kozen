@@ -382,7 +382,7 @@ StefSite >> awardText [
 
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
-<li>I''m laureate of ERC-Generator of ISite financed by Programmes d''investissements d''avenir</li>
+<li>In 2018 I got laureate of ERC-Generator of ISite financed by Programmes d''investissements d''avenir.</li>
       <li>Since December 2012, I was promoted first class Directeur de Recherche. </li>
 	<li>I received a "Prime d''excellence scientifique" from INRIA (2016).</li>
 	<li>I got distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
