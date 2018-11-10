@@ -563,7 +563,7 @@ StefSite >> evolutionSubTopics [
 		
 		
 		#('History' 'History-based Analyses and Mining Repositories' 
-		'' 
+		'Lot of information is available in repositories. I started back in 1999 to collect and analyse data.' 
 		'*kzHistory*')
 		
 		)
@@ -616,7 +616,7 @@ StefSite >> keywordsText [
 StefSite >> languageSubTopics [
 	^ #(
 	
-	#('LanguageDesign' 'Components, Encapsulation and Language Infrastructure Related Topics' 
+	#('LanguageDesign' 'Components, Encapsulation and Language Features and Infrastructure Related Topics' 
 		'This section lists the works related to several aspects of object-oriented systems: proxies, serialization, encapsulation and more.' 
 		'*kzLanguageDesign*')
 	
@@ -646,13 +646,15 @@ Several research teams proposed formal type systems for traits, showing the inte
 		'In recent years, I work on bootstrap and minimal kernels.' 
 		'*kzReflection*')
 		
+		#('Virtual Machines' 'Virtual machines and other low-level concerns' 
+		'We started to lean how to implement virtual machines.' 
+		'*kzVM*')
+		
 		#('Clutter' 'Clutter collector'
 			'Often objects are referenced but not used anymore. We are working on a clutter mechanism that acts as a memory manager to reduce the memory footprint of application and use secondary memory as a paging mechanism.'
 			'*kzClutter*')
 		
-		#('Other' 'Some other work' 
-		'' 
-		'*kzOther*')
+	
 		
 		#('Dependencies' 'Object Dependencies' 
 		'This work (done during my PhD) was looking at how to introduce kind of connector between objects by having first dependencies.' 
@@ -661,6 +663,10 @@ Several research teams proposed formal type systems for traits, showing the inte
 		#('Pharo' 'Pharo benefits from our research and the inverse' 
 		'Pharo is evolveing over the years and we spent time building experiments to understand and assess how we should improve it' 
 		'*kzPharo*')
+		
+		#('Other' 'Some other work' 
+		'' 
+		'*kzOther*')
 		)
 ]
 
