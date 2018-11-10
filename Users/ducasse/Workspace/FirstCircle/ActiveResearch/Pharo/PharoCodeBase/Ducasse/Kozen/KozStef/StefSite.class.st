@@ -592,7 +592,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'According to google scholar my h-index is 53 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). I try to publish the best results I have with my co-workers and thank them for their energy.'
+	^ 'According to google scholar my h-index is 54 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). I try to publish the best results I have with my co-workers and thank them for their energy.'
 
 ]
 
