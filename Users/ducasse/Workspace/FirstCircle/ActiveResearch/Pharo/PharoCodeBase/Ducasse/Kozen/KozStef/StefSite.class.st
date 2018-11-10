@@ -1,7 +1,7 @@
 "
 StefSite new 
 	bibSetFromFile: 'rmod.bib';
-	generate
+	generate.
 	
 RegexBasePatcher new
 	inDirectory: FileSystem workingDirectory;  
@@ -505,7 +505,7 @@ StefSite >> evolutionSubTopics [
 		'We are working on tools and analyses for blockchain.'
 		 '*kzBlockchain*') 
 
-	#('Software Evolution/Migration'  'Software evolution is a major concern about our industry.'
+	#('Software Evolution and Migration'  'Software evolution is a major concern about our industry.'
 		'We work on many approaches to support software evolution starting from understanding to actually performing the changes.' 
 		 '*kzEvolution*') 
 	
