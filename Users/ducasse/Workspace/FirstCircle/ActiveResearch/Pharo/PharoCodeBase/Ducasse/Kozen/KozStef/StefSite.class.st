@@ -504,6 +504,10 @@ StefSite >> evolutionSubTopics [
 	#('Blockchain' 'Software engineering for the blockchain' 
 		'We are working on tools and analyses for blockchain.'
 		 '*kzBlockchain*') 
+
+	#('Software Evolution/Migration'  'Software evolution is a major concern about our industry.'
+		'We work on many approaches to support software evolution starting from understanding to actually performing the changes.' 
+		 '*kzEvolution*') 
 	
 	#('Modularisation' 'Software remodularisation' 
 		'We explored various techniques to support software remodularisation and restructuring at different levels of granularity and with different objectives.'
@@ -518,7 +522,7 @@ StefSite >> evolutionSubTopics [
 		'*kzMeta*')
 		
 		#('Merging' 'Supporting Merging' 
-		'During development, supporting merge activities is often ignored. I work with Veronica Uquillas-Gomez on merge support.'
+		'During development, supporting merge activities is often ignored.'
 		 '*kzMerging*') 
 		
 		#('Cycle' 'Cycle and Layer Identification' 
@@ -541,7 +545,7 @@ StefSite >> evolutionSubTopics [
 		'' 
 		'*kzDuplication*')
 		
-		#('Tools' 'Reengineering Tools, Interexchange, and Infrastructure' 
+		#('Tools' 'Reengineering Tools, Interexchange, and Infrastructure (Parsing...)' 
 		'' 
 		'*kzTools*')
 		
@@ -556,6 +560,7 @@ StefSite >> evolutionSubTopics [
 		#('Patterns' 'Evolution, Reengineering Challenges and Patterns' 
 		'' 
 		'*kzPattern*')
+		
 		
 		#('History' 'History-based Analyses and Mining Repositories' 
 		'' 
@@ -633,8 +638,6 @@ Several research teams proposed formal type systems for traits, showing the inte
 		'We worked on classboxes and this led us to think deeply about how names are looked up. We also work on aspects and other modular concerns. I spent a lot of time thinking about a good module system for dynamic languages and I will work on it.' 
 		'*kzModule*')
 		
-		
-		
 		#('Web' 'Dynamic Web Development' 
 		'I helped people to publish their results on web programming. I do not consider these publications as my work but just a way to help other works to be documented and presented scientifically.' 
 		'*kzWeb*')
@@ -654,6 +657,10 @@ Several research teams proposed formal type systems for traits, showing the inte
 		#('Dependencies' 'Object Dependencies' 
 		'This work (done during my PhD) was looking at how to introduce kind of connector between objects by having first dependencies.' 
 		'*kzDependency*')
+		
+		#('Pharo' 'Pharo benefits from our research and the inverse' 
+		'Pharo is evolveing over the years and we spent time building experiments to understand and assess how we should improve it' 
+		'*kzPharo*')
 		)
 ]
 
