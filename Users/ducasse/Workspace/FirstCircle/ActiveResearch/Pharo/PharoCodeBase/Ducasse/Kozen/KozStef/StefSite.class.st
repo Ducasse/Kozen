@@ -382,7 +382,7 @@ StefSite >> awardText [
 
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
-<li>In 2018 I got laureate of ERC-Generator of ISite financed by Programmes d''investissements d''avenir.</li>
+<li>In 2018 I got laureate of ERC-Generator of I-Site financed by Programmes d''Investissements d''Avenir (I was the only CS researcher awarded).</li>
       <li>Since December 2012, I was promoted first class Directeur de Recherche. </li>
 	<li>I received a "Prime d''excellence scientifique" from INRIA (2016).</li>
 	<li>I got distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
@@ -467,7 +467,7 @@ StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 { #category : #texts }
 StefSite >> currentJobText [
 
-	^ 'Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. I co-founded <a HREF="http://www.synectique.eu/">Synectique</a>, a company that offers specific tools for Software analysis.  I''m one of the leader of <a HREF=''http://www.pharo.org''>Pharo</a>: a new exciting dynamic language. Here is a short <a HREF="2017-MayEng.pdf">CV</a>.' 
+	^ 'Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. I co-founded <a HREF="http://www.synectique.eu/">Synectique</a>, a company that offers specific tools for Software analysis.  I''m one of the leader of <a HREF=''http://www.pharo.org''>Pharo</a>: a new exciting dynamic language. Here is a short <a HREF="2017-MayEng.pdf">CV</a>. My ORCID Number is 0000-0001-6070-6599.' 
 ]
 
 { #category : #texts }
@@ -685,6 +685,7 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
+  <li>ICSE 2019: For the "rotten green tests" paper accepted. </li>
 <li>I''m editor of a booklet collection. Check <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>My new book: Learning OOP, design and TDD in Pharo is out <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>New lectures on Object-Oriented Programming and Design is out. Check <a href="http://lectures.pharo.org">http://lectures.pharo.org</a>
@@ -791,6 +792,7 @@ StefSite >> serviceText [
 	
 	<div class="itemizedlist"> 
       <ul type="disc">
+     
        <li>APSEC 14</li>
        <li>Onward 18</li>
 	 <li>European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
