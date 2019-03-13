@@ -601,7 +601,7 @@ StefSite >> initialize [
 	super initialize.
 	self subtopicPrefix: 'Topics'.
 	self cssDirectoryName: 'CSS'.
-	self cssFilename: 'Stef.css'.
+	self cssFilename: 'newstef.css'.
 	bibBuilder := KZBibCollectionBuilder new author: '*Ducasse*'
 ]
 
@@ -685,9 +685,9 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
- <li>ICSE 2019:  Our "rotten green tests" paper has been accepted <a href="https://hal.inria.fr/hal-02002346/document">Rotten Green Tests</a>. </li>
- <li>Blockchain tooling chapter available<a href="http://rmod.inria.fr/archives/papers/Duca18a-BookChapter-SmartAnvil.pdf">SmartAnvil''s Solidity analysis platform</a>. </li>
-<li>HCERES evaluation: "Le GT GL produit une recherche qui couvre de nombreux aspects du Génie Logiciel. Sa recherche est d''excellente qualité et est connue et reconnue nationalement et internationalement. La production scientifique, le rayonnement et l''attractivité [...] sont exceptionnels pour les équipes RMoD et Spirals."</li>
+ <li>ICSE 2019:  Our "rotten green tests" paper has been accepted <a href="https://hal.inria.fr/hal-02002346/document"><Rotten green tests -- here></a>. </li>
+ <li>Our blockchain tooling chapter: <a href="http://rmod.inria.fr/archives/papers/Duca18a-BookChapter-SmartAnvil.pdf">SmartAnvil''s Solidity analysis platform</a>. </li>
+<li>HCERES evaluation: "Le GT GL produit une recherche qui couvre de nombreux aspects du Genie Logiciel. Sa recherche est d''excellente qualite et est connue et reconnue nationalement et internationalement. La production scientifique, le rayonnement et l''attractivite [...] sont exceptionnels pour les equipes RMoD et Spirals."</li>
  
 <li>I''m editor of a booklet collection. Check <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>My new book: Learning OOP, design and TDD in Pharo is out <a href="http://books.pharo.org">http://books.pharo.org</a></li>
