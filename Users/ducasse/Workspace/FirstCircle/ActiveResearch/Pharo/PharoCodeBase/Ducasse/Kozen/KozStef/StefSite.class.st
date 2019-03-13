@@ -467,7 +467,7 @@ StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 { #category : #texts }
 StefSite >> currentJobText [
 
-	^ 'Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. I co-founded <a HREF="http://www.synectique.eu/">Synectique</a>, a company that offers specific tools for Software analysis.  I''m one of the leader of <a HREF=''http://www.pharo.org''>Pharo</a>: a new exciting dynamic language. Here is a short <a HREF="2017-MayEng.pdf">CV</a>. My ORCID Number is 0000-0001-6070-6599.' 
+	^ 'Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. I co-founded <a HREF="http://www.synectique.eu/">Synectique</a>, a company that offers specific tools for Software analysis.  I''m one of the leader of <a HREF=''http://www.pharo.org''>Pharo</a>: a new exciting dynamic language. Here is a short <a HREF="CV.pdf">CV</a>. My ORCID Number is 0000-0001-6070-6599.' 
 ]
 
 { #category : #texts }
@@ -685,7 +685,10 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
-  <li>ICSE 2019: For the "rotten green tests" paper accepted. </li>
+ <li>ICSE 2019:  Our "rotten green tests" paper has been accepted <a href="https://hal.inria.fr/hal-02002346/document">Rotten Green Tests</a>. </li>
+ <li>Blockchain tooling chapter available<a href="http://rmod.inria.fr/archives/papers/Duca18a-BookChapter-SmartAnvil.pdf">SmartAnvil''s Solidity analysis platform</a>. </li>
+<li>HCERES evaluation: "Le GT GL produit une recherche qui couvre de nombreux aspects du Génie Logiciel. Sa recherche est d''excellente qualité et est connue et reconnue nationalement et internationalement. La production scientifique, le rayonnement et l''attractivité [...] sont exceptionnels pour les équipes RMoD et Spirals."</li>
+ 
 <li>I''m editor of a booklet collection. Check <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>My new book: Learning OOP, design and TDD in Pharo is out <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>New lectures on Object-Oriented Programming and Design is out. Check <a href="http://lectures.pharo.org">http://lectures.pharo.org</a>
