@@ -33,7 +33,7 @@ KZVisitor >> contents [
 { #category : #private }
 KZVisitor >> cr [
 
-	stream nextPut: Character cr
+	stream nextPut: Character lf
 ]
 
 { #category : #private }
@@ -140,7 +140,7 @@ KZVisitor >> headerPageTitleEncodings [
 
 { #category : #default }
 KZVisitor >> headerSideTitleEncodings [
-	^ 'headerSideTitle'
+	^ 'headerSiteTitle'
 ]
 
 { #category : #private }
@@ -185,7 +185,7 @@ KZVisitor >> startBalise: aString [
 	stream nextPut: $<.
 	stream nextPutAll: aString.
 	stream nextPut: $>.
-	stream nextPut: Character cr.
+	stream nextPut: Character lf.
 
 	
 ]
@@ -200,7 +200,8 @@ KZVisitor >> startBalise:  balise attribute: aKey value: aTag. [
 		nextPutAll: aKey ; 
 		nextPutAll: '="' ; 
 		nextPutAll: aTag; 
-		nextPutAll: '">'.
+		nextPutAll: '">';
+		lf
 ]
 
 { #category : #private }
@@ -246,7 +247,7 @@ KZVisitor >> visitDivBlock: aBlock [
 
 	self
 		ensureIdValue: self mainContentEncodings
-		div: [ aBlock elements do: [ :each | self visit: each ] separatedBy: [ stream cr ] ]
+		div: [ aBlock elements do: [ :each | self visit: each ] separatedBy: [ stream lf ] ]
 ]
 
 { #category : #'visit citezen' }
@@ -265,7 +266,7 @@ KZVisitor >> visitImage: aLinkedImage [
 			aStream 
 				nextPutAll: '<img src="'; nextPutAll: aLinkedImage image; 
 				nextPutAll: '">' ; 
-				nextPut: Character cr]
+				nextPut: Character lf]
 ]
 
 { #category : #visit }
@@ -279,7 +280,7 @@ KZVisitor >> visitItem: anItem [
 								nextPutAll: anItem name;
 								nextPutAll: '</a>'
 							 ].
-	stream cr.
+	stream lf.
 ]
 
 { #category : #visit }
@@ -301,7 +302,7 @@ KZVisitor >> visitLinkedImage: anImage [
 				nextPutAll: anImage link; 
 				nextPutAll: '"><img src="'; nextPutAll: anImage image; 
 				nextPutAll: '"></a>' ; 
-				nextPut: Character cr]
+				nextPut: Character lf]
 ]
 
 { #category : #visit }
@@ -312,7 +313,7 @@ KZVisitor >> visitMenu: aMenu [
 			self
 				ensureIdValue: self tocEncodings
 				div: [ aMenu elements do: [ :each | self visit: each ] 
-											separatedBy: [ stream cr ] ] ]
+											separatedBy: [ stream lf ] ] ]
 ]
 
 { #category : #visit }
@@ -344,7 +345,7 @@ KZVisitor >> visitPage: aPage [
 KZVisitor >> visitRightBlock: aBlock [
 	self
 		ensureIdValue: self personalDetailsEncodings
-		div: [ aBlock elements do: [ :each | self visit: each ] separatedBy: [ stream cr ] ]
+		div: [ aBlock elements do: [ :each | self visit: each ] separatedBy: [ stream lf ] ]
 ]
 
 { #category : #visit }
