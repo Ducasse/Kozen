@@ -55,42 +55,29 @@ StefSite class >> bibEntriesWithoutKzAnnotation [
 StefSite class >> defaultCSS [
 
  	^ 'body{
-	COLOR: #000000; 
-	BACKGROUND: #FFFFFF;                                    
-	
-	font: 10pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
-
+	COLOR: #000000;
+	BACKGROUND: #FFFFFF;
+	font: 11pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
 	PADDING-LEFT: 0px;
 	PADDING-RIGHT: 0px;
 	PADDING-TOP: 0px;
 	PADDING-BOTTOM: 0px;
 }
 
-
 /* HEADER */
-
 #header {
 }
 
 #headerSiteTitle {
-	font-size: 12pt;
+	font-size: 20pt;
 	font-weight: 500;
 	letter-spacing: 1px;
 	border-bottom: 1px solid #CCCCCC;
-	width: 128px;
-}
-
-
-#headerSiteTitle {
-	font-size: 12pt;
-	font-weight: 500;
-	letter-spacing: 1px;
-	border-bottom: 1px solid #CCCCCC;
-	width: 250px;
+	width: 320px;
 }
 
 #headerPageTitle {
-	font-size: 10pt;
+	font-size: 16pt;
 	font-weight: 500;
 	color: #777777;
 	letter-spacing: 7px;
@@ -102,32 +89,29 @@ StefSite class >> defaultCSS [
 /* HEADER - end*/
 
 /* MENU */
-
-
 #menu {
 	float: left;
-
 	margin-left: 8px;
-	margin-right: 32px;
+	margin-right: 16px;
 	margin-bottom: 16px;
-	width: 142px;
+	width: 180px;
 }
-
 
 #toc {
-	font-size: 8pt;
+	font-size: 10pt;
 	padding-top: 16px;
 	border-left: 1px solid #CCCCCC;
+	width: 180px;
 }
 
-
 #tocItem {
+	font-size: 10pt;
 	padding: 8px;
 	border-bottom: 1px #CCCCCC solid;
 }
 
 #copyright {
-	font: 7pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
+	font: 8pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
 	color: #777777;
 	margin-top: 8px;
 	margin-bottom: 8px;
@@ -136,27 +120,28 @@ StefSite class >> defaultCSS [
 /*MENU - end*/
 
 /*MAIN*/
-
 td{
-	font: 8pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
+	font: 11pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
 }
 
 
 #mainContent {
 	position: absolute;
-	left: 160px;
+	left: 200px;
 	margin: 8px;
 	margin-top: 0px;
 	padding-top: 16px;
-	
-	font: 9pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
+	font: 12pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
 	
 }
 
 #personalDetails {
-	font: 7pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
+	font: 8pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
+
 	float: right;
+
 	width: 128px;
+	
 	margin-left: 16px;
 	margin-bottom: 16px;
 }
@@ -181,7 +166,7 @@ td{
 }
 
 #commonItemDate {
-	font-size: 7pt;
+	font-size: 8pt;
 }
 
 #commonItemDate:before {
@@ -203,7 +188,7 @@ td{
 }
 
 #commonItemDetail {
-	font-size: 7pt;
+	font-size: 8pt;
 	margin-left: 16px;
 }
 
@@ -223,11 +208,11 @@ td{
 }
 
 .paper, .project, .supervisedThesis, .presentation {
-	padding-bottom: 16px;
+	padding-bottom: 10px;
 }
 
 .paperAbstract, .paperBibEntry, .thesisSupervisor, .thesisAbstract {
-	font-size: 7pt;
+	font-size: 10pt;
 	margin-left: 16px;
 	margin-top: 4px;
 }
@@ -238,7 +223,7 @@ td{
 }
 
 .paperDate, .thesisDate, .projectDate, .presentationDate {
-	font-size: 7pt;
+	font-size: 8pt;
 }
 
 .paperDate:before, .thesisDate:before, .projectDate:before, .presentationDate:before {
@@ -254,11 +239,11 @@ td{
 	content: "- "
 }
 
-.paperAuthor:after, .thesisAuthor:after {
+.author, .paperAuthor:after, .thesisAuthor:after {
 	content: " - "
 }
 
-.paperTitle, .thesisTitle {	
+.title, .paperTitle, .thesisTitle {	
 	color: #992222;
 }
 
@@ -290,14 +275,14 @@ td{
 }
 
 h2 {
-	font-size: 12pt;
-	font-weight: 200;
+	font-size: 14pt;
+	font-weight: 500;
 	letter-spacing: 2px;
 }
 
 h3 {
-	font-size: 10pt;
-	font-weight: 200;
+	font-size: 9pt;
+	font-weight: 500;
 	letter-spacing: 2px;
 }
 
@@ -672,7 +657,7 @@ Several research teams proposed formal type systems for traits, showing the inte
 
 { #category : #mail }
 StefSite >> mailText [
-	^ 'StephaneDucasse(@At@)inria.fr'
+	^ 'email'
 ]
 
 { #category : #mail }
@@ -686,14 +671,14 @@ StefSite >> newsText [
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
  <li>ICSE 2019:  Our "rotten green tests" paper has been accepted <a href="https://hal.inria.fr/hal-02002346/document"><Rotten green tests -- here></a>. </li>
- <li>Our blockchain tooling chapter: <a href="http://rmod.inria.fr/archives/papers/Duca18a-BookChapter-SmartAnvil.pdf">SmartAnvil''s Solidity analysis platform</a>. </li>
+ <li>A chapter on our Solidity tool suite is available: <a href="http://rmod.inria.fr/archives/papers/Duca18a-BookChapter-SmartAnvil.pdf">SmartAnvil''s Solidity analysis platform</a>. </li>
 <li>HCERES evaluation: "Le GT GL produit une recherche qui couvre de nombreux aspects du Genie Logiciel. Sa recherche est d''excellente qualite et est connue et reconnue nationalement et internationalement. La production scientifique, le rayonnement et l''attractivite [...] sont exceptionnels pour les equipes RMoD et Spirals."</li>
  
 <li>I''m editor of a booklet collection. Check <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>My new book: Learning OOP, design and TDD in Pharo is out <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>New lectures on Object-Oriented Programming and Design is out. Check <a href="http://lectures.pharo.org">http://lectures.pharo.org</a>
 <li>Pharo Mooc got super appreciated. Check testimonies and all the files are freely accessible at <a href="http://mooc.pharo.org">http://mooc.pharo.org</a></li>
-<li>Pharo consortium is now hosted under the Inria Foundation<a href="http://consortium.pharo.org">http://consortium.pharo.org</a>. Join! There is also an academic partnership.</li>
+<li>Pharo consortium is now hosted under the Inria Foundation <a href="http://consortium.pharo.org">http://consortium.pharo.org</a>. Join! There is also an academic partnership.</li>
 	  <li><a href="http://books.pharo.org/">Pharo By Example (Updated)</a> is free and out (in spanish, french, english and  japanese)! Check the Updated version for Pharo 50</li>
 	<li><a href="http://books.pharo.org/">Entreprise Pharo: a Web perspective</a> is available and contains many really good chapters.</li>
 	<li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a data and software analysis meta-described platform. Check the newest version!</li>
@@ -737,6 +722,7 @@ StefSite >> sectionAwardsAndIndexes [
 
 	| section | 
 	section := KZSection new title: 'Awards and Indexes'; 
+		levelDigitString: '2';
 		text: self indexesText , ' ',  
 			(Character cr asString), self awardText.
 	self declare: section withId: #secAwards.
@@ -747,7 +733,7 @@ StefSite >> sectionAwardsAndIndexes [
 StefSite >> sectionEditorial [
 
 	| section | 
-	section := KZSection new title: 'Editorial, teaching and vulgarisation'; levelDigitString: '3'; text: ''. 
+	section := KZSection new title: 'Editorial, teaching and vulgarisation'; levelDigitString: '2'; text: ''. 
 	self declare: section withId: #secEditorial.
 	^ section
 ]
@@ -756,7 +742,7 @@ StefSite >> sectionEditorial [
 StefSite >> sectionLanguageDesign [
 
 	| section | 
-	section := KZSection new title: 'Language Design'; levelDigitString: '3'; text: 'I''m interested in revisiting foundational bricks of object-oriented languages such as encapsulation, reuse, message passing. Now I start to work on isolation and security in reflective object-oriented languages.'. 
+	section := KZSection new title: 'Language Design'; levelDigitString: '2'; text: 'I''m interested in revisiting foundational bricks of object-oriented languages such as encapsulation, reuse, message passing. Now I start to work on isolation and security in reflective object-oriented languages.'. 
 	self declare: section withId: #secLanguageDesign.
 	^ section
 ]
@@ -774,7 +760,7 @@ StefSite >> sectionResearch [
 StefSite >> sectionService [
 
 	| section | 
-	section := KZSection new title: 'Program Committees'; text: self serviceText. 
+	section := KZSection new title: 'Program Committees'; levelDigitString: '2'; text: self serviceText. 
 	self declare: section withId: #secResearch.
 	^ section
 ]
@@ -783,7 +769,7 @@ StefSite >> sectionService [
 StefSite >> sectionSoftwareEvolution [
 
 	| section | 
-	section := KZSection new title: 'Maintenance and Software Evolution'; levelDigitString: '3'; text: 'I''m interested in all the aspects of software evolution and maintenance of large systems. I consulted for companies. Do not hesitate to contact me. I''m interested in your problems.' ; yourself. 
+	section := KZSection new title: 'Maintenance and Software Evolution'; levelDigitString: '2'; text: 'I''m interested in all the aspects of software evolution and maintenance of large systems. I consulted for companies. Do not hesitate to contact me. I''m interested in your problems.' ; yourself. 
 	self declare: section withId: #secMaintenance.
 	^ section
 ]
