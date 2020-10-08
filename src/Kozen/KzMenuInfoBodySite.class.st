@@ -370,7 +370,7 @@ KzMenuInfoBodySite >> coordinatesBody [
 ]
 
 { #category : #elements }
-KzMenuInfoBodySite >> coordinatesFileName. [
+KzMenuInfoBodySite >> coordinatesFileName [
 	^ 'Coordinates'
 ]
 
