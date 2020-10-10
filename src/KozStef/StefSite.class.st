@@ -452,7 +452,8 @@ StefSite >> createSubTopic: file title: name text: text bibTag: bibTag [
 { #category : #texts }
 StefSite >> currentJobText [
 
-	^ 'Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with Oscar Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. I co-founded <a HREF="http://www.synectique.eu/">Synectique</a>, a company that offers specific tools for Software analysis.  I''m one of the leader of <a HREF=''http://www.pharo.org''>Pharo</a>: a new exciting dynamic language. Here is a short <a HREF="CV.pdf">CV</a>. My ORCID Number is 0000-0001-6070-6599.' 
+	^ 'Since September 2007, I''m research director at <a HREF="http://www.inria.fr">INRIA Lille</a> leading the <a href="http://rmod.lille.inria.fr">RMoD Team</a>. During 10 years, I co-directed with O. Nierstrasz the <A HREF="http://www.iam.unibe.ch/~scg"> Software Composition Group</a>.  I''m the president of <a HREF="http://www.esug.org/">ESUG</a>. I co-founded Synectique a company that offered specific tools for Software analysis.  I''m one of the leader of <a HREF="http://www.pharo.org">Pharo</a>: a new exciting dynamic language. Check the <a href="http://consortium.pharo.org">Pharo consortium</a>. 
+Here is a short <a HREF="CV.pdf">CV</a>. My ORCID Number is 0000-0001-6070-6599.' 
 ]
 
 { #category : #texts }
@@ -577,7 +578,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'According to google scholar my h-index is 54 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). I try to publish the best results I have with my co-workers and thank them for their energy.'
+	^ 'According to google scholar my h-index is 56 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). I try to publish the best results I have with my co-workers and thank them for their energy.'
 
 ]
 
@@ -670,16 +671,20 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
- <li>ICSE 2019:  Our "rotten green tests" paper has been accepted <a href="https://hal.inria.fr/hal-02002346/document"><Rotten green tests -- here></a>. </li>
- <li>A chapter on our Solidity tool suite is available: <a href="http://rmod.inria.fr/archives/papers/Duca18a-BookChapter-SmartAnvil.pdf">SmartAnvil''s Solidity analysis platform</a>. </li>
-<li>HCERES evaluation: "Le GT GL produit une recherche qui couvre de nombreux aspects du Genie Logiciel. Sa recherche est d''excellente qualite et est connue et reconnue nationalement et internationalement. La production scientifique, le rayonnement et l''attractivite [...] sont exceptionnels pour les equipes RMoD et Spirals."</li>
+<li>I''m PC Chair of <a href="http://www.icsr2020.org">International conference on Software Reuse.</a></li>
+<li>New version of the Pharo Mooc is out <a href="https://www.fun-mooc.fr/courses/course-v1:inria+41024+session01/about">Immersive and Agile Programming with Pharo.</a></li>
+<li>I gave a keynote at SCM 2020 <a href="http://rmod-files.lille.inria.fr/Videos/2020-09-26-powerfull-Tools-SCAM.mp4">Powerful Tools.</a></li>
+<li>I gave a Master Class on Pharo for Inria Academy and Inria Chile.</a></li>
+<li>ICSE 2019:  Our "rotten green tests" paper has been accepted <a href="https://hal.inria.fr/hal-02002346/document"><Rotten green tests -- here>.</a></li>
+<li>A chapter on our Solidity tool suite is available: <a href="http://rmod.inria.fr/archives/papers/Duca18a-BookChapter-SmartAnvil.pdf">SmartAnvil''s Solidity analysis platform</a>. </li>
+<li>HCERES evaluation: "Le GT GL produit une recherche qui couvre de nombreux aspects du Genie Logiciel. Sa recherche est d''excellente qualité et est connue et reconnue nationalement et internationalement. La production scientifique, le rayonnement et l''attractivité [...] sont exceptionnels pour les équipes RMoD et Spirals."</li>
  
 <li>I''m editor of a booklet collection. Check <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>My new book: Learning OOP, design and TDD in Pharo is out <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>New lectures on Object-Oriented Programming and Design is out. Check <a href="http://lectures.pharo.org">http://lectures.pharo.org</a>
 <li>Pharo Mooc got super appreciated. Check testimonies and all the files are freely accessible at <a href="http://mooc.pharo.org">http://mooc.pharo.org</a></li>
-<li>Pharo consortium is now hosted under the Inria Foundation <a href="http://consortium.pharo.org">http://consortium.pharo.org</a>. Join! There is also an academic partnership.</li>
-	  <li><a href="http://books.pharo.org/">Pharo By Example (Updated)</a> is free and out (in spanish, french, english and  japanese)! Check the Updated version for Pharo 50</li>
+<li>Pharo consortium is now hosted under InriaSoft <a href="http://consortium.pharo.org">http://consortium.pharo.org</a>. Join! There is also an academic partnership.</li>
+	  <li><a href="http://books.pharo.org/">Pharo By Example (Updated)</a> is free and out (in spanish, french, english and  japanese)! Check the Updated version for Pharo 50 (Working on the version for Pharo 90)</li>
 	<li><a href="http://books.pharo.org/">Entreprise Pharo: a Web perspective</a> is available and contains many really good chapters.</li>
 	<li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a data and software analysis meta-described platform. Check the newest version!</li>
 	  </ul>
@@ -781,15 +786,15 @@ StefSite >> serviceText [
 	
 	<div class="itemizedlist"> 
       <ul type="disc">
-     
+       <li>PC chair of Internation conference on Software Reuse.</li>
        <li>APSEC 14</li>
        <li>Onward 18</li>
-	 <li>European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
-	 <li>International Conference on Software Maintenance (ICSM 05, 06, 07, 08, 10, 11) -- Core A.</li>
-	 <li>European Conference on Software Maintenance and Reengineering (CSMR 06, 07, 08).</li>
+		<li>European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
+		<li>International Conference on Software Maintenance (ICSM 05, 06, 07, 08, 10, 11) -- Core A.</li>
+		<li>European Conference on Software Maintenance and Reengineering (CSMR 06, 07, 08).</li>
 	 <li>International Conference on Program Comprehension (ICPC 06, 07, 08).</li>
 	 <li>International Conference on the Unified Modeling Language (UML 03, 04, Models/UML 05, Models 06, 07, 09, 10) -- Core A.</li>
-	 <li>International Dynamic Languages Symposium (DLS 05, 06).</li>
+	 <li>International Dynamic Languages Symposium (DLS 05, 06, 2020).</li>
 	 <li>International Symposium on Software Variability: a Programmers Perspective (SVPP 08).</li>
 	 <li>International Conference on Extreme Programming (XP 00, 01).</li>
 	<li> International Conference on Objects, Models, Components, Patterns (TOOLS 2009, 2010, 2011).</li>
