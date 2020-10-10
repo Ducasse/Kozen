@@ -8,7 +8,7 @@ Class {
 		'bibset',
 		'author'
 	],
-	#category : #KoCizen
+	#category : #'KoCizen-Bib'
 }
 
 { #category : #accessing }
@@ -47,9 +47,9 @@ KZBibCollectionBuilder >> filterKozenTag: aTag [
 
 { #category : #file }
 KZBibCollectionBuilder >> initializeBibSetFromPath: inputFile [
-	"self new createBibSetFromPath: 'rmod.bib'"
+	"self new initializeBibSetFromPath: 'rmod.bib'"
 	
-	bibset  := CZFileLoader bibFromFileNamed: inputFile.
+	bibset  := CZBibParser bibFromFileNamed: inputFile.
 ]
 
 { #category : #file }

@@ -191,7 +191,7 @@ KZVisitor >> startBalise: aString [
 ]
 
 { #category : #private }
-KZVisitor >> startBalise:  balise attribute: aKey value: aTag. [
+KZVisitor >> startBalise:  balise attribute: aKey value: aTag [.
 	
 	stream 
 		nextPut: $<; 

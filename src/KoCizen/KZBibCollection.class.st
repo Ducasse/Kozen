@@ -7,7 +7,7 @@ Not clear at the design level yet.
 Class {
 	#name : #KZBibCollection,
 	#superclass : #KZList,
-	#category : #KoCizen
+	#category : #'KoCizen-Bib'
 }
 
 { #category : #visiting }

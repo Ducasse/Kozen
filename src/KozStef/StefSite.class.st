@@ -689,7 +689,7 @@ StefSite >> newsText [
 { #category : #publications }
 StefSite >> publicationBuilderClass [ 
 
-	^ StefPublicationsDocBuilder 
+	^ CZXHTMLDocBuilder 
 ]
 
 { #category : #menu }

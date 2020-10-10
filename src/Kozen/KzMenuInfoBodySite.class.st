@@ -318,7 +318,7 @@ KzMenuInfoBodySite >> bibBuilder: aBuilder [
 KzMenuInfoBodySite >> bibSetFromFile: inputFile [
 	"self new createBibSetFromPath: 'rmod.bib'"
 	
-	bibSet  := CZFileLoader bibFromFileNamed: inputFile.
+	bibSet  := CZBibParser bibFromFileNamed: inputFile.
 ]
 
 { #category : #accessing }
@@ -589,7 +589,7 @@ KzMenuInfoBodySite >> pharoMenuItem [
 { #category : #publications }
 KzMenuInfoBodySite >> publicationBuilderClass [
 	
-	^ CZSingleAuthorDocBuilder
+	^ CZXHTMLDocBuilder
 ]
 
 { #category : #publications }

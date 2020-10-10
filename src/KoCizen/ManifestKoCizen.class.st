@@ -1,7 +1,7 @@
 Class {
 	#name : #ManifestKoCizen,
 	#superclass : #Object,
-	#category : #KoCizen
+	#category : #'KoCizen-Bib'
 }
 
 { #category : #'meta data' }
