@@ -601,9 +601,10 @@ KzMenuInfoBodySite >> publicationPage [
 	publicationPage addElementInMain: self block.
 	
 	doc := self publicationBuilderClass new
-				english;
-				bibset: bibSet;
-				setFilteringOn.
+					english;
+					bibset: bibSet;
+					fieldOrder: #(#author #title #journal #booktitle #volume #pages #publisher #year #school #impactfactor #misc #url #doi #pdf);
+					setFilteringOn.
 	"here I should add the bibfile generation and link or it should be in the document
 	tree. but somewhere as a side effect I should create the bib file."
 	publicationPage addElementInMain: doc build document.

@@ -166,7 +166,7 @@ KZVisitor >> menuEncodings [
 
 { #category : #visit }
 KZVisitor >> newFileFor: aPage [
-	^ FileStream forceNewFileNamed: aPage filename
+	^  aPage filename asFileReference ensureDelete writeStream
 ]
 
 { #category : #default }
@@ -231,7 +231,23 @@ KZVisitor >> visitBibItemCollection: aBibItemCollection [
 	
 	self ensureTag: 'ol' for: [:aStream | 
 		CZHTMLGenerator new 
+			fieldOrder: #(#author 
+			  #title 
+			  #journal 
+			  #booktitle 
+			  #volume 
+			  #pages 
+			  #publisher  
+			  #year 
+			  #school
+			  #impactfactor 
+			  #misc
+			  #url
+			  #doi
+			  #pdf);
 			outputStream: aStream;
+			"here we should be able to customize the generation of the fields
+			but this is not the case because the Site does not pass the information."
 			visit: (CZSet new addAll: aBibItemCollection elements ; yourself)]
 		
 ]
@@ -255,6 +271,8 @@ KZVisitor >> visitDoc: aCZDocument [
 
 	aCZDocument elements do: [:each |
 			CZHTMLGenerator new 
+				"here we should be able to configure the html generation
+				field order... english.... but so far the site does not pass this info to the visitor."
 				outputStream: stream;
 				visit: each]
 ]
@@ -318,7 +336,9 @@ KZVisitor >> visitMenu: aMenu [
 
 { #category : #visit }
 KZVisitor >> visitMenuItem: aMenuItem [
-	self ensureIdValue: self tocItemEncodings div: [ self href: aMenuItem link name: aMenuItem name ]
+	self 
+		ensureIdValue: self tocItemEncodings 
+		div: [ self href: aMenuItem link name: aMenuItem name ]
 ]
 
 { #category : #visit }
@@ -350,7 +370,9 @@ KZVisitor >> visitRightBlock: aBlock [
 
 { #category : #visit }
 KZVisitor >> visitRightBlockItem: anItem [
-	self ensureIdValue: self personalDetailsItemEncodings div: [ self href: anItem link name: anItem name ]
+	self 
+		ensureIdValue: self personalDetailsItemEncodings 
+		div: [ self href: anItem link name: anItem name ]
 ]
 
 { #category : #visit }
@@ -372,5 +394,5 @@ KZVisitor >> visitSection: aSection [
 { #category : #visit }
 KZVisitor >> visitSite: aSite [
 
-	aSite pages do: [:each | self visit: each].
+	aSite pages do: [:each | self visit: each]
 ]

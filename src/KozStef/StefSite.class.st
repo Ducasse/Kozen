@@ -7,7 +7,10 @@ RegexBasePatcher new
 	inDirectory: FileSystem workingDirectory;  
 	expandAllExpandableFiles.
 	
-	
+
+One of the design problem is that the fields and configuration of generation are not passed from the multiple layers.
+From the site to the doc builder to the generator so it sucks. 
+
 	
 Right now the bibfile is not automatically generated (probably because it is in a footer of the xhtml page and as such not a visitable element that would be special and kick in the bib generation)
 
@@ -572,7 +575,7 @@ StefSite >> headerSiteTitle [
 
 { #category : #block }
 StefSite >> imageName [
-	^ 'StefFingerOnNose128.jpg'
+	^ 'StandingLug.jpg'
 ]
 
 { #category : #texts }
@@ -673,7 +676,7 @@ StefSite >> newsText [
       <ul type="disc"> 
 <li>I''m PC Chair of <a href="http://www.icsr2020.org">International conference on Software Reuse.</a></li>
 <li>New version of the Pharo Mooc is out <a href="https://www.fun-mooc.fr/courses/course-v1:inria+41024+session01/about">Immersive and Agile Programming with Pharo.</a></li>
-<li>I gave a keynote at SCM 2020 <a href="http://rmod-files.lille.inria.fr/Videos/2020-09-26-powerfull-Tools-SCAM.mp4">Powerful Tools.</a></li>
+<li>I gave a keynote at SCM 2020 <a href="http://rmod-files.lille.inria.fr/Videos/2020-09-26-powerfull-Tools-SCAM.mp4">Powerful Tools for Live Development in Pharo.</a></li>
 <li>I gave a Master Class on Pharo for Inria Academy and Inria Chile.</a></li>
 <li>ICSE 2019:  Our "rotten green tests" paper has been accepted <a href="https://hal.inria.fr/hal-02002346/document"><Rotten green tests -- here>.</a></li>
 <li>A chapter on our Solidity tool suite is available: <a href="http://rmod.inria.fr/archives/papers/Duca18a-BookChapter-SmartAnvil.pdf">SmartAnvil''s Solidity analysis platform</a>. </li>
