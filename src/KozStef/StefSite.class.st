@@ -335,6 +335,17 @@ StefSite class >> initialize [
 	CachedSiteSeer := true.
 ]
 
+{ #category : #texts }
+StefSite >> aboutUsersText [
+
+	^ 'Pharo 9.0 has 790 packages for 10658 classes and 143420 methods. It has around 250 forks on github <a href="https://github.com/pharo-project/pharo/">https://github.com/pharo-project/pharo/</a> and Pharo is composed out of several github projects such as pharo-vcs, pharo-graphics, or pharo-spec. Pharo has around 18 regular contributors and up to 100 occasional ones.
+	
+	In addition Pharo has many users (we roughly estimate around 10 000) and Pharo is taught is around 30-40 universities worldwide and used by aroudn 30 research teams. It has also an industrial <a href="https://consortium.pharo.org">consortium</a>.
+	Pharo runs on 11 different platforms and multiple architectures 32/64 bits, / Intel/ARM.
+	
+	This raises the important question of how many citations is worth one real user (not one of our students). I do not have definitive answer on that point but it is important to understand that there is a Huge difference between a research prototype and a real system and Pharo is a real system with real customers. This requires a large development effort. We are lucky because Inria researcher evaluation takes this into account. Now this is an important question for funding agencies and any evaluation of my team.'
+]
+
 { #category : #elements }
 StefSite >> addEditorialNavigation [
 	| list |
@@ -581,7 +592,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'According to google scholar my h-index is 56 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). I try to publish the best results I have with my co-workers and thank them for their energy.'
+	^ 'Some people consider that h-index is not a good criteria for researcher evaluation. To me this is just a possible one. Trying to understand it, it looks like it shows a bit the width of your research (i.e., that several topics got reasonance within a community). Personally I do not work with this metrics in mind, I just try to publish the best results I have with my co-workers and thank them for their energy. According to google scholar my h-index is 58 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). '
 
 ]
 
@@ -674,13 +685,12 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc"> 
-<li>I''m PC Chair of <a href="http://www.icsr2020.org">International conference on Software Reuse.</a></li>
+<li>I was PC Chair of <a href="http://www.icsr2020.org">International conference on Software Reuse.</a></li>
 <li>New version of the Pharo Mooc is out <a href="https://www.fun-mooc.fr/courses/course-v1:inria+41024+session01/about">Immersive and Agile Programming with Pharo.</a></li>
-<li>I gave a keynote at SCM 2020 <a href="http://rmod-files.lille.inria.fr/Videos/2020-09-26-powerfull-Tools-SCAM.mp4">Powerful Tools for Live Development in Pharo.</a></li>
+<li>I gave a keynote at SCAM 2020 <a href="http://rmod-files.lille.inria.fr/Videos/2020-09-26-powerfull-Tools-SCAM.mp4">Powerful Tools for Live Development in Pharo.</a></li>
 <li>I gave a Master Class on Pharo for Inria Academy and Inria Chile.</a></li>
 <li>ICSE 2019:  Our "rotten green tests" paper has been accepted <a href="https://hal.inria.fr/hal-02002346/document"><Rotten green tests -- here>.</a></li>
-<li>A chapter on our Solidity tool suite is available: <a href="http://rmod.inria.fr/archives/papers/Duca18a-BookChapter-SmartAnvil.pdf">SmartAnvil''s Solidity analysis platform</a>. </li>
-<li>HCERES evaluation: "Le GT GL produit une recherche qui couvre de nombreux aspects du Genie Logiciel. Sa recherche est d''excellente qualité et est connue et reconnue nationalement et internationalement. La production scientifique, le rayonnement et l''attractivité [...] sont exceptionnels pour les équipes RMoD et Spirals."</li>
+<li>HCERES evaluation: "Le GT GL produit une recherche qui couvre de nombreux aspects du Genie Logiciel. Sa recherche est d''excellente qualite et est connue et reconnue nationalement et internationalement. La production scientifique, le rayonnement et l''attractivite [...] sont exceptionnels pour les equipes RMoD et Spirals."</li>
  
 <li>I''m editor of a booklet collection. Check <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>My new book: Learning OOP, design and TDD in Pharo is out <a href="http://books.pharo.org">http://books.pharo.org</a></li>
@@ -733,7 +743,12 @@ StefSite >> sectionAwardsAndIndexes [
 		levelDigitString: '2';
 		text: self indexesText , ' ',  
 			(Character cr asString), self awardText.
-	self declare: section withId: #secAwards.
+	self declare: section withId: #secAwards.		
+	section := KZSection new title: 'Reflection about Users'; 
+		levelDigitString: '2';
+		text: self aboutUsersText.
+		
+
 	^ section
 ]
 
@@ -785,13 +800,13 @@ StefSite >> sectionSoftwareEvolution [
 { #category : #texts }
 StefSite >> serviceText [
 
-	^ 'Here are some of the international conferences I was PC member. We are starting a company and I decline more often committee participation. I declined for ICSE 2013, ECOOP 2013, ECOOP 2014, ECOOP 2015 (but I was be the workshop chair),  PLDI 2007 and OOPSLA 2006.  I declined to be associate editor of SCP Journal because of the Elsevier policy regarding articles access. I also think that people should have less power and that there is a too large concentration in PCs. Some recent experiences showed that a PC would reject 60% of the papers than another would accept. Therefore we should really pay attention to our process in general and the conclusions we draw about them. 
+	^ 'Here are some of the international conferences I was PC member. I declined more often committee participation for health reason. I declined for ICSE 2013, ECOOP 2013, ECOOP 2014, ECOOP 2015 (but I was be the workshop chair),  PLDI 2007, and OOPSLA 2006.  I declined to be associate editor of SCP Journal because of the Elsevier policy regarding articles access. I also think that people should have less power and that there is a too large concentration in PCs. Some recent experiences showed that a PC would reject 60% of the papers than another would accept. Therefore we should really pay attention to our process in general and the conclusions we draw about them. 
 	
 	<div class="itemizedlist"> 
       <ul type="disc">
-       <li>PC chair of Internation conference on Software Reuse.</li>
-       <li>APSEC 14</li>
-       <li>Onward 18</li>
+			<li>ECOOP 2022.</li>
+       <li>PC chair of International conference on Software Reuse.</li>
+		<li>Onward 18, Program commity of APSEC 14.</li>
 		<li>European Conference on Object-Oriented Programming (ECOOP 05, 07, 10) -- Core A *.</li>
 		<li>International Conference on Software Maintenance (ICSM 05, 06, 07, 08, 10, 11) -- Core A.</li>
 		<li>European Conference on Software Maintenance and Reengineering (CSMR 06, 07, 08).</li>
@@ -802,7 +817,7 @@ StefSite >> serviceText [
 	 <li>International Conference on Extreme Programming (XP 00, 01).</li>
 	<li> International Conference on Objects, Models, Components, Patterns (TOOLS 2009, 2010, 2011).</li>
 	 <li>Working Conference on Reverse Engineering (WCRE 02, 05, 06, 10).</li>
-	<li> International  Conference on Software Composition (SC 09).</li>
+	<li> International Conference on Software Composition (SC 09).</li>
 	</ul>
 	</div>
 '
