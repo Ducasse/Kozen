@@ -425,6 +425,7 @@ StefSite >> buildMenuBodyOn: menu [
 StefSite >> buildWelcomePageSectionsOn: welcomePage [
 	welcomePage addElementInMain: self sectionCurrentJob.
 	welcomePage addElementInMain: self sectionAwardsAndIndexes.
+	welcomePage addElementInMain: self sectionAbout.
 	welcomePage addElementInMain: self sectionNews.
 	welcomePage addElementInMain: self sectionResearch.
 	welcomePage addElementInMain: self sectionSoftwareEvolution.
@@ -592,7 +593,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'Some people consider that h-index is not a good criteria for researcher evaluation. To me this is just a possible one. Trying to understand it, it looks like it shows a bit the width of your research (i.e., that several topics got reasonance within a community). Personally I do not work with this metrics in mind, I just try to publish the best results I have with my co-workers and thank them for their energy. According to google scholar my h-index is 58 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). '
+	^ 'Some people consider that h-index is not a good criteria for researcher evaluation. To me this is just one among others. Trying to understand it, it looks like it shows a bit the width of your research (i.e., that several topics got reasonance within a community). Personally I do not work with this metrics in mind, I just try to publish the best results I have with my co-workers and thank them for their energy. According to google scholar my h-index is 58 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). '
 
 ]
 
@@ -736,6 +737,16 @@ StefSite >> resourcesMenuItem [
 ]
 
 { #category : #elements }
+StefSite >> sectionAbout [
+
+
+	^ KZSection new title: 'Reflection about Users'; 
+		levelDigitString: '2';
+		text: self aboutUsersText.
+		
+]
+
+{ #category : #elements }
 StefSite >> sectionAwardsAndIndexes [
 
 	| section | 
@@ -744,11 +755,6 @@ StefSite >> sectionAwardsAndIndexes [
 		text: self indexesText , ' ',  
 			(Character cr asString), self awardText.
 	self declare: section withId: #secAwards.		
-	section := KZSection new title: 'Reflection about Users'; 
-		levelDigitString: '2';
-		text: self aboutUsersText.
-		
-
 	^ section
 ]
 
