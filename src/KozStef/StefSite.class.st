@@ -696,7 +696,7 @@ StefSite >> newsText [
 <li>My new book: Learning OOP, design and TDD in Pharo is out <a href="http://books.pharo.org">http://books.pharo.org</a></li>
 <li>New lectures on Object-Oriented Programming and Design is out. Check <a href="http://lectures.pharo.org">http://lectures.pharo.org</a>
 <li>Pharo Mooc got super appreciated. Check testimonies and all the files are freely accessible at <a href="http://mooc.pharo.org">http://mooc.pharo.org</a></li>
-<li>Pharo consortium is now hosted under InriaSoft <a href="http://consortium.pharo.org">http://consortium.pharo.org</a>. Join! There is also an academic partnership.</li>
+<li>Join Pharo consortium <a href="http://consortium.pharo.org">http://consortium.pharo.org</a>! There is also an academic partnership.</li>
 	  <li><a href="http://books.pharo.org/">Pharo By Example (Updated)</a> is free and out (in spanish, french, english and  japanese)! Check the Updated version for Pharo 50 (Working on the version for Pharo 90)</li>
 	<li><a href="http://books.pharo.org/">Entreprise Pharo: a Web perspective</a> is available and contains many really good chapters.</li>
 	<li> <a href="http://www.moosetechnology.org">Moose</a>. Moose is a data and software analysis meta-described platform. Check the newest version!</li>
