@@ -593,7 +593,7 @@ StefSite >> imageName [
 { #category : #texts }
 StefSite >> indexesText [
 
-	^ 'Some people consider that h-index is not a good criteria for researcher evaluation. To me this is just one among others. Trying to understand it, it looks like it shows a bit the width of your research (i.e., that several topics got reasonance within a community). Personally I do not work with this metrics in mind, I just try to publish the best results I have with my co-workers and thank them for their energy. According to google scholar my h-index is 58 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). '
+	^ 'Some people consider that h-index is not a good criteria for researcher evaluation. To me this is just one among others. Trying to understand it, it looks like it shows a bit the width of your research (i.e., that several topics got reasonance within a community). Personally I do not work with this metrics in mind, I just try to publish the best results I have with my co-workers and thank them for their energy. According to google scholar my h-index is 60 ', '(<a href="http://scholar.google.be/citations?user=7fHNqtoAAAAJ&hl=en">schoolar.g</a>). '
 
 ]
 
@@ -620,7 +620,6 @@ StefSite >> languageSubTopics [
 	#('LanguageDesign' 'Components, Encapsulation and Language Features and Infrastructure Related Topics' 
 		'This section lists the works related to several aspects of object-oriented systems: proxies, serialization, encapsulation and more.' 
 		'*kzLanguageDesign*')
-	
 
 		#('Trait' 'Traits: Intraclass reuse' 
 		'Traits are groups of methods that can be reused orthogonally to inheritance. 
@@ -685,7 +684,8 @@ StefSite >> mailtoString [
 StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
-      <ul type="disc"> 
+      <ul type="disc">
+<li>Our paper: <a href="https://hal.archives-ouvertes.fr/hal-03607939/document">Interpreter-guided Differential JIT Compiler Unit Testing .</a> has been accepted to PLDI''22</li>
 <li>I was PC Chair of <a href="http://www.icsr2020.org">International conference on Software Reuse.</a></li>
 <li>New version of the Pharo Mooc is out <a href="https://www.fun-mooc.fr/courses/course-v1:inria+41024+session01/about">Immersive and Agile Programming with Pharo.</a></li>
 <li>I gave a keynote at SCAM 2020 <a href="http://rmod-files.lille.inria.fr/Videos/2020-09-26-powerfull-Tools-SCAM.mp4">Powerful Tools for Live Development in Pharo.</a></li>
