@@ -685,7 +685,7 @@ StefSite >> newsText [
 
 	^ '<div class="itemizedlist"> 
       <ul type="disc">
-<li>Our paper: <a href="https://hal.archives-ouvertes.fr/hal-03607939/document">Interpreter-guided Differential JIT Compiler Unit Testing .</a> has been accepted to PLDI''22</li>
+<li>Our paper: <a href="https://hal.archives-ouvertes.fr/hal-03607939/document">Interpreter-guided Differential JIT Compiler Unit Testing</a> has been accepted to PLDI''22</li>
 <li>I was PC Chair of <a href="http://www.icsr2020.org">International conference on Software Reuse.</a></li>
 <li>New version of the Pharo Mooc is out <a href="https://www.fun-mooc.fr/courses/course-v1:inria+41024+session01/about">Immersive and Agile Programming with Pharo.</a></li>
 <li>I gave a keynote at SCAM 2020 <a href="http://rmod-files.lille.inria.fr/Videos/2020-09-26-powerfull-Tools-SCAM.mp4">Powerful Tools for Live Development in Pharo.</a></li>
