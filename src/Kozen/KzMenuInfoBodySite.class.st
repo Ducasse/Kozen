@@ -600,10 +600,14 @@ KzMenuInfoBodySite >> publicationPage [
 	publicationPage addElement: self menu.
 	publicationPage addElementInMain: self block.
 	
-	doc := self publicationBuilderClass new
+	doc := self publicationBuilderClass new.
+	doc
 					english;
 					bibset: bibSet;
 					fieldOrder: #(#author #title #journal #booktitle #volume #pages #publisher #year #school #impactfactor #misc #url #doi #pdf);
+					bodySpecification: (doc bodySpecification asOrderedCollection add: #technicalReport; yourself); 
+					"this is clearly a super bad design - first we should be able to add and remove itemsLimit and we should not be forced to know the exact name."
+					keysOfBlackListedEntries: #(Berg13b Berg16a Denk14a Denk15a Denk16a Denk18a Denk19a Denk20a Denk21a Anqu17a Denk22a);  
 					setFilteringOn.
 	"here I should add the bibfile generation and link or it should be in the document
 	tree. but somewhere as a side effect I should create the bib file."
