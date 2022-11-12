@@ -642,7 +642,7 @@ Several research teams proposed formal type systems for traits, showing the inte
 		'I helped people to publish their results on web programming. I do not consider these publications as my work but just a way to help other works to be documented and presented scientifically.' 
 		'*kzWeb*')
 		
-		#('Reflection' 'Reflective Programming,Code Manipulation and Bootstrap' 
+		#('Reflection' 'Reflective Programming, Code Manipulation, and Bootstrap' 
 		'In recent years, I work on bootstrap and minimal kernels.' 
 		'*kzReflection*')
 		
