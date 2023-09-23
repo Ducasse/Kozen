@@ -381,7 +381,10 @@ StefSite >> awardText [
 
 	^ '	<div class="itemizedlist"> 
       <ul type="disc">
-<li>In 2018 I got laureate of ERC-Generator of I-Site financed by Programmes d''Investissements d''Avenir (I was the only CS researcher awarded).</li>
+	<li>I got lauréat 2023 of Prix FIEEC Bpifrance de la Recherche appliquée 2023</li>
+	<li>I got the "Test of Time ECOOP 2023" award for <a href="http://rmod-files.lille.inria.fr/Team/Texts/Papers/Scha03a-ECOOP-Traits.pdf">Traits: Composable Units of Behavior</li>
+	<li>I got the Most Influencial Paper of Vissoft 2013 for  <a href="https://rmod-files.lille.inria.fr/Team/Texts/Papers/Sand13a-Vissoft-PreformanceBlueprint.pdf">Performance Evolution Blueprint</a> </li>
+	<li>I got laureate of ERC-Generator of I-Site financed by Programmes d''Investissements d''Avenir (I was the only CS researcher awarded).</li>
       <li>Since December 2012, I was promoted first class Directeur de Recherche. </li>
 	<li>I received a "Prime d''excellence scientifique" from INRIA (2016).</li>
 	<li>I got distinguished Visiting Fellowship Award of the Royal Academy of Engineering (2011).</li>
